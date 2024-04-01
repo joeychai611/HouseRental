@@ -1,0 +1,64 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/landing.Master" AutoEventWireup="true" CodeBehind="landlord.master.cs" Inherits="HouseRental.landlord" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        <div class="wrapper">
+        <!-- ============================================================== -->
+        <!-- left sidebar -->
+        <!-- ============================================================== -->
+        <div class="nav-left-sidebar sidebar-dark">
+            <div class="menu-list">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <a class="d-xl-none d-lg-none" href="#">Navigation</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav flex-column">
+                            <li class="nav-divider">
+                                Menu
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link" href="ldashboard.aspx"><i class="fa-solid fa-gauge"></i>Dashboard</a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link" href="lappointment.aspx"><i class="fas fa-clipboard-list"></i>Appointment</a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link" href="lhouse.aspx"><i class="fa-solid fa-house"></i>House</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-5" aria-controls="submenu-5"><i class="fa-solid fa-pen-nib"></i>Rental</a>
+                                <div id="submenu-5" class="collapse submenu" style="">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="lcontract.aspx">Contract</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="lpayment.aspx">Payment</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link" href="lreport.aspx"><i class="fa-solid fa-chart-line"></i>Report</a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link" href="lprofile.aspx"><i class="fa-solid fa-user-tie"></i>Profile</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- end left sidebar -->
+        <!-- ============================================================== -->
+            <div class="main_container">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+    </asp:ContentPlaceHolder>
+</asp:Content>
