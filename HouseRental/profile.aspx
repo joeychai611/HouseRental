@@ -15,6 +15,7 @@
         </div>
       </div>
     </div>
+    <br />
      <div class="container">
         <div class="row">
             <div class="col-md-8 mx-auto">
@@ -24,7 +25,7 @@
                             <div class="col">
                                 <a href="homepage.aspx">Back</a>
                                 <center>
-                                    <img width="100px" src="imgs/generaluser.png" />
+                                    <img width="100px" src="images/generaluser.png" />
                                 </center>
                             </div>
                         </div>
@@ -42,36 +43,36 @@
                                 <hr />
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>First Name</label>
-                                <div class="form-group">
-                                    <asp:TextBox CssClass="form-control" ID="TextBox1" runat="server" placeholder="First Name"></asp:TextBox>                                
-                                </div>
-                            </div>
-                        <div class="col-md-6">
-                            <label>Last Name</label>
-                                <div class="form-group">
-                                    <asp:TextBox CssClass="form-control" ID="TextBox2" runat="server" placeholder="Last Name"></asp:TextBox>   
-                                </div>
-                        </div>
-                        </div>
 
                         <div class="row">
                             <div class="col-md-6">
-                                <label>Contact No</label>
+                                <label>Full Name</label>
                                 <div class="form-group">
-                                    <asp:TextBox CssClass="form-control" ID="TextBox3" runat="server" placeholder="Contact No" TextMode="Number"></asp:TextBox>                                
+                                    <asp:TextBox CssClass="form-control" ID="TextBox1" runat="server"></asp:TextBox>                                
                                 </div>
                             </div>
                         <div class="col-md-6">
                             <label>Email Address</label>
                                 <div class="form-group">
-                                    <asp:TextBox CssClass="form-control" ID="TextBox4" runat="server" placeholder="Email Address" TextMode="Email"></asp:TextBox>   
+                                    <asp:TextBox CssClass="form-control" ID="TextBox2" runat="server" TextMode="Email" ReadOnly="True"></asp:TextBox>   
+                                </div>
                                 </div>
                         </div>
-                        </div>
 
+                        <div class="row">
+                                <div class="col-md-6">
+                            <label>Contact Number</label>
+                                <div class="form-group">
+                                    <asp:TextBox CssClass="form-control" ID="TextBox3" runat="server"></asp:TextBox>   
+                                </div>
+                                </div>
+                            <div class="col-md-6">
+                                <label>Date of Birth</label>
+                                <div class="form-group">
+                                    <asp:TextBox CssClass="form-control" ID="TextBox4" runat="server" TextMode="Date"></asp:TextBox>   
+                                </div>
+                            </div>
+                        </div>
 
                         <div class="row">
                             <div class="col-md-6">
@@ -84,18 +85,30 @@
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <label>Date of Birth</label>
+                                <label>User Type</label>
                                 <div class="form-group">
-                                    <asp:TextBox CssClass="form-control" ID="TextBox5" runat="server" placeholder="Date of Birth" TextMode="Date"></asp:TextBox>   
+                                    <asp:DropDownList class="form-control" ID="DropDownList2" Enabled="False" runat="server">
+                                        <asp:ListItem Text ="Student" Value="Student" />
+                                        <asp:ListItem Text ="Landlord" Value="Landlord" />
+                                         <asp:ListItem Text ="Admin" Value="Admin" />
+                                    </asp:DropDownList>
                                 </div>
                             </div>
                         </div>
-                        <br />
+                        
                   <div class="row">
                      <div class="col-8 mx-auto">
                         <center>
+                            <div>
+                                <label>Proof</label><br />
+                                <asp:FileUpload ID="file" runat="server" />
+                                <asp:Button runat="server" ID="btnsubmit" Text="Submit" OnClick="btnsubmit_Click" />
+                                <br />
+                                <asp:Label runat="server" ID="lblmsg"></asp:Label>
+                            </div>
+                            <br />
                            <div class="form-group">
-                              <asp:Button class="btn btn-primary btn-block btn-lg" ID="Button1" runat="server" Text="Update" />
+                              <asp:Button class="btn btn-primary btn-block btn-lg" ID="Button1" runat="server" Text="Update" OnClick="Button1_Click" />
                            </div>
                         </center>
                      </div>

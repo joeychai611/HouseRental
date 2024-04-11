@@ -44,33 +44,30 @@
                         
                         <div class="row">
                             <div class="col-md-6">
-                                <label>First Name</label>
+                                <label>Full Name</label>
                                 <div class="form-group">
                                     <asp:TextBox CssClass="form-control" ID="TextBox1" runat="server"></asp:TextBox>                                
                                 </div>
                             </div>
                         <div class="col-md-6">
-                            <label>Last Name</label>
+                            <label>Email Address</label>
                                 <div class="form-group">
-                                    <asp:TextBox CssClass="form-control" ID="TextBox2" runat="server"></asp:TextBox>   
+                                    <asp:TextBox CssClass="form-control" ID="TextBox2" runat="server" TextMode="Email"></asp:TextBox>   
                                 </div>
-                        </div>
+                                </div>
                         </div>
 
                         <div class="row">
                                 <div class="col-md-6">
-                            <label>Email Address</label>
+                            <label>Contact Number</label>
                                 <div class="form-group">
-                                    <asp:TextBox CssClass="form-control" ID="TextBox3" runat="server" TextMode="Email"></asp:TextBox>   
+                                    <asp:TextBox CssClass="form-control" ID="TextBox3" runat="server"></asp:TextBox>   
                                 </div>
                                 </div>
                             <div class="col-md-6">
-                                <label>User Type</label>
+                                <label>Date of Birth</label>
                                 <div class="form-group">
-                                    <asp:DropDownList class="form-control" ID="DropDownList1" runat="server">
-                                        <asp:ListItem Text ="Student" Value="Student" />
-                                        <asp:ListItem Text ="Landlord" Value="Landlord" />
-                                    </asp:DropDownList>
+                                    <asp:TextBox CssClass="form-control" ID="TextBox4" runat="server" placeholder="Date of Birth" TextMode="Date"></asp:TextBox>   
                                 </div>
                             </div>
                         </div>
@@ -79,16 +76,19 @@
                             <div class="col-md-6">
                                 <label>Gender</label>
                                 <div class="form-group">
-                                    <asp:DropDownList class="form-control" ID="DropDownList2" runat="server">
+                                    <asp:DropDownList class="form-control" ID="DropDownList1" runat="server">
                                         <asp:ListItem Text ="Male" Value="Male" />
                                         <asp:ListItem Text ="Female" Value="Female" />
                                         </asp:DropDownList>
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <label>Date of Birth</label>
+                                <label>User Type</label>
                                 <div class="form-group">
-                                    <asp:TextBox CssClass="form-control" ID="TextBox4" runat="server" placeholder="Date of Birth" TextMode="Date"></asp:TextBox>   
+                                    <asp:DropDownList class="form-control" ID="DropDownList2" runat="server">
+                                        <asp:ListItem Text ="Student" Value="Student" />
+                                        <asp:ListItem Text ="Landlord" Value="Landlord" />
+                                    </asp:DropDownList>
                                 </div>
                             </div>
                         </div>

@@ -32,8 +32,7 @@ namespace HouseRental
                 {
                     registerNewUser();
                 }
-            }
-                    
+            }      
         }
 
         //user defined method
@@ -47,8 +46,8 @@ namespace HouseRental
                     con.Open();
                 }
 
-                SqlCommand cmd = new SqlCommand("SELECT * from consumer where email='" + TextBox3.Text.Trim() + "' AND password='" + TextBox5.Text.Trim() + "' AND confirmpassword='" + TextBox6.Text.Trim() + "';", con);
-                if (TextBox3.Text.Trim() != string.Empty)
+                SqlCommand cmd = new SqlCommand("SELECT * from people where email='" + TextBox2.Text.Trim() + "' AND password='" + TextBox5.Text.Trim() + "' AND confirmpassword='" + TextBox6.Text.Trim() + "';", con);
+                if (TextBox2.Text.Trim() != string.Empty)
                 {
                     if (TextBox5.Text.Trim() != string.Empty)
                     {
@@ -101,7 +100,7 @@ namespace HouseRental
                     con.Open();
                 }
 
-                SqlCommand cmd = new SqlCommand("SELECT * from consumer where email='"+TextBox3.Text.Trim()+"';", con);
+                SqlCommand cmd = new SqlCommand("SELECT * from people where email='"+TextBox2.Text.Trim()+"';", con);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
@@ -114,8 +113,6 @@ namespace HouseRental
                 {
                     return false;
                 }
-
-                
             }
             catch (Exception ex)
             {
@@ -135,26 +132,39 @@ namespace HouseRental
                     con.Open();
                 }
 
-                string insertQuery = "INSERT INTO consumer VALUES(@fname,@lname,@email,@usertype,@gender,@dateofbirth,@password,@confirmpassword,@accountstatus)";
+                string insertQuery = "INSERT INTO people VALUES(@name,@email,@contactnum,@dateofbirth,@gender,@usertype,@password,@confirmpassword,@accountstatus)";
                 SqlCommand cmd = new SqlCommand(insertQuery, con);
-                cmd.Parameters.AddWithValue("@fname", TextBox1.Text.Trim());
-                cmd.Parameters.AddWithValue("@lname", TextBox2.Text.Trim());
-                cmd.Parameters.AddWithValue("@email", TextBox3.Text.Trim());
-                cmd.Parameters.AddWithValue("@usertype", DropDownList1.SelectedItem.Value);
-                cmd.Parameters.AddWithValue("@gender", DropDownList2.SelectedItem.Value);
+                cmd.Parameters.AddWithValue("@name", TextBox1.Text.Trim());
+                cmd.Parameters.AddWithValue("@email", TextBox2.Text.Trim());
+                cmd.Parameters.AddWithValue("@contactnum", TextBox3.Text.Trim());
                 cmd.Parameters.AddWithValue("@dateofbirth", TextBox4.Text.Trim());
+                cmd.Parameters.AddWithValue("@gender", DropDownList1.SelectedItem.Value);
+                cmd.Parameters.AddWithValue("@usertype", DropDownList2.SelectedItem.Value);
                 cmd.Parameters.AddWithValue("@password", TextBox5.Text.Trim());
                 cmd.Parameters.AddWithValue("@confirmpassword", TextBox6.Text.Trim());
-                cmd.Parameters.AddWithValue("@accountstatus", "pending");
+                cmd.Parameters.AddWithValue("@accountstatus", "Pending");
 
                 cmd.ExecuteNonQuery();
                 con.Close();
                 Response.Write("<script>alert('Register Successful. Login now.');</script>");
+                clearForm();
             }
             catch (Exception ex)
             {
                 Response.Write("<script>alert('" + ex.Message + "');</script>");
             }
+        }
+
+        void clearForm()
+        {
+            TextBox1.Text = "";
+            TextBox2.Text = "";
+            TextBox3.Text = "";
+            TextBox4.Text = "";
+            DropDownList1.SelectedValue = "Male";
+            DropDownList2.SelectedValue = "Student";
+            TextBox5.Text = "";
+            TextBox6.Text = "";
         }
         
     }

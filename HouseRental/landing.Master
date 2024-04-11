@@ -62,6 +62,7 @@
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
     <link href="fontawesome/css/all.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.3/css/dataTables.dataTables.css" />
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -96,7 +97,7 @@
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 </li>
                 <li class="nav-item active">
-                    <asp:LinkButton class="navlink" ID="LinkButton6" runat="server" Visible="False"><b>Hello User</b></asp:LinkButton>
+                    <asp:LinkButton class="navlink" ID="LinkButton6" runat="server" OnClick="LinkButton6_Click" Visible="False"><b>Hello User</b></asp:LinkButton>
                 </li>
 	        </ul>
               
@@ -139,6 +140,27 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
+  <script src="https://cdn.datatables.net/2.0.3/js/dataTables.js"></script>
+
+<script>
+    $(document).ready(function () {
+            $(".table").prepend($("<thead></thead>").append($(this).find("tr:first"))).dataTable();
+    });
+</script>
+
+<script type="text/javascript">
+    function ShowPopup() {
+        $("#btnShowPopup").click();
+    }
+
+    .modalBackground
+    {
+        background - color: Black;
+        filter: alpha(opacity = 40);
+        opacity: 0.4;
+    }
+</script> 
+
         </div>
     </form>
 </body>

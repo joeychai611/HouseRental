@@ -25,22 +25,19 @@
           <div class="col-md-7 py-5 pl-md-5">
           	<div class="py-md-5">
 	          	<div class="heading-section ftco-animate mb-4">
-	          		<span class="subheading">House Rental System for Student Near UTM Campus</span>
+	          		<span class="subheading">House Rental System</span>
 			          <h2 class="mb-0">About Us</h2>
 			        </div>
 	            <div class="carousel-testimony owl-carousel ftco-animate">
 	              <div class="item">
 	                <div class="testimony-wrap pb-4">
 	                  <div class="text">
-	                    <p class="mb-4">Develop the house rental system, focusing on key features that would address the students' need. The system would allow students to browse and search for available properties, view detailed descriptions and photos, and connect directly with landlords through a secure messaging system. The platform brought together students and landlords, offering a seamless rental experience tha simplified the search process, enhanced communication, and facilitated secure transactions.</p>
-                           <p><a href="#" class="btn btn-secondary rounded">Rent Now</a></p>
+	                    <p class="mb-3">Focusing on key features that would address the students' need. The system would allow students to browse and search for available properties, view detailed descriptions and photos, and connect directly with landlords through the system. The platform brought together students and landlords, offering a seamless rental experience tha simplified the search process, enhanced communication, and facilitated secure transactions.</p>
+                        <br />
+                        <p><a href="houselist.aspx" class="btn btn-secondary rounded">Rent Now</a></p>
                       </div>
-	                  
 	                </div>
-	              </div>
-	              
-	              
-	              
+	              </div>    
 	            </div>
 	          </div>
           </div>

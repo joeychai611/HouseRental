@@ -20,18 +20,18 @@ namespace HouseRental
                     LinkButton5.Visible = false; //logout
                     LinkButton6.Visible = false; //hello user
                 }
-                else if (Session["usertype"].Equals("user"))
+                else if ((Session["usertype"].ToString() == "Student") || (Session["usertype"].ToString() == "Landlord") || (Session["usertype"].ToString() == "Admin"))
                 {
                     LinkButton4.Visible = false; //user login
 
                     LinkButton5.Visible = true; //logout
                     LinkButton6.Visible = true; //hello user
-                    LinkButton6.Text = "Hello "+Session["fname"].ToString();
+                    LinkButton6.Text = "Hello "+ Session["name"].ToString();
                 }
             }
             catch(Exception ex)
             {
-
+                Response.Write("<script>alert('" + ex.Message + "');</script>");
             }
         }
 

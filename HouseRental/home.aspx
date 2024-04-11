@@ -43,7 +43,7 @@
 	        			<div class="col-md d-flex py-md-4">
 	        				<div class="form-group align-self-stretch d-flex align-items-end">
 	        					<div class="wrap align-self-stretch py-3 px-4">
-				    					<label for="#">Check-in Date</label>
+				    					<label for="#">Rent Date</label>
 				    					<input type="text" class="form-control checkin_date" placeholder="Check-in date">
 			    					</div>
 			    				</div>
@@ -68,13 +68,13 @@
 	        			<div class="col-md d-flex py-md-4">
 	        				<div class="form-group align-self-stretch d-flex align-items-end">
 	        					<div class="wrap align-self-stretch py-3 px-4">
-			      					<label for="#">Room Type</label>
+			      					<label for="#">House Type</label>
 			      					<div class="form-field">
 			        					<div class="select-wrap">
 			                    <select name="" id="" class="form-control">
-			                      <option value="">Single Room</option>
-			                      <option value="">Double Room</option>
-			                      <option value="">Triple Room</option>
+			                      <option value="">Apartment</option>
+			                      <option value="">Condominium</option>
+			                      <option value="">Terrace House</option>
 			                    </select>
 			                  </div>
 				              </div>
@@ -101,7 +101,7 @@
 
 	        			<div class="col-md d-flex">
 	        				<div class="form-group d-flex align-self-stretch">
-			              <a href="#" class="btn btn-primary py-5 py-md-10 px-4 align-self-stretch d-block"><span><br />Check Availability</span></a>
+			              <a href="houselist.aspx" class="btn btn-primary py-5 py-md-10 px-4 align-self-stretch d-block"><span><br />Check Availability</span></a>
 			            </div>
 	        			</div>
 	        		</div>
@@ -118,7 +118,6 @@
           <div class="col-md-7 heading-section text-center ftco-animate">
           	<span class="subheading">Welcome to</span>
             <h2 class="mb-4">House Rental System</h2>
-			  <h2 class="mb-4">for Student Near UTM Campus</h2>
           </div>
         </div>  
         <div class="row d-flex">
