@@ -28,19 +28,35 @@ namespace HouseRental
                     con.Open();
                 }
 
-                SqlCommand cmd = new SqlCommand("SELECT * from consumer where email='" + TextBox1.Text.Trim() + "' AND password='" + TextBox2.Text.Trim() + "';", con);
+                SqlCommand cmd = new SqlCommand("SELECT * from people where email='" + TextBox1.Text.Trim() + "' AND password='" + TextBox2.Text.Trim() + "';", con);
                 SqlDataReader dr = cmd.ExecuteReader();
                 if (dr.HasRows)
                 {
                     while (dr.Read())
                     {
                         Session["email"] = dr.GetValue(2).ToString();
-                        Session["fname"] = dr.GetValue(0).ToString();
-                        Session["usertype"] = "user";
-                        Session["accountstatus"] = dr.GetValue(8).ToString();
+                        Session["name"] = dr.GetValue(1).ToString();
+                        Session["usertype"] = dr.GetValue(6).ToString();
+                        Session["accountstatus"] = dr.GetValue(9).ToString();
                     }
                     Response.Write("<script>alert('Login Successful.');</script>");
-                    Response.Redirect("studentdashboard.aspx");
+
+                    if (Session["usertype"].ToString() == "Student")
+                    {
+                        Response.Redirect("sdashboard.aspx");
+                    }
+                    else if (Session["usertype"].ToString() == "Landlord")
+                    {
+                        Response.Redirect("ldashboard.aspx");
+                    }
+                    else if (Session["usertype"].ToString() == "Admin")
+                    {
+                        Response.Redirect("admindashboard.aspx");
+                    }
+                    else
+                    {
+                        Response.Write("<script>alert('Invalid credentials');</script>");
+                    }
                 }
                 else
                 {

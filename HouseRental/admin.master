@@ -27,10 +27,10 @@
                                 <div id="submenu-5" class="collapse submenu" style="">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="viewlandlord.aspx">Landlord</a>
+                                            <a class="nav-link" href="managelandlord.aspx">Landlord</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="viewstudent.aspx">Student</a>
+                                            <a class="nav-link" href="managestudent.aspx">Student</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -39,7 +39,7 @@
                                 <a class="nav-link" href="adminreport.aspx"><i class="fa-solid fa-chart-line"></i>Report</a>
                             </li>
                             <li class="nav-item ">
-                                <a class="nav-link" href="adminprofile.aspx"><i class="fa-solid fa-user-tie"></i>Profile</a>
+                                <a class="nav-link" href="profile.aspx"><i class="fa-solid fa-user-tie"></i>Profile</a>
                             </li>
                         </ul>
                     </div>

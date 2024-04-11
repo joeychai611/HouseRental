@@ -32,8 +32,7 @@ namespace HouseRental
                 {
                     registerNewUser();
                 }
-            }
-                    
+            }      
         }
 
         //user defined method
@@ -47,39 +46,57 @@ namespace HouseRental
                     con.Open();
                 }
 
-                SqlCommand cmd = new SqlCommand("SELECT * from consumer where email='" + TextBox3.Text.Trim() + "' AND password='" + TextBox5.Text.Trim() + "' AND confirmpassword='" + TextBox6.Text.Trim() + "';", con);
-                if (TextBox3.Text.Trim() != string.Empty)
+                SqlCommand cmd = new SqlCommand("SELECT * from people where email='" + TextBox2.Text.Trim() + "' AND password='" + TextBox5.Text.Trim() + "' AND password='" + TextBox6.Text.Trim() + "';", con);
+                if (TextBox1.Text.Trim() != string.Empty)
                 {
-                    if (TextBox5.Text.Trim() != string.Empty)
+                    if (TextBox2.Text.Trim() != string.Empty)
                     {
-                        if (TextBox6.Text.Trim() != string.Empty)
+                        if (TextBox3.Text.Trim() != string.Empty)
                         {
-                            if (TextBox5.Text.Trim() == TextBox6.Text.Trim())
+                            if (TextBox5.Text.Trim() != string.Empty)
                             {
-                                return true;
+                                if (TextBox6.Text.Trim() != string.Empty)
+                                {
+                                    if (TextBox5.Text.Trim() == TextBox6.Text.Trim())
+                                    {
+                                        return true;
+                                    }
+                                    else
+                                    {
+                                        Response.Write("<script>alert('Please fill in Same Password.');</script>");
+                                        return false;
+                                    }
+                                }
+                                else
+                                {
+                                    Response.Write("<script>alert('Please fill in Confirm Password.');</script>");
+                                    return false;
+                                }
                             }
                             else
                             {
-                                Response.Write("<script>alert('Please fill in same password.');</script>");
+                                Response.Write("<script>alert('Please fill in Password.');</script>");
                                 return false;
                             }
+
                         }
                         else
                         {
-                            Response.Write("<script>alert('Please fill in confirm password.');</script>");
+                            Response.Write("<script>alert('Please fill in Contact Number.');</script>");
                             return false;
                         }
+
                     }
                     else
                     {
-                        Response.Write("<script>alert('Please fill in password.');</script>");
+                        Response.Write("<script>alert('Please fill in Email Address.');</script>");
                         return false;
                     }
 
                 }
                 else
                 {
-                    Response.Write("<script>alert('Please fill in email.');</script>");
+                    Response.Write("<script>alert('Please fill in Full Name.');</script>");
                     return false;
                 }
 
@@ -101,7 +118,7 @@ namespace HouseRental
                     con.Open();
                 }
 
-                SqlCommand cmd = new SqlCommand("SELECT * from consumer where email='"+TextBox3.Text.Trim()+"';", con);
+                SqlCommand cmd = new SqlCommand("SELECT * from people where email='"+TextBox2.Text.Trim()+"';", con);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
@@ -114,8 +131,6 @@ namespace HouseRental
                 {
                     return false;
                 }
-
-                
             }
             catch (Exception ex)
             {
@@ -135,26 +150,40 @@ namespace HouseRental
                     con.Open();
                 }
 
-                string insertQuery = "INSERT INTO consumer VALUES(@fname,@lname,@email,@usertype,@gender,@dateofbirth,@password,@confirmpassword,@accountstatus)";
+                string insertQuery = "INSERT INTO people VALUES(@name,@email,@contactnum,@dateofbirth,@gender,@usertype,@password,@accountstatus,@proof)";
                 SqlCommand cmd = new SqlCommand(insertQuery, con);
-                cmd.Parameters.AddWithValue("@fname", TextBox1.Text.Trim());
-                cmd.Parameters.AddWithValue("@lname", TextBox2.Text.Trim());
-                cmd.Parameters.AddWithValue("@email", TextBox3.Text.Trim());
-                cmd.Parameters.AddWithValue("@usertype", DropDownList1.SelectedItem.Value);
-                cmd.Parameters.AddWithValue("@gender", DropDownList2.SelectedItem.Value);
+                cmd.Parameters.AddWithValue("@name", TextBox1.Text.Trim());
+                cmd.Parameters.AddWithValue("@email", TextBox2.Text.Trim());
+                cmd.Parameters.AddWithValue("@contactnum", TextBox3.Text.Trim());
                 cmd.Parameters.AddWithValue("@dateofbirth", TextBox4.Text.Trim());
+                cmd.Parameters.AddWithValue("@gender", DropDownList1.SelectedItem.Value);
+                cmd.Parameters.AddWithValue("@usertype", DropDownList2.SelectedItem.Value);
                 cmd.Parameters.AddWithValue("@password", TextBox5.Text.Trim());
-                cmd.Parameters.AddWithValue("@confirmpassword", TextBox6.Text.Trim());
-                cmd.Parameters.AddWithValue("@accountstatus", "pending");
+                cmd.Parameters.AddWithValue("@@password", TextBox6.Text.Trim());
+                cmd.Parameters.AddWithValue("@accountstatus", "Pending");
+                cmd.Parameters.AddWithValue("@proof", "");
 
                 cmd.ExecuteNonQuery();
                 con.Close();
                 Response.Write("<script>alert('Register Successful. Login now.');</script>");
+                clearForm();
             }
             catch (Exception ex)
             {
                 Response.Write("<script>alert('" + ex.Message + "');</script>");
             }
+        }
+
+        void clearForm()
+        {
+            TextBox1.Text = "";
+            TextBox2.Text = "";
+            TextBox3.Text = "";
+            TextBox4.Text = "";
+            DropDownList1.SelectedValue = "Male";
+            DropDownList2.SelectedValue = "Student";
+            TextBox5.Text = "";
+            TextBox6.Text = "";
         }
         
     }

@@ -15,6 +15,7 @@
         </div>
       </div>
     </div>
+    <br />
     <div class="container">
         <div class="row">
             <div class="col-md-8 mx-auto">
@@ -22,7 +23,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col">
-                                <a href="profile.aspx">Back</a>
+                                <a href="home.aspx" class="fa-solid fa-arrow-left"></a>
                             </div>
                         </div>
                         <div class="row">
@@ -40,7 +41,7 @@
                          <div class="col">
                         <label>Old Password</label>
                         <div class="form-group">
-                           <asp:TextBox class="form-control" ID="TextBox1" runat="server" TextMode="Password" ReadOnly="True"></asp:TextBox>
+                           <asp:TextBox class="form-control" ID="TextBox1" runat="server" TextMode="Password"></asp:TextBox>
                         </div>
                      </div>
                      <div class="col">
@@ -60,7 +61,7 @@
                      <div class="col-8 mx-auto">
                         <center>
                            <div class="form-group">
-                              <asp:Button class="btn btn-primary btn-block btn-lg" ID="Button1" runat="server" Text="Update" />
+                              <asp:Button class="btn btn-primary btn-block btn-lg" ID="Button1" runat="server" Text="Update" onClick="Button1_Click"/>
                            </div>
                         </center>
                      </div>
@@ -68,7 +69,5 @@
                </div>
             </div>
          </div>
-        <br />
-            </div>
         </div>
 </asp:Content>
