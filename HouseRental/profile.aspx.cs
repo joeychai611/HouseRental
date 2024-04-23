@@ -24,20 +24,35 @@ namespace HouseRental
                 }
                 else
                 {
+                    SqlConnection con = new SqlConnection("Data Source=LAPTOP-GAS8R8RV\\SQLEXPRESS;Initial Catalog=houserentalDB;Integrated Security=True");
+                    if (con.State == ConnectionState.Closed)
+                    {
+                        con.Open();
+                    }
+                    SqlCommand cmd = new SqlCommand("SELECT * from people where email='" + Session["email"].ToString() + "';", con);
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+
+                    DropDownList2.Text = dt.Rows[0]["usertype"].ToString().Trim();
+
+                    if (dt.Rows[0]["usertype"].ToString().Trim() == "Student")
+                    {
+                        FileUpload1.Visible = true;
+                        Label2.Visible = true;
+                    }
+                    else
+                    {
+                        FileUpload1.Visible = false;
+                        Label2.Visible = false;
+                    }
                     getUserData();
 
                     if (!Page.IsPostBack)
                     {
                         getUserPersonalDetails();
-                        string[] filePaths = Directory.GetFiles(Server.MapPath("~/Proof/"));
-                        List<ListItem> files = new List<ListItem>();
-                        foreach (string filePath in filePaths)
-                        {
-                            string fileName = Path.GetFileName(filePath);
-                            files.Add(new ListItem(fileName, "~/Proof/" + fileName));
-                        }
-                        rptFiles.DataSource = files;
-                        rptFiles.DataBind();
+                        GridView1.PreRender += new EventHandler(GridView1_PreRender);
+                        bind();
                     }
                 }
             }
@@ -58,21 +73,7 @@ namespace HouseRental
             }
             else
             {
-                updateUserPersonalDetails();
-                /*
-                if (FileUpload1.HasFile)
-                {
-                    int fileLen;
-                    // Get the length of the file.
-                    fileLen = FileUpload1.PostedFile.ContentLength;
-                    byte[] input = new byte[fileLen - 1];
-                    input = FileUpload1.FileBytes;
-
-                    byte[] fileBytes = new byte[FileUpload1.PostedFile.ContentLength];
-
-                    Image1.ImageUrl = "data:image/png;base64," + Convert.ToBase64String(input.ToArray(), 0, input.ToArray().Length);
-                }
-                */
+                updateUserPersonalDetails(); 
             }
         }
 
@@ -80,24 +81,12 @@ namespace HouseRental
         {
             try
             {
-                string filepath = "~/Proof/";
-                string filename = Path.GetFileName(FileUpload1.PostedFile.FileName);
-
-                if (FileUpload1.HasFile)
-                {
-                    FileUpload1.SaveAs(Server.MapPath("Proof/" + filename));
-                    filepath = "~/Proof/" + filename;
-                    lblmsg.Text = "File Uploaded.";
-                    lblmsg.ForeColor = System.Drawing.Color.Green;
-                }
-                
                 SqlConnection con = new SqlConnection("Data Source=LAPTOP-GAS8R8RV\\SQLEXPRESS;Initial Catalog=houserentalDB;Integrated Security=True");
                 if (con.State == ConnectionState.Closed)
                 {
                     con.Open();
                 }
-
-                SqlCommand cmd = new SqlCommand("UPDATE people SET name=@name, email=@email, contactnum=@contactnum, dateofbirth=@dateofbirth, gender=@gender, usertype=@usertype, accountstatus=@accountstatus, proof=@proof WHERE email='" + Session["email"].ToString().Trim() + "'", con);
+                SqlCommand cmd = new SqlCommand("UPDATE people SET name=@name, email=@email, contactnum=@contactnum, dateofbirth=@dateofbirth, gender=@gender, usertype=@usertype WHERE email='" + Session["email"].ToString().Trim() + "'", con);
 
                 cmd.Parameters.AddWithValue("@name", TextBox1.Text.Trim());
                 cmd.Parameters.AddWithValue("@email", TextBox2.Text.Trim());
@@ -105,11 +94,38 @@ namespace HouseRental
                 cmd.Parameters.AddWithValue("@dateofbirth", TextBox4.Text.Trim());
                 cmd.Parameters.AddWithValue("@gender", DropDownList1.SelectedItem.Value);
                 cmd.Parameters.AddWithValue("@usertype", DropDownList2.SelectedItem.Value);
-                cmd.Parameters.AddWithValue("@accountstatus", "Pending");
-                cmd.Parameters.AddWithValue("@proof", filepath);
-
+                
                 int result = cmd.ExecuteNonQuery();
                 con.Close();
+
+                if (FileUpload1.HasFile)
+                {
+                    byte[] myphoto = FileUpload1.FileBytes;
+                    GridViewRow row = GridView1.SelectedRow;
+                    if (con.State == ConnectionState.Closed)
+                    {
+                        con.Open();
+                    }
+                    SqlCommand insertCmd = new SqlCommand("SELECT (ID) FROM people WHERE email='" + Session["email"].ToString() + "';", con);
+                    int userID = Convert.ToInt32(insertCmd.ExecuteScalar());
+
+                    string insertUpload = "UPDATE proof SET proof=@proof, userID=@userID WHERE userID=@userID";
+                    insertCmd = new SqlCommand(insertUpload, con);
+                    insertCmd.Parameters.AddWithValue("@proof", myphoto);
+                    insertCmd.Parameters.AddWithValue("@userID", userID);
+                    int exe = insertCmd.ExecuteNonQuery();
+                    if (exe < 1)
+                    {
+                        string insertNew = "INSERT INTO proof (proof, userID) VALUES (@proof, @userID)";
+                        insertCmd = new SqlCommand(insertNew, con);
+                        insertCmd.Parameters.AddWithValue("@proof", myphoto);
+                        insertCmd.Parameters.AddWithValue("@userID", userID);
+                        insertCmd.ExecuteNonQuery();
+                        con.Close();
+                    }
+                    con.Close();
+                }
+
                 if (result > 0)
                 {
                     Response.Write("<script>alert('Details updated successfully.');</script>");
@@ -119,7 +135,6 @@ namespace HouseRental
                 {
                     Response.Write("<script>alert('Invaid entry');</script>");
                 }
-
             }
             catch (Exception ex)
             {
@@ -196,39 +211,33 @@ namespace HouseRental
             }
         }
 
-        //proof
-
         protected void changepassword_Click(object sender, EventArgs e)
         {
             Response.Redirect("changepassword.aspx");
         }
 
-        protected void View(object sender, EventArgs e)
+        public void bind()
         {
-            imgFile.ImageUrl = string.Empty;
-            ltEmbed.Text = string.Empty;
-            string fileName = (sender as LinkButton).CommandArgument;
-            string extension = Path.GetExtension(fileName);
-            switch (extension.ToLower())
+            SqlConnection con = new SqlConnection("Data Source=LAPTOP-GAS8R8RV\\SQLEXPRESS;Initial Catalog=houserentalDB;Integrated Security=True");
+            con.Open();
+            
+            string query = "select * from proof";
+            SqlCommand cmd = new SqlCommand(query, con);
+            SqlDataAdapter adp = new SqlDataAdapter(cmd);
+            DataSet ds = new DataSet();
+            adp.Fill(ds);
+            con.Close();
+            GridView1.DataSource = ds.Tables[0];
+            GridView1.DataBind();
+        }
+
+        protected void GridView1_PreRender(object sender, EventArgs e)
+        {
+            if (GridView1.Rows.Count > 0)
             {
-                case ".png":
-                case ".jpg":
-                case ".jpeg":
-                case ".gif":
-                    imgFile.ImageUrl = "~/Proof/" + fileName;
-                    break;
-                case ".pdf":
-                    string embed = "<object data=\"{0}\" type=\"application/pdf\" width=\"300px\" height=\"200px\">";
-                    embed += "If you are unable to view file, you can download from <a href = \"{0}\">here</a>";
-                    embed += " or download <a target = \"_blank\" href = \"http://get.adobe.com/reader/\">Adobe PDF Reader</a> to view the file.";
-                    embed += "</object>";
-                    ltEmbed.Text = string.Format(embed, ResolveUrl("~/Proof/" + fileName));
-                    break;
-                default:
-                    break;
+                GridView1.UseAccessibleHeader = true;
+                GridView1.HeaderRow.TableSection = TableRowSection.TableHeader;
             }
-            imgFile.Visible = !string.IsNullOrEmpty(imgFile.ImageUrl);
-            ltEmbed.Visible = !string.IsNullOrEmpty(ltEmbed.Text);
         }
     }
 }

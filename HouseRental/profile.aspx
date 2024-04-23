@@ -99,38 +99,26 @@
                   <div class="row">
                      <div class="col-8 mx-auto">
                         <center>
-                            <div>
-                                <label>Proof</label><br />
-                                <asp:FileUpload onchange="readURL(this);" class="form-control" ID="FileUpload1" runat="server" />
-                                <asp:Label runat="server" ID="lblmsg"></asp:Label>
-                                <br />
-                                <asp:Image ID="Image1" runat="server"/>
-                                <br />
-                                <asp:Repeater runat="server" ID="rptFiles">
-                                <HeaderTemplate>
-                                    <table>
-                                </HeaderTemplate>
-                                    <ItemTemplate>
-                                        <tr>
-                                            <td>
-                                                <asp:LinkButton runat="server" CommandArgument='<%#Eval("Text") %>' Text='<%#Eval("Text") %>' OnClick="View" />
-                                            </td>
-                                        </tr>
-                                    </ItemTemplate>
-                                    <FooterTemplate>
-                                        </table>
-                                    </FooterTemplate>
-                                </asp:Repeater>
-
-                                <asp:Image ID="imgFile" runat="server" Height="100" Width="100" Visible="false" />
-                                <asp:Literal ID="ltEmbed" runat="server" Visible="false" />
-
+                            <asp:Label ID="Label2" Text="Proof" runat="server"></asp:Label>
+                                <asp:FileUpload onchange="readURL(this);" class="form-control" ID="FileUpload1" runat="server"/>
+                            <br />
                            <div class="form-group">
                               <asp:Button class="btn btn-primary btn-block btn-lg" ID="Button1" runat="server" Text="Update" OnClick="Button1_Click" />
                            </div>
                         </center>
                      </div>
                   </div>
+
+                        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False">
+                    <Columns>
+                       <asp:TemplateField HeaderText="Photo">
+                            <ItemTemplate>
+                                <asp:Image Width="100px" ID="Image1" ImageUrl='<%# String.Format("PhotoHandler.ashx?ID={0}", Eval("ID")) %>' runat="server" />
+                        </ItemTemplate>
+                           </asp:TemplateField>
+                    </Columns>
+    </asp:GridView>
+
                         <div>
                             <center>
                              <asp:LinkButton ID="changepassword" runat="server" onclick="changepassword_Click">Change Password</asp:LinkButton> 

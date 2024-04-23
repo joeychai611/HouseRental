@@ -109,7 +109,7 @@
                         </div>
                         <br />
                         <div class="form-group">
-                            <asp:Button class="btn btn-primary btn-block btn-lg" ID="Button1" runat="server" Text="Update" OnClick="Button1_Click" />
+                            <asp:Button class="btn btn-primary btn-block btn-lg" ID="Button1" runat="server" Text="Register" OnClick="Button1_Click" />
                         </div>
                          <div>
                              Have an account?

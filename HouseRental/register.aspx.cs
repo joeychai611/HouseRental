@@ -4,6 +4,8 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -142,6 +144,10 @@ namespace HouseRental
 
         void registerNewUser()
         {
+            Random random = new Random();
+            int myRandom = random.Next(10000000, 99999999);
+            string activationcode = myRandom.ToString();
+
             try
             {
                 SqlConnection con = new SqlConnection("Data Source=LAPTOP-GAS8R8RV\\SQLEXPRESS;Initial Catalog=houserentalDB;Integrated Security=True");
@@ -150,7 +156,7 @@ namespace HouseRental
                     con.Open();
                 }
 
-                string insertQuery = "INSERT INTO people VALUES(@name,@email,@contactnum,@dateofbirth,@gender,@usertype,@password,@accountstatus,@proof)";
+                string insertQuery = "INSERT INTO people VALUES(@name,@email,@contactnum,@dateofbirth,@gender,@usertype,@password,@accountstatus,@activationcode,@is_active)";
                 SqlCommand cmd = new SqlCommand(insertQuery, con);
                 cmd.Parameters.AddWithValue("@name", TextBox1.Text.Trim());
                 cmd.Parameters.AddWithValue("@email", TextBox2.Text.Trim());
@@ -161,11 +167,37 @@ namespace HouseRental
                 cmd.Parameters.AddWithValue("@password", TextBox5.Text.Trim());
                 cmd.Parameters.AddWithValue("@@password", TextBox6.Text.Trim());
                 cmd.Parameters.AddWithValue("@accountstatus", "Pending");
-                cmd.Parameters.AddWithValue("@proof", "");
+                cmd.Parameters.AddWithValue("@activationcode", activationcode);
+                cmd.Parameters.AddWithValue("@is_active", 0);
 
                 cmd.ExecuteNonQuery();
+
+                MailMessage mail = new MailMessage();
+                mail.To.Add(TextBox2.Text.ToString().Trim());
+                mail.From = new MailAddress("joeychai0611@gmail.com");
+                mail.Subject = "Thank you for registering with us.";
+
+                string emailBody = "";
+
+                emailBody += "<h1>Hello " + TextBox1.Text.ToString() + ",</h1>";
+                emailBody += "Click below link for activate your account.<br>";
+                emailBody += "<p><a href='" + "https://localhost:44358/activateaccount.aspx?activationcode=" + activationcode + "&email=" + TextBox2.Text.ToString() + "'>Click Here To Activate</a></p>";
+                emailBody += "Thank You.";
+
+                mail.Body = emailBody;
+                mail.IsBodyHtml = true;
+
+                SmtpClient smtp = new SmtpClient();
+                smtp.Port = 587; // 25 465
+                smtp.EnableSsl = true;
+                smtp.UseDefaultCredentials = false;
+                smtp.Host = "smtp.gmail.com";
+                smtp.Credentials = new System.Net.NetworkCredential("joeychai0611@gmail.com", "pkte keth bwzc kcwj");
+                smtp.Send(mail);
+
+                Response.Write("<script>alert('Register successfully. Please check your email for activation link.');</script>");
+
                 con.Close();
-                Response.Write("<script>alert('Register Successful. Login now.');</script>");
                 clearForm();
             }
             catch (Exception ex)
@@ -185,6 +217,5 @@ namespace HouseRental
             TextBox5.Text = "";
             TextBox6.Text = "";
         }
-        
     }
 }

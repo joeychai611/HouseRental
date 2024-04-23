@@ -44,24 +44,12 @@
                            <asp:TextBox class="form-control" ID="TextBox1" runat="server" TextMode="Email"></asp:TextBox>
                         </div>
                      </div>
-                     <div class="col">
-                        <label>New Password</label>
-                        <div class="form-group">
-                           <asp:TextBox class="form-control" ID="TextBox2" runat="server" TextMode="Password"></asp:TextBox>
-                        </div>
-                     </div>
-                        <div class="col">
-                        <label>Confirm New Password</label>
-                        <div class="form-group">
-                           <asp:TextBox class="form-control" ID="TextBox3" runat="server" TextMode="Password"></asp:TextBox>
-                        </div>
-                     </div>
                   </div>
                   <div class="row">
                      <div class="col-8 mx-auto">
                         <center>
                            <div class="form-group">
-                              <asp:Button class="btn btn-primary btn-block btn-lg" ID="Button1" runat="server" Text="Update" onClick="Button1_Click"/>
+                              <asp:Button class="btn btn-primary btn-block btn-lg" ID="Button1" runat="server" Text="Submit" onClick="Button1_Click"/>
                            </div>
                         </center>
                      </div>
