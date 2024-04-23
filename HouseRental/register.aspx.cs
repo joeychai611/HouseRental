@@ -48,8 +48,7 @@ namespace HouseRental
                     con.Open();
                 }
 
-                SqlCommand cmd = new SqlCommand("SELECT * from people where email='" + TextBox2.Text.Trim() + "' AND password='" + TextBox5.Text.Trim() + "' AND password='" + TextBox6.Text.Trim() + "';", con);
-                if (TextBox1.Text.Trim() != string.Empty)
+
                 {
                     if (TextBox2.Text.Trim() != string.Empty)
                     {
@@ -156,7 +155,7 @@ namespace HouseRental
                     con.Open();
                 }
 
-                string insertQuery = "INSERT INTO people VALUES(@name,@email,@contactnum,@dateofbirth,@gender,@usertype,@password,@accountstatus,@activationcode,@is_active)";
+
                 SqlCommand cmd = new SqlCommand(insertQuery, con);
                 cmd.Parameters.AddWithValue("@name", TextBox1.Text.Trim());
                 cmd.Parameters.AddWithValue("@email", TextBox2.Text.Trim());
@@ -165,10 +164,7 @@ namespace HouseRental
                 cmd.Parameters.AddWithValue("@gender", DropDownList1.SelectedItem.Value);
                 cmd.Parameters.AddWithValue("@usertype", DropDownList2.SelectedItem.Value);
                 cmd.Parameters.AddWithValue("@password", TextBox5.Text.Trim());
-                cmd.Parameters.AddWithValue("@@password", TextBox6.Text.Trim());
-                cmd.Parameters.AddWithValue("@accountstatus", "Pending");
-                cmd.Parameters.AddWithValue("@activationcode", activationcode);
-                cmd.Parameters.AddWithValue("@is_active", 0);
+
 
                 cmd.ExecuteNonQuery();
 
@@ -198,6 +194,7 @@ namespace HouseRental
                 Response.Write("<script>alert('Register successfully. Please check your email for activation link.');</script>");
 
                 con.Close();
+
                 clearForm();
             }
             catch (Exception ex)
@@ -217,5 +214,6 @@ namespace HouseRental
             TextBox5.Text = "";
             TextBox6.Text = "";
         }
+
     }
 }

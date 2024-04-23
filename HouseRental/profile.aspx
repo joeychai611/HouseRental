@@ -99,8 +99,7 @@
                   <div class="row">
                      <div class="col-8 mx-auto">
                         <center>
-                            <asp:Label ID="Label2" Text="Proof" runat="server"></asp:Label>
-                                <asp:FileUpload onchange="readURL(this);" class="form-control" ID="FileUpload1" runat="server"/>
+
                             <br />
                            <div class="form-group">
                               <asp:Button class="btn btn-primary btn-block btn-lg" ID="Button1" runat="server" Text="Update" OnClick="Button1_Click" />
