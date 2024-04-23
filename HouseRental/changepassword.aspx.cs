@@ -11,6 +11,7 @@ namespace HouseRental
 {
     public partial class changepassword : System.Web.UI.Page
     {
+
         string str = null;
         SqlCommand com;
         byte up;
