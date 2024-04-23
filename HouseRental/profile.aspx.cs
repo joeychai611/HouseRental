@@ -7,6 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.IO;
 
 namespace HouseRental
 {
@@ -23,11 +24,7 @@ namespace HouseRental
                 }
                 else
                 {
-                    getUserData();
 
-                    if (!Page.IsPostBack)
-                    {
-                        getUserPersonalDetails();
                     }
                 }
             }
@@ -37,6 +34,7 @@ namespace HouseRental
                 Response.Redirect("login.aspx");
             }
         }
+
         //update button
         protected void Button1_Click(object sender, EventArgs e)
         {
@@ -47,7 +45,7 @@ namespace HouseRental
             }
             else
             {
-                updateUserPersonalDetails();
+
             }
         }
 
@@ -61,7 +59,6 @@ namespace HouseRental
                     con.Open();
                 }
 
-                SqlCommand cmd = new SqlCommand("UPDATE people SET name=@name, email=@email, contactnum=@contactnum, dateofbirth=@dateofbirth, gender=@gender, usertype=@usertype,accountstatus=@accountstatus WHERE email='" + Session["email"].ToString().Trim() + "'", con);
 
                 cmd.Parameters.AddWithValue("@name", TextBox1.Text.Trim());
                 cmd.Parameters.AddWithValue("@email", TextBox2.Text.Trim());
@@ -69,10 +66,7 @@ namespace HouseRental
                 cmd.Parameters.AddWithValue("@dateofbirth", TextBox4.Text.Trim());
                 cmd.Parameters.AddWithValue("@gender", DropDownList1.SelectedItem.Value);
                 cmd.Parameters.AddWithValue("@usertype", DropDownList2.SelectedItem.Value);
-                cmd.Parameters.AddWithValue("@accountstatus", "Pending");
 
-                int result = cmd.ExecuteNonQuery();
-                con.Close();
                 if (result > 0)
                 {
                     Response.Write("<script>alert('Details updated successfully.');</script>");
@@ -130,6 +124,7 @@ namespace HouseRental
                 {
                     Label1.Attributes.Add("class", "badge badge-pill badge-info");
                 }
+
             }
             catch (Exception ex)
             {
@@ -158,32 +153,7 @@ namespace HouseRental
             }
         }
 
-        //proof
-        protected void btnsubmit_Click(object sender, EventArgs e)
-        {
-            if (file.HasFile)
-            {
-                string ext = System.IO.Path.GetExtension(file.FileName);
 
-                ext = ext.ToLower();
-
-                if(ext == ".png" || ext == "jpg" || ext == "jpeg")
-                {
-                    file.SaveAs(Server.MapPath("~/MatricCard/" + file.FileName));
-
-                    lblmsg.Text = "File Uploaded.";
-                    lblmsg.ForeColor = System.Drawing.Color.Green;
-                }
-                else
-                {
-                    lblmsg.Text = "Please select image file only.";
-                    lblmsg.ForeColor = System.Drawing.Color.Red;
-                }
-            }
-            else
-            {
-                lblmsg.Text = "Please select a file.";
-                lblmsg.ForeColor = System.Drawing.Color.Red;
             }
         }
     }

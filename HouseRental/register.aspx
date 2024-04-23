@@ -44,13 +44,13 @@
                         
                         <div class="row">
                             <div class="col-md-6">
-                                <label>Full Name</label>
+
                                 <div class="form-group">
                                     <asp:TextBox CssClass="form-control" ID="TextBox1" runat="server"></asp:TextBox>                                
                                 </div>
                             </div>
                         <div class="col-md-6">
-                            <label>Email Address</label>
+
                                 <div class="form-group">
                                     <asp:TextBox CssClass="form-control" ID="TextBox2" runat="server" TextMode="Email"></asp:TextBox>   
                                 </div>
@@ -59,7 +59,7 @@
 
                         <div class="row">
                                 <div class="col-md-6">
-                            <label>Contact Number</label>
+
                                 <div class="form-group">
                                     <asp:TextBox CssClass="form-control" ID="TextBox3" runat="server"></asp:TextBox>   
                                 </div>
@@ -95,13 +95,13 @@
 
                         <div class="row">
                             <div class="col-md-6">
-                                <label>Password</label>
+                                <label>* Password</label>
                                 <div class="form-group">
                                    <asp:TextBox CssClass="form-control" ID="TextBox5" runat="server" TextMode="Password"></asp:TextBox>  
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <label>Re-confirm Password</label>
+                                <label>* Re-confirm Password</label>
                                 <div class="form-group">
                                     <asp:TextBox CssClass="form-control" ID="TextBox6" runat="server" TextMode="Password"></asp:TextBox>  
                                 </div>
@@ -109,7 +109,7 @@
                         </div>
                         <br />
                         <div class="form-group">
-                           <asp:Button class="btn btn-success btn-block btn-lg" ID="Button1" runat="server" Text="Register" OnClick="Button1_Click" />
+                            <asp:Button class="btn btn-primary btn-block btn-lg" ID="Button1" runat="server" Text="Register" OnClick="Button1_Click" />
                         </div>
                          <div>
                              Have an account?

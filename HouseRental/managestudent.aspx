@@ -61,6 +61,7 @@
                                 <asp:CommandField HeaderText="Action" ShowSelectButton="True" SelectText="<img src='images/EditButton.png'>" ShowDeleteButton="True" DeleteText="<img src='images/CancelButton.png'>"  >
                                 </asp:CommandField>
 
+
                             </Columns>
                              <EditRowStyle BackColor="#2461BF" />
                              <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -83,12 +84,7 @@
             </div>
                     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
                           <asp:Panel ID="Panel1" runat="server" Style="display:none">
-                              <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header text-center">
-                            <center>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span></button></center>
+
                             <h4 class="modal-title w-100">Student</h4>
                         </div>
                         <div class="modal-body">
@@ -144,6 +140,7 @@
                         </div>
 
                                  <div class="row">
+
                             <div class="col-md-6">
                                 <label>Status</label>
                                 <div class="form-group">
@@ -156,7 +153,7 @@
                             </div>
                         </div>
                    </div>
-              
+
                         </div>
                         <div class="modal-footer">
                             <button type="button" ID="Button2" class="btn btn-default" data-dismiss="modal">Close</button>

@@ -114,6 +114,7 @@ namespace HouseRental
         protected global::System.Web.UI.WebControls.DropDownList DropDownList2;
 
         /// <summary>
+
         /// DropDownList3 control.
         /// </summary>
         /// <remarks>

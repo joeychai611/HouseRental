@@ -35,21 +35,6 @@ namespace HouseRental
             }
         }
 
-        protected void LinkButton1_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("home.aspx");
-        }
-
-        protected void LinkButton2_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("houselist.aspx");
-        }
-
-        protected void LinkButton3_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("aboutus.aspx");
-        }
-
         protected void LinkButton4_Click(object sender, EventArgs e)
         {
             Response.Redirect("login.aspx");

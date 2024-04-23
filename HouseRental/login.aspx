@@ -53,7 +53,7 @@
                              <a href="forgotpassword.aspx" style="float: right">Forgot Password? </a><br /><br />
                         </div>
                         <div class="form-group">
-                           <asp:Button class="btn btn-success btn-block btn-lg" ID="Button1" runat="server" Text="Login" OnClick="Button1_Click" />
+                           <asp:Button class="btn btn-primary btn-block btn-lg" ID="Button1" runat="server" Text="Login" onClick="Button1_Click"/>
                         </div>
                          <div>
                              Don't have an account?

@@ -99,13 +99,7 @@
                   <div class="row">
                      <div class="col-8 mx-auto">
                         <center>
-                            <div>
-                                <label>Proof</label><br />
-                                <asp:FileUpload ID="file" runat="server" />
-                                <asp:Button runat="server" ID="btnsubmit" Text="Submit" OnClick="btnsubmit_Click" />
-                                <br />
-                                <asp:Label runat="server" ID="lblmsg"></asp:Label>
-                            </div>
+
                             <br />
                            <div class="form-group">
                               <asp:Button class="btn btn-primary btn-block btn-lg" ID="Button1" runat="server" Text="Update" OnClick="Button1_Click" />
@@ -113,9 +107,20 @@
                         </center>
                      </div>
                   </div>
+
+                        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False">
+                    <Columns>
+                       <asp:TemplateField HeaderText="Photo">
+                            <ItemTemplate>
+                                <asp:Image Width="100px" ID="Image1" ImageUrl='<%# String.Format("PhotoHandler.ashx?ID={0}", Eval("ID")) %>' runat="server" />
+                        </ItemTemplate>
+                           </asp:TemplateField>
+                    </Columns>
+    </asp:GridView>
+
                         <div>
                             <center>
-                             <a href="changepassword.aspx">Change Password</a><br>
+                             <asp:LinkButton ID="changepassword" runat="server" onclick="changepassword_Click">Change Password</asp:LinkButton> 
                             </center>
                          </div>
                </div>

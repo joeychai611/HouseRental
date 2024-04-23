@@ -28,7 +28,7 @@ namespace HouseRental
                     con.Open();
                 }
 
-                SqlCommand cmd = new SqlCommand("SELECT * from people where email='" + TextBox1.Text.Trim() + "' AND password='" + TextBox2.Text.Trim() + "';", con);
+
                 SqlDataReader dr = cmd.ExecuteReader();
                 if (dr.HasRows)
                 {
@@ -55,7 +55,7 @@ namespace HouseRental
                     }
                     else
                     {
-                        Response.Write("<script>alert('Invalid credentials');</script>");
+
                     }
                 }
                 else
