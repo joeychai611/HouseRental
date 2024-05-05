@@ -26,7 +26,7 @@
                                 <a class="nav-link" href="lappointment.aspx"><i class="fas fa-clipboard-list"></i>Appointment</a>
                             </li>
                             <li class="nav-item ">
-                                <a class="nav-link" href="lhouse.aspx"><i class="fa-solid fa-house"></i>House</a>
+                                <a class="nav-link" href="landlordhouse.aspx"><i class="fa-solid fa-house"></i>House</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-5" aria-controls="submenu-5"><i class="fa-solid fa-pen-nib"></i>Rental</a>

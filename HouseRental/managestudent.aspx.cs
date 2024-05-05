@@ -14,18 +14,7 @@ namespace HouseRental
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Page.IsPostBack)
-            {
-                string[] filePaths = Directory.GetFiles(Server.MapPath("~/Proof/"));
-                List<ListItem> files = new List<ListItem>();
-                foreach (string filePath in filePaths)
-                {
-                    string fileName = Path.GetFileName(filePath);
-                    files.Add(new ListItem(fileName, "~/Proof/" + fileName));
-                }
-                rptFiles.DataSource = files;
-                rptFiles.DataBind();
-            }
+
         }
 
         protected void GridView2_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -46,7 +35,9 @@ namespace HouseRental
             TextBox2.Text = GridView2.SelectedRow.Cells[2].Text;
             TextBox3.Text = GridView2.SelectedRow.Cells[3].Text;
             DropDownList3.SelectedValue = GridView2.SelectedRow.Cells[4].Text;
+            
             ModalPopupExtender1.Show();
+            getUserPersonalDetails();
         }
 
         protected void Save(object sender, EventArgs e)
@@ -89,32 +80,36 @@ namespace HouseRental
             }
         }
 
-        protected void View(object sender, EventArgs e)
+        void getUserPersonalDetails()
         {
-            imgFile.ImageUrl = string.Empty;
-            ltEmbed.Text = string.Empty;
-            string fileName = (sender as LinkButton).CommandArgument;
-            string extension = Path.GetExtension(fileName);
-            switch (extension.ToLower())
+            try
             {
-                case ".png":
-                case ".jpg":
-                case ".jpeg":
-                case ".gif":
-                    imgFile.ImageUrl = "~/Proof/" + fileName;
-                    break;
-                case ".pdf":
-                    string embed = "<object data=\"{0}\" type=\"application/pdf\" width=\"300px\" height=\"200px\">";
-                    embed += "If you are unable to view file, you can download from <a href = \"{0}\">here</a>";
-                    embed += " or download <a target = \"_blank\" href = \"http://get.adobe.com/reader/\">Adobe PDF Reader</a> to view the file.";
-                    embed += "</object>";
-                    ltEmbed.Text = string.Format(embed, ResolveUrl("~/Proof/" + fileName));
-                    break;
-                default:
-                    break;
+                SqlConnection con = new SqlConnection("Data Source=LAPTOP-GAS8R8RV\\SQLEXPRESS;Initial Catalog=houserentalDB;Integrated Security=True");
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+
+                SqlCommand cmd = new SqlCommand("SELECT * from people LEFT JOIN proof ON people.ID = proof.userID where people.email='" + TextBox2.Text.Trim() + "';", con);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                TextBox1.Text = dt.Rows[0]["name"].ToString();
+                TextBox2.Text = dt.Rows[0]["email"].ToString();
+                TextBox3.Text = dt.Rows[0]["contactnum"].ToString();
+                TextBox4.Text = dt.Rows[0]["dateofbirth"].ToString();
+                DropDownList1.SelectedValue = dt.Rows[0]["gender"].ToString().Trim();
+                DropDownList2.SelectedValue = dt.Rows[0]["usertype"].ToString().Trim();
+                DropDownList3.SelectedValue = dt.Rows[0]["accountstatus"].ToString().Trim();
+                byte[] bytes = (byte[])dt.Rows[0]["proof"];
+                string base64String = Convert.ToBase64String(bytes, 0, bytes.Length);
+                imgPhoto.ImageUrl = "data:image/png;base64," + base64String;
             }
-            imgFile.Visible = !string.IsNullOrEmpty(imgFile.ImageUrl);
-            ltEmbed.Visible = !string.IsNullOrEmpty(ltEmbed.Text);
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('" + ex.Message + "');</script>");
+            }
         }
     }
 }

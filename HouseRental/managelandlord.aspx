@@ -143,29 +143,9 @@
                         </div>
 
                                  <div class="row">
-                                     <div class="col-md-6">
-                                <label>Proof</label><br />
-                                <asp:Repeater runat="server" ID="rptFiles">
-                                <HeaderTemplate>
-                                    <table>
-                                </HeaderTemplate>
-                                    <ItemTemplate>
-                                        <tr>
-                                            <td>
-                                                <asp:LinkButton runat="server" OnClick="View" />
-                                            </td>
-                                        </tr>
-                                    </ItemTemplate>
-                                    <FooterTemplate>
-                                        </table>
-                                    </FooterTemplate>
-                                </asp:Repeater>
-                                <asp:Image ID="imgFile" runat="server" Height="100" Width="100" Visible="false" />
-                                <asp:Literal ID="ltEmbed" runat="server" Visible="false" />
-
-                            </div>
-
-                            <div class="col-md-6">
+                     <div class="col-8 mx-auto">
+                        <center>
+                            <div class="form-group">
                                 <label>Status</label>
                                 <div class="form-group">
                                     <asp:DropDownList class="form-control" ID="DropDownList3" runat="server" CssClass="badge badge-pill badge-info">
@@ -174,10 +154,10 @@
                                         <asp:ListItem Text ="Deactive" Value="Deactive" Class="badge badge-pill badge-danger"/>
                                         </asp:DropDownList>
                                 </div>
-                            </div>
-                        </div>
-                   </div>
-              <hr/>
+                           </div>
+                            <br />
+                        </center>
+                     </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" ID="Button2" class="btn btn-default" data-dismiss="modal">Close</button>

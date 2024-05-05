@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/landing.Master" AutoEventWireup="true" CodeBehind="house1.aspx.cs" Inherits="HouseRental.house1" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/landing.Master" AutoEventWireup="true" CodeBehind="house.aspx.cs" Inherits="HouseRental.house1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -15,8 +15,11 @@
         </div>
       </div>
     </div>
-
-    <section class="ftco-section">
+<!-- ============================================================== -->
+<!-- end pageheader  -->
+<!-- ============================================================== -->   
+    
+    <section class="ftco-section" style="margin-left: 15%; margin-right: 20%;">
       <div class="container">
         <div class="row">
           <div class="col-lg-8">
@@ -34,23 +37,73 @@
           				</div>
           			</div>
           		</div>
+                  
           		<div class="col-md-12 room-single mt-4 mb-5 ftco-animate">
-          			<h2 class="mb-4">Luxury Room <span>- (4 Available rooms)</span></h2>
-    						<p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way.</p>
-    						<div class="d-md-flex mt-5 mb-5">
-    							<ul class="list">
-	    							<li><span>Max:</span> 3 Persons</li>
-	    							<li><span>Size:</span> 45 m2</li>
-	    						</ul>
-	    						<ul class="list ml-md-5">
-	    							<li><span>View:</span> Sea View</li>
-	    							<li><span>Bed:</span> 1</li>
-	    						</ul>
-    						</div>
-    						<p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way.</p>
+                      <tr>
+        <td><asp:Label ID="lblStatus" runat="server" ></asp:Label></td><br /><br />
+</tr>
+<tr>
+        <td><h1><asp:Label ID="lblName" runat="server" ></asp:Label></h1></td>
+    </tr>
+                      <tr>
+        <td><asp:Label ID="lblHousetype" runat="server"></asp:Label></td><br /><br />
+    </tr>
+<tr>
+    <tr>
+        <h3>
+        <td><b>RM </b></td>
+        <td><asp:Label ID="lblRentprice" runat="server"></asp:Label></td>
+        <td><b> / mo </b></td><br /><br />
+        </h3>
+    </tr>
+    <hr>
+    </hr><br />
+        <td><h2><asp:Label ID="lblAddress" runat="server"></asp:Label></h2></td><br />
+    </tr>
+                      <div class="row">
+                            <div class="col-md-6">
+    <tr>
+        <td><b>Postcode: </b></td>
+        <td><asp:Label ID="lblPostcode" runat="server"></asp:Label></td><br /><br />
+    </tr>
+                        </div>
+                          <div class="col-md-6">
+<tr>
+        <td><b>City: </b></td>
+        <td><asp:Label ID="lblCity" runat="server"></asp:Label></td><br /><br />
+    </tr>
+                              </div>
+                          </div><hr>
+    </hr><br />
+    <tr>
+        <td><b>Description: </b></td><br />
+        <td><asp:Label ID="lblDescription" runat="server"></asp:Label></td><br /><br />
+    </tr>
+                      
+    <hr>
+    </hr><br />
+<tr>
+        <td><b>Accommodation</b></td><br />
+        <td><asp:Label ID="lblAccommodation" runat="server"></asp:Label></td><br /><br />
+    </tr>           
+    <hr>
+    </hr><br />
+    
+<tr>
+        <td><b>Duration</b></td><br />
+        <td><asp:Label ID="lblDuration" runat="server"></asp:Label></td><br /><br />
+    </tr><hr>
+    </hr><br />
+                      <tr>
+        <td><b>Landlord</b></td><br />
+        <td><asp:Label ID="lblLandlord" runat="server"></asp:Label></td><br /><br />
+    </tr>
                       <p><a href="#" class="btn btn-secondary rounded">Book Appointment</a></p>
           		</div>
-          	
+
+<!-- ============================================================== -->
+<!-- end house details  -->
+<!-- ============================================================== -->            	
                   <div class="rd-reviews">
                         <h4>Reviews</h4>
                         <div class="review-item">
@@ -92,33 +145,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="review-add">
-                        <h4>Add Review</h4>
-                        <form action="#" class="ra-form">
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <input type="text" placeholder="Name*">
-                                </div>
-                                <div class="col-lg-6">
-                                    <input type="text" placeholder="Email*">
-                                </div>
-                                <div class="col-lg-12">
-                                    <div>
-                                        <h5>You Rating:</h5>
-                                        <div class="rating">
-                                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                                            <i class="fa-solid fa-star-half-stroke" style="color: #FFD43B;"></i>
-                                        </div>
-                                    </div>
-                                    <textarea placeholder="Your Review"></textarea>
-                                    <button type="submit">Submit Now</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
+<!-- ============================================================== -->
+<!-- end review  -->
+<!-- ============================================================== -->  
+                    
           				</div>
           			</div>
           		</div>

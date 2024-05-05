@@ -160,7 +160,37 @@
         opacity: 0.4;
     }
 </script>
-           
+
+            <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+
+     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css" />
+            <script>
+                function popimage(btn) {
+                    FromImage = $(btn)
+                    ToImage = $("#Image1")
+                    ToImage.attr("src", FromImage.attr("src"))
+
+                    pHeight = ($(window).height() * 0.96)
+                    pWidth = ($(window).width() * 0.80)
+
+                    myDialog = $("#imagepop");
+                    myDialog.dialog({
+                        title: "Image",
+                        modal: true,
+                        height: pHeight,
+                        width: pWidth,
+                        closeText: "",
+                        show: "fade",
+                        buttons: {
+
+                            Ok: function () {
+                                myDialog.dialog("close")
+                            }
+                        }
+                    })
+                }
+            </script>
         </div>
     </form>
 </body>

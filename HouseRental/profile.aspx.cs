@@ -40,19 +40,23 @@ namespace HouseRental
                     {
                         FileUpload1.Visible = true;
                         Label2.Visible = true;
+                        Label3.Visible = true;
+                        Label7.Visible = true;
+                        imgPhoto.Visible = true;
                     }
                     else
                     {
                         FileUpload1.Visible = false;
                         Label2.Visible = false;
+                        Label3.Visible = false;
+                        Label7.Visible = false;
+                        imgPhoto.Visible = false;
                     }
                     getUserData();
 
                     if (!Page.IsPostBack)
                     {
                         getUserPersonalDetails();
-                        GridView1.PreRender += new EventHandler(GridView1_PreRender);
-                        bind();
                     }
                 }
             }
@@ -60,6 +64,16 @@ namespace HouseRental
             {
                 Response.Write("<script>alert('Session expired, login again.');</script>");
                 Response.Redirect("login.aspx");
+            }
+        }
+
+        protected void OnRowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                DataRowView dr = (DataRowView)e.Row.DataItem;
+                string imageUrl = "data:image/jpg;base64," + Convert.ToBase64String((byte[])dr["image"]);
+                (e.Row.FindControl("Image1") as Image).ImageUrl = imageUrl;
             }
         }
 
@@ -86,6 +100,7 @@ namespace HouseRental
                 {
                     con.Open();
                 }
+
                 SqlCommand cmd = new SqlCommand("UPDATE people SET name=@name, email=@email, contactnum=@contactnum, dateofbirth=@dateofbirth, gender=@gender, usertype=@usertype WHERE email='" + Session["email"].ToString().Trim() + "'", con);
 
                 cmd.Parameters.AddWithValue("@name", TextBox1.Text.Trim());
@@ -94,14 +109,17 @@ namespace HouseRental
                 cmd.Parameters.AddWithValue("@dateofbirth", TextBox4.Text.Trim());
                 cmd.Parameters.AddWithValue("@gender", DropDownList1.SelectedItem.Value);
                 cmd.Parameters.AddWithValue("@usertype", DropDownList2.SelectedItem.Value);
-                
+
                 int result = cmd.ExecuteNonQuery();
                 con.Close();
 
                 if (FileUpload1.HasFile)
                 {
-                    byte[] myphoto = FileUpload1.FileBytes;
-                    GridViewRow row = GridView1.SelectedRow;
+                    byte[] bytes;
+                    using (BinaryReader br = new BinaryReader(FileUpload1.PostedFile.InputStream))
+                    {
+                        bytes = br.ReadBytes(FileUpload1.PostedFile.ContentLength);
+                    }
                     if (con.State == ConnectionState.Closed)
                     {
                         con.Open();
@@ -111,14 +129,14 @@ namespace HouseRental
 
                     string insertUpload = "UPDATE proof SET proof=@proof, userID=@userID WHERE userID=@userID";
                     insertCmd = new SqlCommand(insertUpload, con);
-                    insertCmd.Parameters.AddWithValue("@proof", myphoto);
+                    insertCmd.Parameters.AddWithValue("@proof", bytes);
                     insertCmd.Parameters.AddWithValue("@userID", userID);
                     int exe = insertCmd.ExecuteNonQuery();
                     if (exe < 1)
                     {
                         string insertNew = "INSERT INTO proof (proof, userID) VALUES (@proof, @userID)";
                         insertCmd = new SqlCommand(insertNew, con);
-                        insertCmd.Parameters.AddWithValue("@proof", myphoto);
+                        insertCmd.Parameters.AddWithValue("@proof", bytes);
                         insertCmd.Parameters.AddWithValue("@userID", userID);
                         insertCmd.ExecuteNonQuery();
                         con.Close();
@@ -152,7 +170,7 @@ namespace HouseRental
                     con.Open();
                 }
 
-                SqlCommand cmd = new SqlCommand("SELECT * from people where email='" + Session["email"].ToString() + "';", con);
+                SqlCommand cmd = new SqlCommand("SELECT * from people LEFT JOIN proof ON people.ID = proof.userID where people.email='" + Session["email"].ToString() + "';", con);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
@@ -163,7 +181,7 @@ namespace HouseRental
                 TextBox4.Text = dt.Rows[0]["dateofbirth"].ToString();
                 DropDownList1.SelectedValue = dt.Rows[0]["gender"].ToString().Trim();
                 DropDownList2.SelectedValue = dt.Rows[0]["usertype"].ToString().Trim();
-
+                
                 Label1.Text = dt.Rows[0]["accountstatus"].ToString().Trim();
 
                 if (dt.Rows[0]["accountstatus"].ToString().Trim() == "Active")
@@ -182,6 +200,9 @@ namespace HouseRental
                 {
                     Label1.Attributes.Add("class", "badge badge-pill badge-info");
                 }
+                byte[] bytes = (byte[])dt.Rows[0]["proof"];
+                string base64String = Convert.ToBase64String(bytes, 0, bytes.Length);
+                imgPhoto.ImageUrl = "data:image/png;base64," + base64String;
 
             }
             catch (Exception ex)
@@ -214,30 +235,6 @@ namespace HouseRental
         protected void changepassword_Click(object sender, EventArgs e)
         {
             Response.Redirect("changepassword.aspx");
-        }
-
-        public void bind()
-        {
-            SqlConnection con = new SqlConnection("Data Source=LAPTOP-GAS8R8RV\\SQLEXPRESS;Initial Catalog=houserentalDB;Integrated Security=True");
-            con.Open();
-            
-            string query = "select * from proof";
-            SqlCommand cmd = new SqlCommand(query, con);
-            SqlDataAdapter adp = new SqlDataAdapter(cmd);
-            DataSet ds = new DataSet();
-            adp.Fill(ds);
-            con.Close();
-            GridView1.DataSource = ds.Tables[0];
-            GridView1.DataBind();
-        }
-
-        protected void GridView1_PreRender(object sender, EventArgs e)
-        {
-            if (GridView1.Rows.Count > 0)
-            {
-                GridView1.UseAccessibleHeader = true;
-                GridView1.HeaderRow.TableSection = TableRowSection.TableHeader;
-            }
         }
     }
 }

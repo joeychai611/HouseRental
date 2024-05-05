@@ -15,198 +15,75 @@
         </div>
       </div>
     </div>
+<!-- ============================================================== -->
+<!-- end pageheader  -->
+<!-- ============================================================== -->  
     <br />
-    <section class="rooms-section spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <div class="room-item">
-                        <img src="images/room/room-1.jpg" alt="">
-                        <div class="ri-text">
-                            <h4>Premium King Room</h4>
-                            <h3>159$<span>/Pernight</span></h3>
-                            <table>
-                                <tbody>
-                                    <tr>
-                                        <td class="r-o">Size:</td>
-                                        <td>30 ft</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="r-o">Capacity:</td>
-                                        <td>Max persion 3</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="r-o">Bed:</td>
-                                        <td>King Beds</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="r-o">Services:</td>
-                                        <td>Wifi, Television, Bathroom,...</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <a href="house1.aspx" class="primary-btn">More Details</a>
-                        </div>
+    <center>
+    <asp:TextBox ID="customSearchTextBox" runat="server"></asp:TextBox>
+<asp:Button ID="customSearchButton" runat="server" Text="Search" OnClick="customSearchButton_Click" /><p></p>
+        </center>
+    <br />
+<asp:Repeater ID="rpQuestions" runat="server">
+    <ItemTemplate>
+            <div style="border: 1px solid #D3D3D3; background-color: #FFFFFF; margin-left: 20%; margin-right: 20%;"> 
+                <div class="row">
+                            <div class="col-md-4">
+                <tr>
+                    <td >
+                        <asp:Image ID="image" ImageUrl='<%# Eval("image")%>' runat="server" style="max-height:100%;max-width:80%; border: 1px solid #D3D3D3;"/>
+                    </td>
+                    </div>
+                    <div class="col-md-8">
+                                                    <td>
+                                    <b><asp:Label ID="lblname" runat="server" Text='<%#Eval("hname") %>'>
+                                    </asp:Label></b><br />
+                                </td>
+                            
+                                <td>
+                                    <b><asp:Label ID="lblhousetype" runat="server" class="badge badge-pill badge-info" Text='<%#Eval("housetype") %>'>
+                                    </asp:Label></b><br />
+                                </td>
+                            
+                           
+                                <td>
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <asp:Label ID="Label2" class="text-primary" runat="server" Text='<%#Eval("city") %>'>
+                                    </asp:Label><br />
+                                </td>
+                           
+                                <td>
+                                    <b>RM <asp:Label ID="Label1" runat="server" Text='<%#Eval("rentprice") %>'>
+                                    </asp:Label> /mo</b><br />
+                                </td>
+                            
+                                <td>
+                                    <i class="fa-solid fa-square-plus"></i>
+                                    <asp:Label ID="Label3" runat="server" Text='<%#Eval("accommodation") %>'>
+                                    </asp:Label><br />
+                                </td>
+                            
+                                <td>
+                                    <br />
+                                    <asp:Button class="btn btn-primary rounded" Text="More Details" ID="Button1" runat="server" PostBackUrl='<%# string.Format("~/house.aspx?ID={0}&hname={1}&housetype={2}&address={3}&postcode={4}&city={5}&description={6}&accommodation={7}&rentprice={8}&duration={9}&status={10}&image={11}", HttpUtility.UrlEncode(Eval("ID").ToString()),HttpUtility.UrlEncode(Eval("hname").ToString()),HttpUtility.UrlEncode(Eval("housetype").ToString()),HttpUtility.UrlEncode(Eval("address").ToString()),HttpUtility.UrlEncode(Eval("postcode").ToString()),HttpUtility.UrlEncode(Eval("city").ToString()),HttpUtility.UrlEncode(Eval("description").ToString()),HttpUtility.UrlEncode(Eval("accommodation").ToString()),HttpUtility.UrlEncode(Eval("rentprice").ToString()),HttpUtility.UrlEncode(Eval("duration").ToString()),HttpUtility.UrlEncode(Eval("status").ToString()),HttpUtility.UrlEncode(Eval("image").ToString())) %>'>
+                                    </asp:Button>
+                                </td>
+                            </tr>
+                </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="room-item">
-                        <img src="images/room/room-2.jpg" alt="">
-                        <div class="ri-text">
-                            <h4>Deluxe Room</h4>
-                            <h3>159$<span>/Pernight</span></h3>
-                            <table>
-                                <tbody>
-                                    <tr>
-                                        <td class="r-o">Size:</td>
-                                        <td>30 ft</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="r-o">Capacity:</td>
-                                        <td>Max persion 5</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="r-o">Bed:</td>
-                                        <td>King Beds</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="r-o">Services:</td>
-                                        <td>Wifi, Television, Bathroom,...</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <a href="house1.aspx" class="primary-btn">More Details</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="room-item">
-                        <img src="images/room/room-3.jpg" alt="">
-                        <div class="ri-text">
-                            <h4>Double Room</h4>
-                            <h3>159$<span>/Pernight</span></h3>
-                            <table>
-                                <tbody>
-                                    <tr>
-                                        <td class="r-o">Size:</td>
-                                        <td>30 ft</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="r-o">Capacity:</td>
-                                        <td>Max persion 2</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="r-o">Bed:</td>
-                                        <td>King Beds</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="r-o">Services:</td>
-                                        <td>Wifi, Television, Bathroom,...</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <a href="house1.aspx" class="primary-btn">More Details</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="room-item">
-                        <img src="images/room/room-4.jpg" alt="">
-                        <div class="ri-text">
-                            <h4>Luxury Room</h4>
-                            <h3>159$<span>/Pernight</span></h3>
-                            <table>
-                                <tbody>
-                                    <tr>
-                                        <td class="r-o">Size:</td>
-                                        <td>30 ft</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="r-o">Capacity:</td>
-                                        <td>Max persion 1</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="r-o">Bed:</td>
-                                        <td>King Beds</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="r-o">Services:</td>
-                                        <td>Wifi, Television, Bathroom,...</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <a href="house1.aspx" class="primary-btn">More Details</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="room-item">
-                        <img src="images/room/room-5.jpg" alt="">
-                        <div class="ri-text">
-                            <h4>Room With View</h4>
-                            <h3>159$<span>/Pernight</span></h3>
-                            <table>
-                                <tbody>
-                                    <tr>
-                                        <td class="r-o">Size:</td>
-                                        <td>30 ft</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="r-o">Capacity:</td>
-                                        <td>Max persion 1</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="r-o">Bed:</td>
-                                        <td>King Beds</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="r-o">Services:</td>
-                                        <td>Wifi, Television, Bathroom,...</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <a href="house1.aspx" class="primary-btn">More Details</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="room-item">
-                        <img src="images/room/room-6.jpg" alt="">
-                        <div class="ri-text">
-                            <h4>Small View</h4>
-                            <h3>159$<span>/Pernight</span></h3>
-                            <table>
-                                <tbody>
-                                    <tr>
-                                        <td class="r-o">Size:</td>
-                                        <td>30 ft</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="r-o">Capacity:</td>
-                                        <td>Max persion 2</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="r-o">Bed:</td>
-                                        <td>King Beds</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="r-o">Services:</td>
-                                        <td>Wifi, Television, Bathroom,...</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <a href="house1.aspx" class="primary-btn">More Details</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-12">
+        <br />
+        </ItemTemplate>
+    
+</asp:Repeater>
+<!-- ============================================================== -->
+<!-- end repeater  -->
+<!-- ============================================================== -->   
+    <div class="col-lg-12">
                     <div class="room-pagination">
-                        <a href="#">1</a>
-                        <a href="#">2</a>
-                        <a href="#">Next <i class="fa fa-long-arrow-right"></i></a>
+                        <asp:LinkButton ID="LinkButton1" class="fa-solid fa-chevron-left" OnClick="LinkButton1_Click" runat="server"></asp:LinkButton>
+                        <asp:LinkButton ID="LinkButton2" class="fa-solid fa-chevron-right" OnClick="LinkButton2_Click" runat="server"></asp:LinkButton>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
+    <br />
 </asp:Content>

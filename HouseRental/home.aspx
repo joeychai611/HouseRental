@@ -40,68 +40,17 @@
     			<div class="col-lg-12">
     				<form action="#" class="booking-form aside-stretch">
 	        		<div class="row">
-	        			<div class="col-md d-flex py-md-4">
+	        			<div class="col-md-3 d-flex py-md-5" style="margin-left: 30%;">
 	        				<div class="form-group align-self-stretch d-flex align-items-end">
-	        					<div class="wrap align-self-stretch py-3 px-4">
-				    					<label for="#">Rent Date</label>
-				    					<input type="text" class="form-control checkin_date" placeholder="Check-in date">
+	        					<div class="wrap py-3 px-4">
+				    					<input type="text" class="form-control" placeholder="Location">
 			    					</div>
 			    				</div>
 	        			</div>
-	        			<div class="col-md d-flex py-md-4">
-	        				<div class="form-group align-self-stretch d-flex align-items-end">
-	        					<div class="wrap align-self-stretch py-3 px-4">
-				    					<label for="#">Duration</label>
-				    					<div class="form-field">
-			        					<div class="select-wrap">     
-			                    <select name="" id="" class="form-control">
-			                      <option value="">3 months</option>
-			                      <option value="">6 months</option>
-			                      <option value="">1 year</option>
-			                    </select>
-			                  </div>
-				              </div>
-			    					</div>
-			    				</div>
-	        			</div>
-	        
-	        			<div class="col-md d-flex py-md-4">
-	        				<div class="form-group align-self-stretch d-flex align-items-end">
-	        					<div class="wrap align-self-stretch py-3 px-4">
-			      					<label for="#">House Type</label>
-			      					<div class="form-field">
-			        					<div class="select-wrap">
-			                    <select name="" id="" class="form-control">
-			                      <option value="">Apartment</option>
-			                      <option value="">Condominium</option>
-			                      <option value="">Terrace House</option>
-			                    </select>
-			                  </div>
-				              </div>
-				            </div>
-		              </div>
-	        			</div>
-						<div class="col-md d-flex py-md-4">
-	        				<div class="form-group align-self-stretch d-flex align-items-end">
-	        					<div class="wrap align-self-stretch py-3 px-4">
-			      					<label for="#">Monthly Price Range</label>
-			      					<div class="form-field">
-			        					<div class="select-wrap">
-			                    <select name="" id="" class="form-control">
-			                      <option value="">RM100-200</option>
-			                      <option value="">RM200-300</option>
-			                      <option value="">RM300-400</option>
-								  <option value="">RM400-500</option>
-			                    </select>
-			                  </div>
-				              </div>
-				            </div>
-		              </div>
-	        			</div>
-
-	        			<div class="col-md d-flex">
+	        			
+	        			<div class="col-md-2 py-md-4">
 	        				<div class="form-group d-flex align-self-stretch">
-			              <a href="houselist.aspx" class="btn btn-primary py-5 py-md-10 px-4 align-self-stretch d-block"><span><br />Check Availability</span></a>
+			              <a href="houselist.aspx" class="btn btn-primary py-5 py-md-10 px-4 align-self-stretch d-block"><span>Search House</span></a>
 			            </div>
 	        			</div>
 	        		</div>
@@ -111,6 +60,10 @@
     	</div>
     </section>
 
+    <center>
+    <asp:TextBox ID="customSearchTextBox" runat="server"></asp:TextBox>
+<asp:Button ID="customSearchButton" runat="server" Text="Search" OnClick="customSearchButton_Click" /><p></p>
+        </center>
 
 		<section class="ftco-section">
       <div class="container">
