@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -14,17 +13,24 @@ namespace HouseRental
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Page.IsPostBack)
+            if (Session["email"] == null || string.IsNullOrEmpty(Session["email"].ToString()))
             {
-                string[] filePaths = Directory.GetFiles(Server.MapPath("~/Proof/"));
-                List<ListItem> files = new List<ListItem>();
-                foreach (string filePath in filePaths)
+                Response.Write("<script>alert('Session expired, login again.');</script>");
+                Response.Redirect("login.aspx");
+            }
+            else
+            {
+                SqlConnection con = new SqlConnection("Data Source=LAPTOP-GAS8R8RV\\SQLEXPRESS;Initial Catalog=houserentalDB;Integrated Security=True");
+                if (con.State == ConnectionState.Closed)
                 {
-                    string fileName = Path.GetFileName(filePath);
-                    files.Add(new ListItem(fileName, "~/Proof/" + fileName));
+                    con.Open();
                 }
-                rptFiles.DataSource = files;
-                rptFiles.DataBind();
+                SqlCommand cmd = new SqlCommand("SELECT * from people where email='" + Session["email"].ToString() + "';", con);
+                int adminID = Convert.ToInt32(cmd.ExecuteScalar());
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                Session.Add("ID", adminID);
             }
         }
 
@@ -37,6 +43,16 @@ namespace HouseRental
                 {
                     ((LinkButton)control).OnClientClick = "return confirm('Are you confirm to delete?');";
                 }
+
+                TextBox status = e.Row.Cells[4].FindControl("status") as TextBox;
+                if (e.Row.Cells[4].Text == "Active")
+                {
+                    e.Row.Cells[4].CssClass = "badge badge-pill badge-success";
+                }
+                if (e.Row.Cells[4].Text == "Deactive")
+                {
+                    e.Row.Cells[4].CssClass = "badge badge-pill badge-danger";
+                }
             }
         }
 
@@ -47,6 +63,7 @@ namespace HouseRental
             TextBox3.Text = GridView2.SelectedRow.Cells[3].Text;
             DropDownList3.SelectedValue = GridView2.SelectedRow.Cells[4].Text;
             ModalPopupExtender1.Show();
+            getUserPersonalDetails();
         }
 
         protected void Save(object sender, EventArgs e)
@@ -58,7 +75,6 @@ namespace HouseRental
                 {
                     con.Open();
                 }
-
                 SqlCommand cmd = new SqlCommand("UPDATE people SET name=@name, email=@email, contactnum=@contactnum, dateofbirth=@dateofbirth, gender=@gender, usertype=@usertype,accountstatus=@accountstatus WHERE email='" + TextBox2.Text + "'", con);
 
                 cmd.Parameters.AddWithValue("@name", TextBox1.Text.Trim());
@@ -86,35 +102,38 @@ namespace HouseRental
             catch (Exception ex)
             {
                 Response.Write("<script>alert('" + ex.Message + "');</script>");
+
             }
         }
 
-        protected void View(object sender, EventArgs e)
+        void getUserPersonalDetails()
         {
-            imgFile.ImageUrl = string.Empty;
-            ltEmbed.Text = string.Empty;
-            string fileName = (sender as LinkButton).CommandArgument;
-            string extension = Path.GetExtension(fileName);
-            switch (extension.ToLower())
+            try
             {
-                case ".png":
-                case ".jpg":
-                case ".jpeg":
-                case ".gif":
-                    imgFile.ImageUrl = "~/Proof/" + fileName;
-                    break;
-                case ".pdf":
-                    string embed = "<object data=\"{0}\" type=\"application/pdf\" width=\"300px\" height=\"200px\">";
-                    embed += "If you are unable to view file, you can download from <a href = \"{0}\">here</a>";
-                    embed += " or download <a target = \"_blank\" href = \"http://get.adobe.com/reader/\">Adobe PDF Reader</a> to view the file.";
-                    embed += "</object>";
-                    ltEmbed.Text = string.Format(embed, ResolveUrl("~/Proof/" + fileName));
-                    break;
-                default:
-                    break;
+                SqlConnection con = new SqlConnection("Data Source=LAPTOP-GAS8R8RV\\SQLEXPRESS;Initial Catalog=houserentalDB;Integrated Security=True");
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+
+                SqlCommand cmd = new SqlCommand("SELECT * from people where email='" + TextBox2.Text.Trim() + "';", con);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                TextBox1.Text = dt.Rows[0]["name"].ToString();
+                TextBox2.Text = dt.Rows[0]["email"].ToString();
+                TextBox3.Text = dt.Rows[0]["contactnum"].ToString();
+                TextBox4.Text = dt.Rows[0]["dateofbirth"].ToString();
+                DropDownList1.SelectedValue = dt.Rows[0]["gender"].ToString().Trim();
+                DropDownList2.SelectedValue = dt.Rows[0]["usertype"].ToString().Trim();
+                DropDownList3.SelectedValue = dt.Rows[0]["accountstatus"].ToString().Trim();
+                TextBox5.Text = dt.Rows[0]["ic"].ToString();
             }
-            imgFile.Visible = !string.IsNullOrEmpty(imgFile.ImageUrl);
-            ltEmbed.Visible = !string.IsNullOrEmpty(ltEmbed.Text);
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('" + ex.Message + "');</script>");
+            }
         }
     }
 }

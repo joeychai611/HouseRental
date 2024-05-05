@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -35,11 +37,6 @@ namespace HouseRental
             }
         }
 
-        protected void LinkButton4_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("login.aspx");
-        }
-
         //logout
         protected void LinkButton5_Click(object sender, EventArgs e)
         {
@@ -59,7 +56,18 @@ namespace HouseRental
 
         protected void LinkButton6_Click(object sender, EventArgs e)
         {
-            Response.Redirect("profile.aspx");
+            if (Session["usertype"].ToString() == "Student")
+            {
+                Response.Redirect("sdashboard.aspx");
+            }
+            else if (Session["usertype"].ToString() == "Landlord")
+            {
+                Response.Redirect("ldashboard.aspx");
+            }
+            else
+            {
+                Response.Redirect("admindashboard.aspx");
+            }
         }
     }
 }

@@ -10,7 +10,7 @@
 
 namespace HouseRental
 {
-    public partial class house1
+    public partial class manageAppointment
     {
     }
 }

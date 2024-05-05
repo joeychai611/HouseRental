@@ -34,7 +34,7 @@
                                 <center>
                                     <h4>Your Profile</h4>
                                     <span>Account Status - </span>
-                                    <asp:Label class="badge badge-pill badge-info" ID="Label1" runat="server" Text="Your status"></asp:Label>
+                                    <asp:Label class="badge badge-pill badge-info" ID="Label1" runat="server"></asp:Label>
                                 </center>
                             </div>
                         </div>
@@ -48,7 +48,7 @@
                             <div class="col-md-6">
                                 <label>Full Name</label>
                                 <div class="form-group">
-                                    <asp:TextBox CssClass="form-control" ID="TextBox1" runat="server"></asp:TextBox>                                
+                                    <asp:TextBox CssClass="form-control" ID="TextBox1" runat="server" ReadOnly="True"></asp:TextBox>                                
                                 </div>
                             </div>
                         <div class="col-md-6">
@@ -67,14 +67,20 @@
                                 </div>
                                 </div>
                             <div class="col-md-6">
-                                <label>Date of Birth</label>
+                                <label>IC</label>
                                 <div class="form-group">
-                                    <asp:TextBox CssClass="form-control" ID="TextBox4" runat="server" TextMode="Date"></asp:TextBox>   
+                                    <asp:TextBox CssClass="form-control" ID="TextBox5" runat="server"></asp:TextBox>   
                                 </div>
                             </div>
                         </div>
 
                         <div class="row">
+                            <div class="col-md-6">
+                                <label>Date of Birth</label>
+                                <div class="form-group">
+                                    <asp:TextBox CssClass="form-control" ID="TextBox4" runat="server" TextMode="Date"></asp:TextBox>   
+                                </div>
+                            </div>
                             <div class="col-md-6">
                                 <label>Gender</label>
                                 <div class="form-group">
@@ -84,8 +90,12 @@
                                         </asp:DropDownList>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <label>User Type</label>
+                        </div>
+
+                        <div class="row">
+                     <div class="col-8 mx-auto">
+                        <center>
+                             <label>User Type</label>
                                 <div class="form-group">
                                     <asp:DropDownList class="form-control" ID="DropDownList2" Enabled="False" runat="server">
                                         <asp:ListItem Text ="Student" Value="Student" />
@@ -93,33 +103,40 @@
                                          <asp:ListItem Text ="Admin" Value="Admin" />
                                     </asp:DropDownList>
                                 </div>
-                            </div>
-                        </div>
-                        
+
+                        </center>
+                     </div>
+                      <div class="col-8 mx-auto">
+                                            <center><br />
+                                                <asp:Label ID="Label7" Text="Images" runat="server"></asp:Label>
+                                                <div class="form-group">
+                                                    <asp:ImageButton ID="imgPhoto" OnClientClick ="popimage(this);return false" style="max-height:100%;max-width:80%; border: 1px solid #D3D3D3;" runat="server" />
+                                                    <div id="dialog" style="display: none"></div>
+                                            </div>
+                                            </center>
+                                        </div>
+                  </div>
+
+
                   <div class="row">
                      <div class="col-8 mx-auto">
                         <center>
-                            <asp:Label ID="Label2" Text="Proof" runat="server"></asp:Label>
-                                <asp:FileUpload onchange="readURL(this);" class="form-control" ID="FileUpload1" runat="server"/>
-                            <br />
-                           <div class="form-group">
-                              <asp:Button class="btn btn-primary btn-block btn-lg" ID="Button1" runat="server" Text="Update" OnClick="Button1_Click" />
+                            <div class="form-group"><br />
+                                <asp:Label ID="Label2" Text="Matric Card" runat="server"></asp:Label><br />
+                                <asp:FileUpload ID="FileUpload1" AllowMultiple="true" runat="server" /><br />
+                            <asp:Label ID="Label3" Text="Only JPG, JPEG and PNG files" runat="server"></asp:Label>
                            </div>
+                            <br />
+                            
+                              <asp:Button class="btn btn-primary btn-block btn-lg" ID="Button2" runat="server" Text="Update" OnClick="Button1_Click" />
                         </center>
                      </div>
                   </div>
-
-                        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False">
-                    <Columns>
-                       <asp:TemplateField HeaderText="Photo">
-                            <ItemTemplate>
-                                <asp:Image Width="100px" ID="Image1" ImageUrl='<%# String.Format("PhotoHandler.ashx?ID={0}", Eval("ID")) %>' runat="server" />
-                        </ItemTemplate>
-                           </asp:TemplateField>
-                    </Columns>
-    </asp:GridView>
-
+                        <div id="imagepop" style="display:none;text-align:center;height:80%">
+                    <asp:Image ID="Image1" runat="server" ClientIDMode="Static" style="height:96%"/>
+                </div>
                         <div>
+                            <br />
                             <center>
                              <asp:LinkButton ID="changepassword" runat="server" onclick="changepassword_Click">Change Password</asp:LinkButton> 
                             </center>

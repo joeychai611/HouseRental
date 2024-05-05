@@ -7,7 +7,7 @@
     <title></title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
     <link href="assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
     <link href="fontawesome/css/all.css" rel="stylesheet" />
 
-        <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
     <link rel="stylesheet" href="css/animate.css">
@@ -63,8 +63,8 @@
     <link rel="stylesheet" href="css/style.css">
     <link href="fontawesome/css/all.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.datatables.net/2.0.3/css/dataTables.dataTables.css" />
-
-    <asp:ContentPlaceHolder ID="head" runat="server">
+    
+<asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
@@ -90,17 +90,24 @@
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 </li>
                 <li class="nav-item active">
-                    <asp:LinkButton class="navlink" ID="LinkButton4" runat="server" OnClick="LinkButton4_Click"><b>Login</b></asp:LinkButton>
+                    <asp:LinkButton class="navlink" ID="LinkButton4" runat="server" href="login.aspx"><b>Login</b></asp:LinkButton>
                 </li>
                 <li class="nav-item active">
                     <asp:LinkButton class="navlink" ID="LinkButton5" runat="server" OnClick="LinkButton5_Click" Visible="False"><b>Log Out</b></asp:LinkButton>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 </li>
                 <li class="nav-item active">
-                    <asp:LinkButton class="navlink" ID="LinkButton6" runat="server" OnClick="LinkButton6_Click" Visible="False"><b>Hello User</b></asp:LinkButton>
+                    <asp:LinkButton class="navlink" ID="LinkButton6" runat="server" OnClick="LinkButton6_Click" Visible="False"></asp:LinkButton>
                 </li>
 	        </ul>
-              
+              <asp:TextBox CssClass="form-control" ID="TextBox2" runat="server" Visible="false"></asp:TextBox>
+              <asp:TextBox ID="txtLatitude" runat="server" Width="200" Visible="false" />
+              <asp:TextBox ID="txtLongitude" runat="server" Width="200" Visible="false" />
+              <asp:TextBox CssClass="form-control" ID="TextBox8" runat="server" Visible="false"></asp:TextBox>
+              <asp:TextBox ID="TextBox15" runat="server" Width="200" Visible="false" />
+              <asp:TextBox ID="TextBox16" runat="server" Width="200" Visible="false" />
+                                        
+                                                
 	      </div>
 	    </div>
 	  </nav>
@@ -137,16 +144,10 @@
   <script src="js/jquery.animateNumber.min.js"></script>
   <script src="js/bootstrap-datepicker.js"></script>
   <script src="js/scrollax.min.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
   <script src="https://cdn.datatables.net/2.0.3/js/dataTables.js"></script>
-
-<script>
-    $(document).ready(function () {
-            $(".table").prepend($("<thead></thead>").append($(this).find("tr:first"))).dataTable();
-    });
-</script>
 
 <script type="text/javascript">
     function ShowPopup() {
@@ -159,9 +160,65 @@
         filter: alpha(opacity = 40);
         opacity: 0.4;
     }
+
 </script>
-           
+
+     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css" />
+            <script>
+                function popimage(btn) {
+                    FromImage = $(btn)
+                    ToImage = $("#Image1")
+                    ToImage.attr("src", FromImage.attr("src"))
+
+                    pHeight = ($(window).height() * 0.96)
+                    pWidth = ($(window).width() * 0.80)
+
+                    myDialog = $("#imagepop");
+                    myDialog.dialog({
+                        title: "Image",
+                        modal: true,
+                        height: pHeight,
+                        width: pWidth,
+                        closeText: "",
+                        show: "fade",
+                        buttons: {
+
+                            Ok: function () {
+                                myDialog.dialog("close")
+                            }
+                        }
+                    })
+                }
+            </script>
+
+            <script>
+                $(document).ready(function () {
+                    $(".table").prepend($("<thead></thead>").append($(this).find("tr:first"))).dataTable();
+                });
+            </script>
+
+            <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places&key=AIzaSyA2wuf6sUkJ13LDUMV4KiJEpKHO4TK03oU"></script>
+<script type="text/javascript">
+    google.maps.event.addDomListener(window, 'load', function () {
+        var places = new google.maps.places.Autocomplete(document.getElementById('<%=TextBox8.ClientID %>'));
+        google.maps.event.addListener(places, 'place_changed', function () {
+            var place = places.getPlace();
+            document.getElementById('<%=TextBox8.ClientID %>').value = place.formatted_address;
+            document.getElementById('<%=TextBox15.ClientID %>').value = place.geometry.location.lat();
+            document.getElementById('<%=TextBox16.ClientID %>').value = place.geometry.location.lng();
+        });
+    });
+</script>
+<style>
+    .pac-container {
+        z-index: 20000 !important;
+    }
+</style>    
+
+  </div>
+
         </div>
+
     </form>
 </body>
 </html>

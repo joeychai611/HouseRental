@@ -1,13 +1,13 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/admin.master" AutoEventWireup="true" CodeBehind="managelandlord.aspx.cs" Inherits="HouseRental.managelandlord" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-    <br />
      <!-- ============================================================== -->
 	    <!-- wrapper  -->
 	    <!-- ============================================================== -->
 	    <div class="dashboard-wrapper">
 	        <div class="dashboard-influence">
 	            <div class="container-fluid dashboard-content">
+
         <!-- ============================================================== -->    
             <!-- ============================================================== -->
 	                <!-- pageheader  -->
@@ -53,7 +53,7 @@
                          <asp:GridView class="table table-striped table-bordered" ID="GridView2" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" DataKeyNames="ID" OnRowDataBound="GridView2_RowDataBound" CellPadding="4" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView2_SelectedIndexChanged" >
                              <AlternatingRowStyle BackColor="White" />
                             <Columns>
-                                <asp:BoundField DataField="ID" HeaderText="ID" SortExpression="ID" InsertVisible="False" ReadOnly="True" />
+                                <asp:BoundField DataField="ID" HeaderText="ID" SortExpression="ID" InsertVisible="False" ReadOnly="True" Visible="false" />
                                 <asp:BoundField DataField="name" HeaderText="Name" SortExpression="name" />
                                 <asp:BoundField DataField="email" HeaderText="Email" SortExpression="email" />
 								<asp:BoundField DataField="contactnum" HeaderText="Contact" SortExpression="contactnum" /> 
@@ -85,24 +85,29 @@
                     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
                           <asp:Panel ID="Panel1" runat="server" Style="display:none">
 
-                     <div class="modal-dialog">
+                     <div class="modal-dialog modal-dialog-scrollable">
                     <div class="modal-content">
                         <div class="modal-header text-center">
+
                             <h4 class="modal-title w-100">Landlord</h4>
                         </div>
                         <div class="modal-body">
                              <div class="container">
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <label>Full Name</label>
                                 <div class="form-group">
-                                    <asp:TextBox CssClass="form-control" ID="TextBox1" runat="server"></asp:TextBox>                                
+                                    <asp:TextBox CssClass="form-control" ID="TextBox1" ReadOnly="True" runat="server"></asp:TextBox>                                
                                 </div>
                             </div>
-                        <div class="col-md-6">
+                        </div>
+
+                        <div class="row">
+                        <div class="col-md-12">
                             <label>Email Address</label>
                                 <div class="form-group">
-                                    <asp:TextBox CssClass="form-control" ID="TextBox2" runat="server" TextMode="Email" ReadOnly="True"></asp:TextBox>   
+                                    <asp:TextBox CssClass="form-control" ID="TextBox2" ReadOnly="True" runat="server" TextMode="Email"></asp:TextBox>   
+
                                 </div>
                                 </div>
                         </div>
@@ -111,18 +116,24 @@
                                 <div class="col-md-6">
                             <label>Contact Number</label>
                                 <div class="form-group">
-                                    <asp:TextBox CssClass="form-control" ID="TextBox3" runat="server"></asp:TextBox>   
+                                    <asp:TextBox CssClass="form-control" ID="TextBox3" ReadOnly="True" runat="server"></asp:TextBox>   
                                 </div>
                                 </div>
+                            <div class="col-md-6">
+                            <label>IC</label>
+                                <div class="form-group">
+                                    <asp:TextBox CssClass="form-control" ID="TextBox5" ReadOnly="True" runat="server"></asp:TextBox>   
+                                </div>
+                                </div>
+                        </div>
+
+                        <div class="row">
                             <div class="col-md-6">
                                 <label>Date of Birth</label>
                                 <div class="form-group">
                                     <asp:TextBox CssClass="form-control" ID="TextBox4" runat="server" placeholder="Date of Birth" TextMode="Date"></asp:TextBox>   
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="row">
                             <div class="col-md-6">
                                 <label>Gender</label>
                                 <div class="form-group">
@@ -132,7 +143,10 @@
                                         </asp:DropDownList>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                        </div>
+
+                                 <div class="row">
+                                     <div class="col-md-6">
                                 <label>User Type</label>
                                 <div class="form-group">
                                     <asp:DropDownList class="form-control" ID="DropDownList2" Enabled="False" runat="server">
@@ -140,60 +154,35 @@
                                     </asp:DropDownList>
                                 </div>
                             </div>
-                        </div>
-
-                                 <div class="row">
-                                     <div class="col-md-6">
-                                <label>Proof</label><br />
-                                <asp:Repeater runat="server" ID="rptFiles">
-                                <HeaderTemplate>
-                                    <table>
-                                </HeaderTemplate>
-                                    <ItemTemplate>
-                                        <tr>
-                                            <td>
-                                                <asp:LinkButton runat="server" OnClick="View" />
-                                            </td>
-                                        </tr>
-                                    </ItemTemplate>
-                                    <FooterTemplate>
-                                        </table>
-                                    </FooterTemplate>
-                                </asp:Repeater>
-                                <asp:Image ID="imgFile" runat="server" Height="100" Width="100" Visible="false" />
-                                <asp:Literal ID="ltEmbed" runat="server" Visible="false" />
-
-                            </div>
-
-                            <div class="col-md-6">
+                      <div class="col-md-6">
                                 <label>Status</label>
                                 <div class="form-group">
                                     <asp:DropDownList class="form-control" ID="DropDownList3" runat="server" CssClass="badge badge-pill badge-info">
                                         <asp:ListItem Text ="Active" Value="Active" Class="badge badge-pill badge-success" />
-                                        <asp:ListItem Text ="Pending" Value="Pending" Class="badge badge-pill badge-warning"/>
                                         <asp:ListItem Text ="Deactive" Value="Deactive" Class="badge badge-pill badge-danger"/>
                                         </asp:DropDownList>
                                 </div>
-                            </div>
-                        </div>
-                   </div>
-              <hr/>
+                            <br />
+                     </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" ID="Button2" class="btn btn-default" data-dismiss="modal">Close</button>
                             <asp:Button ID="Button1" class="btn btn-primary" runat="server" Text="Save" OnClick="Save" />
+
                         </div>
                     </div>
                     <!-- /.modal-content -->
                 </div>
                 <!-- /.modal-dialog -->
-                    </asp:Panel>
+</asp:Panel>
                     <asp:LinkButton ID="LinkButton1" Style="display:none" runat="server">LinkButton</asp:LinkButton>
                     <asp:Label ID="Label3" Style="display:none" runat="server" Text="Label"></asp:Label>
                     <ajaxToolkit:ModalPopupExtender ID="ModalPopupExtender1" TargetControlID="LinkButton1" PopupControlID="Panel1" CancelControlID="Button2" BackgroundCssClass="modalBackground" runat="server"></ajaxToolkit:ModalPopupExtender>
+					
 					<!-- ============================================================== -->
 	               <!-- end content  -->
 	               <!-- ============================================================== -->
 	                 </div>
 	             </div>
+            </div>
 </asp:Content>
