@@ -99,11 +99,7 @@
                   <div class="row">
                      <div class="col-8 mx-auto">
                         <center>
-                            <div class="form-group"><br />
-                                <asp:Label ID="Label2" Text="Matric Card" runat="server"></asp:Label><br />
-                                <asp:FileUpload ID="FileUpload1" AllowMultiple="true" runat="server" /><br />
-                            <asp:Label ID="Label3" Text="Only JPG, JPEG and PNG files" runat="server"></asp:Label>
-                           </div>
+
                             <br />
                             
                               <asp:Button class="btn btn-primary btn-block btn-lg" ID="Button1" runat="server" Text="Update" OnClick="Button1_Click" />

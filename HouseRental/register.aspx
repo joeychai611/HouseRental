@@ -44,13 +44,13 @@
                         
                         <div class="row">
                             <div class="col-md-6">
-                                <label>* Full Name</label>
+
                                 <div class="form-group">
                                     <asp:TextBox CssClass="form-control" ID="TextBox1" runat="server"></asp:TextBox>                                
                                 </div>
                             </div>
                         <div class="col-md-6">
-                            <label>* Email Address</label>
+
                                 <div class="form-group">
                                     <asp:TextBox CssClass="form-control" ID="TextBox2" runat="server" TextMode="Email"></asp:TextBox>   
                                 </div>
@@ -59,7 +59,7 @@
 
                         <div class="row">
                                 <div class="col-md-6">
-                            <label>* Contact Number</label>
+
                                 <div class="form-group">
                                     <asp:TextBox CssClass="form-control" ID="TextBox3" runat="server"></asp:TextBox>   
                                 </div>

@@ -86,9 +86,7 @@
                     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
                           <asp:Panel ID="Panel1" runat="server" Style="display:none">
 
-                              <div class="modal-dialog modal-dialog-scrollable">
-                    <div class="modal-content">
-                        <div class="modal-header text-center">
+
                             <h4 class="modal-title w-100">Student</h4>
                         </div>
                         <div class="modal-body">
@@ -144,11 +142,7 @@
                         </div>
 
                                  <div class="row">
-                                     <div class="col-md-6">
-                                <label>Proof</label><br />
-                                <asp:ImageButton ID="imgPhoto" OnClientClick ="popimage(this);return false" style="max-height:100%;max-width:80%; border: 1px solid #D3D3D3;" runat="server" />
-                                <div id="dialog" style="display: none"></div>
-                            </div>
+
 
                             <div class="col-md-6">
                                 <label>Status</label>
@@ -162,7 +156,7 @@
                             </div>
                         </div>
                    </div>
-              <hr/>
+
                         </div>
                         <div class="modal-footer">
                             <button type="button" ID="Button2" class="btn btn-default" data-dismiss="modal">Close</button>

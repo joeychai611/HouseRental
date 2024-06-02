@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.IO;
+
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -80,36 +80,5 @@ namespace HouseRental
             }
         }
 
-        void getUserPersonalDetails()
-        {
-            try
-            {
-                SqlConnection con = new SqlConnection("Data Source=LAPTOP-GAS8R8RV\\SQLEXPRESS;Initial Catalog=houserentalDB;Integrated Security=True");
-                if (con.State == ConnectionState.Closed)
-                {
-                    con.Open();
-                }
-
-                SqlCommand cmd = new SqlCommand("SELECT * from people LEFT JOIN proof ON people.ID = proof.userID where people.email='" + TextBox2.Text.Trim() + "';", con);
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-
-                TextBox1.Text = dt.Rows[0]["name"].ToString();
-                TextBox2.Text = dt.Rows[0]["email"].ToString();
-                TextBox3.Text = dt.Rows[0]["contactnum"].ToString();
-                TextBox4.Text = dt.Rows[0]["dateofbirth"].ToString();
-                DropDownList1.SelectedValue = dt.Rows[0]["gender"].ToString().Trim();
-                DropDownList2.SelectedValue = dt.Rows[0]["usertype"].ToString().Trim();
-                DropDownList3.SelectedValue = dt.Rows[0]["accountstatus"].ToString().Trim();
-                byte[] bytes = (byte[])dt.Rows[0]["proof"];
-                string base64String = Convert.ToBase64String(bytes, 0, bytes.Length);
-                imgPhoto.ImageUrl = "data:image/png;base64," + base64String;
-            }
-            catch (Exception ex)
-            {
-                Response.Write("<script>alert('" + ex.Message + "');</script>");
-            }
-        }
     }
 }
