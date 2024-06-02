@@ -34,7 +34,7 @@
 			<div class="card">
                <div class="card-body">
                   <div class="row">
-                      <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:houserentalDBConnectionString %>" SelectCommand="SELECT [ID], [name], [email], [contactnum], [accountstatus] FROM [people] WHERE ([usertype] = @usertype)" DeleteCommand="DELETE FROM [people] WHERE [ID] = @ID" InsertCommand="INSERT INTO [people] ([name], [email], [contactnum], [accountstatus]) VALUES (@name, @email, @contactnum, @accountstatus)" UpdateCommand="UPDATE [people] SET [name] = @name, [email] = @email, [contactnum] = @contactnum, [accountstatus] = @accountstatus WHERE [ID] = @ID">
+                      <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:houserentalDBConnectionString %>" SelectCommand="SELECT [ID], [name], [email], [contactnum], [dateofbirth], [gender], [accountstatus] FROM [people] WHERE ([usertype] = @usertype)" DeleteCommand="DELETE FROM [people] WHERE [ID] = @ID" InsertCommand="INSERT INTO [people] ([name], [email], [contactnum], [dateofbirth], [gender], [accountstatus]) VALUES (@name, @email, @contactnum, @dateofbirth, @gender, @accountstatus)" UpdateCommand="UPDATE [people] SET [name] = @name, [email] = @email, [contactnum] = @contactnum, [dateofbirth] = @dateofbirth, [gender]=@gender, [accountstatus] = @accountstatus WHERE [ID] = @ID">
                           <DeleteParameters>
                               <asp:Parameter Name="ID" Type="Int32" />
                           </DeleteParameters>
@@ -45,6 +45,8 @@
                               <asp:Parameter Name="name" Type="String" />
                               <asp:Parameter Name="email" Type="String" />
                               <asp:Parameter Name="contactnum" Type="String" />
+                              <asp:Parameter Name="dateofbirth" Type="String" />
+                              <asp:Parameter Name="gender" Type="String" />
                               <asp:Parameter Name="accountstatus" Type="String" />
                               <asp:Parameter Name="ID" Type="Int32" />
                           </UpdateParameters>
@@ -53,15 +55,13 @@
                          <asp:GridView class="table table-striped table-bordered" ID="GridView2" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" DataKeyNames="ID" OnRowDataBound="GridView2_RowDataBound" CellPadding="4" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView2_SelectedIndexChanged" >
                              <AlternatingRowStyle BackColor="White" />
                             <Columns>
-                                <asp:BoundField DataField="ID" HeaderText="ID" SortExpression="ID" InsertVisible="False" ReadOnly="True" />
+                                <asp:BoundField DataField="ID" HeaderText="ID" SortExpression="ID" InsertVisible="False" ReadOnly="True" Visible="false"/>
                                 <asp:BoundField DataField="name" HeaderText="Name" SortExpression="name" />
                                 <asp:BoundField DataField="email" HeaderText="Email" SortExpression="email" />
 								<asp:BoundField DataField="contactnum" HeaderText="Contact" SortExpression="contactnum" /> 
 								<asp:BoundField DataField="accountstatus" HeaderText="Status" SortExpression="accountstatus" />
                                 <asp:CommandField HeaderText="Action" ShowSelectButton="True" SelectText="<img src='images/EditButton.png'>" ShowDeleteButton="True" DeleteText="<img src='images/CancelButton.png'>"  >
                                 </asp:CommandField>
-
-
                             </Columns>
                              <EditRowStyle BackColor="#2461BF" />
                              <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -82,8 +82,10 @@
                   </div>
                </div>
             </div>
+                    <!-- ============================================================== -->
                     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
                           <asp:Panel ID="Panel1" runat="server" Style="display:none">
+
 
                             <h4 class="modal-title w-100">Student</h4>
                         </div>
@@ -108,7 +110,7 @@
                                 <div class="col-md-6">
                             <label>Contact Number</label>
                                 <div class="form-group">
-                                    <asp:TextBox CssClass="form-control" ID="TextBox3" runat="server"></asp:TextBox>   
+                                    <asp:TextBox CssClass="form-control" ID="TextBox3" runat="server" TextMode="Number"></asp:TextBox>   
                                 </div>
                                 </div>
                             <div class="col-md-6">
@@ -140,6 +142,7 @@
                         </div>
 
                                  <div class="row">
+
 
                             <div class="col-md-6">
                                 <label>Status</label>

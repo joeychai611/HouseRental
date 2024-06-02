@@ -2583,7 +2583,7 @@
     <Content Include="fonts\open-iconic\open-iconic.svg" />
     <Content Include="forgotpassword.aspx" />
     <Content Include="home.aspx" />
-    <Content Include="house1.aspx" />
+    <Content Include="house.aspx" />
     <Content Include="houselist.aspx" />
     <Content Include="images\about-1.jpg" />
     <Content Include="images\about-2.jpg" />
@@ -2659,6 +2659,7 @@
     <Content Include="js\popper.min.js" />
     <Content Include="js\range.js" />
     <Content Include="js\scrollax.min.js" />
+    <Content Include="landlordhouse.aspx" />
     <Content Include="ldashboard.aspx" />
     <Content Include="login.aspx" />
     <Content Include="managelandlord.aspx" />
@@ -2668,8 +2669,7 @@
     <Content Include="resetpassword.aspx" />
     <Content Include="sdashboard.aspx" />
     <Content Include="Web.config" />
-    <Content Include="WebForm1.aspx" />
-    <Content Include="WebForm2.aspx" />
+    <Content Include="managehouse.aspx" />
     <Content Include="WebForm3.aspx" />
     <Content Include="WebForm4.aspx" />
     <Content Include="WebForm5.aspx" />
@@ -2734,12 +2734,12 @@
     <Compile Include="home.aspx.designer.cs">
       <DependentUpon>home.aspx</DependentUpon>
     </Compile>
-    <Compile Include="house1.aspx.cs">
-      <DependentUpon>house1.aspx</DependentUpon>
+    <Compile Include="house.aspx.cs">
+      <DependentUpon>house.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="house1.aspx.designer.cs">
-      <DependentUpon>house1.aspx</DependentUpon>
+    <Compile Include="house.aspx.designer.cs">
+      <DependentUpon>house.aspx</DependentUpon>
     </Compile>
     <Compile Include="houselist.aspx.cs">
       <DependentUpon>houselist.aspx</DependentUpon>
@@ -2761,6 +2761,13 @@
     </Compile>
     <Compile Include="landlord.master.designer.cs">
       <DependentUpon>landlord.master</DependentUpon>
+    </Compile>
+    <Compile Include="landlordhouse.aspx.cs">
+      <DependentUpon>landlordhouse.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="landlordhouse.aspx.designer.cs">
+      <DependentUpon>landlordhouse.aspx</DependentUpon>
     </Compile>
     <Compile Include="ldashboard.aspx.cs">
       <DependentUpon>ldashboard.aspx</DependentUpon>
@@ -2837,19 +2844,12 @@
     <Compile Include="student.master.designer.cs">
       <DependentUpon>student.master</DependentUpon>
     </Compile>
-    <Compile Include="WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+    <Compile Include="managehouse.aspx.cs">
+      <DependentUpon>managehouse.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="WebForm2.aspx.cs">
-      <DependentUpon>WebForm2.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="WebForm2.aspx.designer.cs">
-      <DependentUpon>WebForm2.aspx</DependentUpon>
+    <Compile Include="managehouse.aspx.designer.cs">
+      <DependentUpon>managehouse.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebForm3.aspx.cs">
       <DependentUpon>WebForm3.aspx</DependentUpon>

@@ -24,7 +24,6 @@ namespace HouseRental
                 }
                 else
                 {
-
                     }
                 }
             }
@@ -32,6 +31,16 @@ namespace HouseRental
             {
                 Response.Write("<script>alert('Session expired, login again.');</script>");
                 Response.Redirect("login.aspx");
+            }
+        }
+
+        protected void OnRowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                DataRowView dr = (DataRowView)e.Row.DataItem;
+                string imageUrl = "data:image/jpg;base64," + Convert.ToBase64String((byte[])dr["image"]);
+                (e.Row.FindControl("Image1") as Image).ImageUrl = imageUrl;
             }
         }
 
@@ -60,12 +69,14 @@ namespace HouseRental
                 }
 
 
+
                 cmd.Parameters.AddWithValue("@name", TextBox1.Text.Trim());
                 cmd.Parameters.AddWithValue("@email", TextBox2.Text.Trim());
                 cmd.Parameters.AddWithValue("@contactnum", TextBox3.Text.Trim());
                 cmd.Parameters.AddWithValue("@dateofbirth", TextBox4.Text.Trim());
                 cmd.Parameters.AddWithValue("@gender", DropDownList1.SelectedItem.Value);
                 cmd.Parameters.AddWithValue("@usertype", DropDownList2.SelectedItem.Value);
+
 
                 if (result > 0)
                 {
@@ -94,7 +105,7 @@ namespace HouseRental
                     con.Open();
                 }
 
-                SqlCommand cmd = new SqlCommand("SELECT * from people where email='" + Session["email"].ToString() + "';", con);
+                SqlCommand cmd = new SqlCommand("SELECT * from people LEFT JOIN proof ON people.ID = proof.userID where people.email='" + Session["email"].ToString() + "';", con);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
@@ -105,7 +116,7 @@ namespace HouseRental
                 TextBox4.Text = dt.Rows[0]["dateofbirth"].ToString();
                 DropDownList1.SelectedValue = dt.Rows[0]["gender"].ToString().Trim();
                 DropDownList2.SelectedValue = dt.Rows[0]["usertype"].ToString().Trim();
-
+                
                 Label1.Text = dt.Rows[0]["accountstatus"].ToString().Trim();
 
                 if (dt.Rows[0]["accountstatus"].ToString().Trim() == "Active")
@@ -124,6 +135,9 @@ namespace HouseRental
                 {
                     Label1.Attributes.Add("class", "badge badge-pill badge-info");
                 }
+                byte[] bytes = (byte[])dt.Rows[0]["proof"];
+                string base64String = Convert.ToBase64String(bytes, 0, bytes.Length);
+                imgPhoto.ImageUrl = "data:image/png;base64," + base64String;
 
             }
             catch (Exception ex)
@@ -154,7 +168,6 @@ namespace HouseRental
         }
 
 
-            }
         }
     }
 }

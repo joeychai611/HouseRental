@@ -62,11 +62,6 @@
                         </div>
 
 
-                                </div>
-                            </div>
-                        </div>
-                   </div>
-
                         </div>
                     </div>
                     <!-- /.modal-content -->

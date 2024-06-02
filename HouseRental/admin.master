@@ -36,6 +36,9 @@
                                 </div>
                             </li>
                             <li class="nav-item ">
+                                <a class="nav-link" href="managehouse.aspx"><i class="fa-solid fa-house"></i>House</a>
+                            </li>
+                            <li class="nav-item ">
                                 <a class="nav-link" href="adminreport.aspx"><i class="fa-solid fa-chart-line"></i>Report</a>
                             </li>
                             <li class="nav-item ">

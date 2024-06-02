@@ -35,7 +35,9 @@ namespace HouseRental
             TextBox2.Text = GridView2.SelectedRow.Cells[2].Text;
             TextBox3.Text = GridView2.SelectedRow.Cells[3].Text;
             DropDownList3.SelectedValue = GridView2.SelectedRow.Cells[4].Text;
+            
             ModalPopupExtender1.Show();
+            getUserPersonalDetails();
         }
 
         protected void Save(object sender, EventArgs e)

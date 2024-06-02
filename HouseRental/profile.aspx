@@ -34,7 +34,7 @@
                                 <center>
                                     <h4>Your Profile</h4>
                                     <span>Account Status - </span>
-                                    <asp:Label class="badge badge-pill badge-info" ID="Label1" runat="server" Text="Your status"></asp:Label>
+                                    <asp:Label class="badge badge-pill badge-info" ID="Label1" runat="server"></asp:Label>
                                 </center>
                             </div>
                         </div>
@@ -101,23 +101,23 @@
                         <center>
 
                             <br />
-                           <div class="form-group">
+                            
                               <asp:Button class="btn btn-primary btn-block btn-lg" ID="Button1" runat="server" Text="Update" OnClick="Button1_Click" />
-                           </div>
                         </center>
                      </div>
+                      <div class="col-8 mx-auto">
+                                            <center><br />
+                                                <asp:Label ID="Label7" Text="Images" runat="server"></asp:Label>
+                                                <div class="form-group">
+                                                    <asp:ImageButton ID="imgPhoto" OnClientClick ="popimage(this);return false" style="max-height:100%;max-width:80%; border: 1px solid #D3D3D3;" runat="server" />
+                                                    <div id="dialog" style="display: none"></div>
+                                            </div>
+                                            </center>
+                                        </div>
                   </div>
-
-                        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False">
-                    <Columns>
-                       <asp:TemplateField HeaderText="Photo">
-                            <ItemTemplate>
-                                <asp:Image Width="100px" ID="Image1" ImageUrl='<%# String.Format("PhotoHandler.ashx?ID={0}", Eval("ID")) %>' runat="server" />
-                        </ItemTemplate>
-                           </asp:TemplateField>
-                    </Columns>
-    </asp:GridView>
-
+                        <div id="imagepop" style="display:none;text-align:center;height:80%">
+                    <asp:Image ID="Image1" runat="server" ClientIDMode="Static" style="height:96%"/>
+                </div>
                         <div>
                             <center>
                              <asp:LinkButton ID="changepassword" runat="server" onclick="changepassword_Click">Change Password</asp:LinkButton> 
