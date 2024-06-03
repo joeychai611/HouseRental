@@ -60,13 +60,39 @@ namespace HouseRental
         protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
 
         /// <summary>
+<<<<<<< HEAD
+        /// txtPlaces control.
+=======
         /// TextBox2 control.
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+<<<<<<< HEAD
+        protected global::System.Web.UI.WebControls.TextBox txtPlaces;
+
+        /// <summary>
+        /// txtLatitude control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtLatitude;
+
+        /// <summary>
+        /// txtLongitude control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtLongitude;
+=======
         protected global::System.Web.UI.WebControls.TextBox TextBox2;
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
 
         /// <summary>
         /// TextBox3 control.
@@ -285,6 +311,8 @@ namespace HouseRental
         protected global::System.Web.UI.WebControls.DropDownList DropDownList2;
 
         /// <summary>
+<<<<<<< HEAD
+=======
         /// TextBox13 control.
         /// </summary>
         /// <remarks>
@@ -303,6 +331,7 @@ namespace HouseRental
         protected global::System.Web.UI.WebControls.TextBox TextBox14;
 
         /// <summary>
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
         /// TextBox8 control.
         /// </summary>
         /// <remarks>
@@ -312,6 +341,27 @@ namespace HouseRental
         protected global::System.Web.UI.WebControls.TextBox TextBox8;
 
         /// <summary>
+<<<<<<< HEAD
+        /// TextBox15 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBox15;
+
+        /// <summary>
+        /// TextBox16 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBox16;
+
+        /// <summary>
+=======
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
         /// TextBox9 control.
         /// </summary>
         /// <remarks>

@@ -30,6 +30,7 @@ namespace HouseRental
                 cmdUpdate.ExecuteNonQuery();
                 con.Close();
                 Response.Write("<script>alert('Your account is activated successfully. Please login.');</script>");
+                Response.Redirect("login.aspx");
             }
             else
             {

@@ -87,6 +87,15 @@ namespace HouseRental
         protected global::System.Web.UI.WebControls.TextBox TextBox3;
 
         /// <summary>
+        /// TextBox5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBox5;
+
+        /// <summary>
         /// TextBox4 control.
         /// </summary>
         /// <remarks>
@@ -114,8 +123,11 @@ namespace HouseRental
         protected global::System.Web.UI.WebControls.DropDownList DropDownList2;
 
         /// <summary>
+<<<<<<< HEAD
+=======
 
 
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
         /// DropDownList3 control.
         /// </summary>
         /// <remarks>
@@ -123,6 +135,15 @@ namespace HouseRental
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DropDownList3;
+
+        /// <summary>
+        /// imgPhoto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton imgPhoto;
 
         /// <summary>
         /// Button1 control.

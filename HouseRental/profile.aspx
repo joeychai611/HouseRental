@@ -48,7 +48,7 @@
                             <div class="col-md-6">
                                 <label>Full Name</label>
                                 <div class="form-group">
-                                    <asp:TextBox CssClass="form-control" ID="TextBox1" runat="server"></asp:TextBox>                                
+                                    <asp:TextBox CssClass="form-control" ID="TextBox1" runat="server" ReadOnly="True"></asp:TextBox>                                
                                 </div>
                             </div>
                         <div class="col-md-6">
@@ -67,14 +67,20 @@
                                 </div>
                                 </div>
                             <div class="col-md-6">
-                                <label>Date of Birth</label>
+                                <label>IC</label>
                                 <div class="form-group">
-                                    <asp:TextBox CssClass="form-control" ID="TextBox4" runat="server" TextMode="Date"></asp:TextBox>   
+                                    <asp:TextBox CssClass="form-control" ID="TextBox5" runat="server"></asp:TextBox>   
                                 </div>
                             </div>
                         </div>
 
                         <div class="row">
+                            <div class="col-md-6">
+                                <label>Date of Birth</label>
+                                <div class="form-group">
+                                    <asp:TextBox CssClass="form-control" ID="TextBox4" runat="server" TextMode="Date"></asp:TextBox>   
+                                </div>
+                            </div>
                             <div class="col-md-6">
                                 <label>Gender</label>
                                 <div class="form-group">
@@ -84,8 +90,12 @@
                                         </asp:DropDownList>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <label>User Type</label>
+                        </div>
+
+                        <div class="row">
+                     <div class="col-8 mx-auto">
+                        <center>
+                             <label>User Type</label>
                                 <div class="form-group">
                                     <asp:DropDownList class="form-control" ID="DropDownList2" Enabled="False" runat="server">
                                         <asp:ListItem Text ="Student" Value="Student" />
@@ -93,16 +103,39 @@
                                          <asp:ListItem Text ="Admin" Value="Admin" />
                                     </asp:DropDownList>
                                 </div>
-                            </div>
-                        </div>
-                        
+
+                        </center>
+                     </div>
+                      <div class="col-8 mx-auto">
+                                            <center><br />
+                                                <asp:Label ID="Label7" Text="Images" runat="server"></asp:Label>
+                                                <div class="form-group">
+                                                    <asp:ImageButton ID="imgPhoto" OnClientClick ="popimage(this);return false" style="max-height:100%;max-width:80%; border: 1px solid #D3D3D3;" runat="server" />
+                                                    <div id="dialog" style="display: none"></div>
+                                            </div>
+                                            </center>
+                                        </div>
+                  </div>
+
+
                   <div class="row">
                      <div class="col-8 mx-auto">
                         <center>
+<<<<<<< HEAD
+                            <div class="form-group"><br />
+                                <asp:Label ID="Label2" Text="Matric Card" runat="server"></asp:Label><br />
+                                <asp:FileUpload ID="FileUpload1" AllowMultiple="true" runat="server" /><br />
+                            <asp:Label ID="Label3" Text="Only JPG, JPEG and PNG files" runat="server"></asp:Label>
+                           </div>
+                            <br />
+                            
+                              <asp:Button class="btn btn-primary btn-block btn-lg" ID="Button2" runat="server" Text="Update" OnClick="Button1_Click" />
+=======
 
                             <br />
                             
                               <asp:Button class="btn btn-primary btn-block btn-lg" ID="Button1" runat="server" Text="Update" OnClick="Button1_Click" />
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
                         </center>
                      </div>
                       <div class="col-8 mx-auto">
@@ -119,6 +152,7 @@
                     <asp:Image ID="Image1" runat="server" ClientIDMode="Static" style="height:96%"/>
                 </div>
                         <div>
+                            <br />
                             <center>
                              <asp:LinkButton ID="changepassword" runat="server" onclick="changepassword_Click">Change Password</asp:LinkButton> 
                             </center>

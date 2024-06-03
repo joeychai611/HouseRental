@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+<<<<<<< HEAD
+=======
 
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -14,7 +17,29 @@ namespace HouseRental
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+<<<<<<< HEAD
+            if (Session["email"] == null || string.IsNullOrEmpty(Session["email"].ToString()))
+            {
+                Response.Write("<script>alert('Session expired, login again.');</script>");
+                Response.Redirect("login.aspx");
+            }
+            else
+            {
+                SqlConnection con = new SqlConnection("Data Source=LAPTOP-GAS8R8RV\\SQLEXPRESS;Initial Catalog=houserentalDB;Integrated Security=True");
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+                SqlCommand cmd = new SqlCommand("SELECT * from people where email='" + Session["email"].ToString() + "';", con);
+                int adminID = Convert.ToInt32(cmd.ExecuteScalar());
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                Session.Add("ID", adminID);
+            }
+=======
 
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
         }
 
         protected void GridView2_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -26,6 +51,20 @@ namespace HouseRental
                 {
                     ((LinkButton)control).OnClientClick = "return confirm('Are you confirm to delete?');";
                 }
+
+                TextBox status = e.Row.Cells[4].FindControl("status") as TextBox;
+                if (e.Row.Cells[4].Text == "Pending")
+                {
+                    e.Row.Cells[4].CssClass = "badge badge-pill badge-warning";
+                }
+                if (e.Row.Cells[4].Text == "Active")
+                {
+                    e.Row.Cells[4].CssClass = "badge badge-pill badge-success";
+                }
+                if (e.Row.Cells[4].Text == "Deactive")
+                {
+                    e.Row.Cells[4].CssClass = "badge badge-pill badge-danger";
+                }
             }
         }
 
@@ -35,7 +74,11 @@ namespace HouseRental
             TextBox2.Text = GridView2.SelectedRow.Cells[2].Text;
             TextBox3.Text = GridView2.SelectedRow.Cells[3].Text;
             DropDownList3.SelectedValue = GridView2.SelectedRow.Cells[4].Text;
+<<<<<<< HEAD
+
+=======
             
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
             ModalPopupExtender1.Show();
             getUserPersonalDetails();
         }
@@ -80,5 +123,40 @@ namespace HouseRental
             }
         }
 
+<<<<<<< HEAD
+        void getUserPersonalDetails()
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection("Data Source=LAPTOP-GAS8R8RV\\SQLEXPRESS;Initial Catalog=houserentalDB;Integrated Security=True");
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+
+                SqlCommand cmd = new SqlCommand("SELECT * from people LEFT JOIN proof ON people.ID = proof.userID where people.email='" + TextBox2.Text.Trim() + "';", con);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                TextBox1.Text = dt.Rows[0]["name"].ToString();
+                TextBox2.Text = dt.Rows[0]["email"].ToString();
+                TextBox3.Text = dt.Rows[0]["contactnum"].ToString();
+                TextBox4.Text = dt.Rows[0]["dateofbirth"].ToString();
+                DropDownList1.SelectedValue = dt.Rows[0]["gender"].ToString().Trim();
+                DropDownList2.SelectedValue = dt.Rows[0]["usertype"].ToString().Trim();
+                DropDownList3.SelectedValue = dt.Rows[0]["accountstatus"].ToString().Trim();
+                TextBox5.Text = dt.Rows[0]["ic"].ToString();
+                byte[] bytes = (byte[])dt.Rows[0]["proof"];
+                string base64String = Convert.ToBase64String(bytes, 0, bytes.Length);
+                imgPhoto.ImageUrl = "data:image/png;base64," + base64String;
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('" + ex.Message + "');</script>");
+            }
+        }
+=======
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
     }
 }

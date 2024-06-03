@@ -23,26 +23,23 @@
                                 <a class="nav-link" href="sdashboard.aspx"><i class="fa-solid fa-gauge"></i>Dashboard</a>
                             </li>
                             <li class="nav-item ">
-                                <a class="nav-link" href="sappointment.aspx"><i class="fas fa-clipboard-list"></i>Appointment</a>
-                            </li>
-                            <li class="nav-item ">
-                                <a class="nav-link" href="shouse.aspx"><i class="fa-solid fa-house"></i>House</a>
+                                <a class="nav-link" href="studentAppointment.aspx"><i class="fas fa-clipboard-list"></i>Appointment</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-5" aria-controls="submenu-5"><i class="fa-solid fa-pen-nib"></i>Rental</a>
                                 <div id="submenu-5" class="collapse submenu" style="">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="scontract.aspx">Contract</a>
+                                            <a class="nav-link" href="studentContract.aspx">Contract</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="spayment.aspx">Payment</a>
+                                            <a class="nav-link" href="studentPayment.aspx">Payment</a>
                                         </li>
                                     </ul>
                                 </div>
                             </li>
                             <li class="nav-item ">
-                                <a class="nav-link" href="sprofile.aspx"><i class="fa-solid fa-user-tie"></i>Profile</a>
+                                <a class="nav-link" href="profile.aspx"><i class="fa-solid fa-user-tie"></i>Profile</a>
                             </li>
                         </ul>
                     </div>

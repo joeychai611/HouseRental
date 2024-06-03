@@ -51,6 +51,15 @@ namespace HouseRental
         protected global::System.Web.UI.WebControls.TextBox TextBox3;
 
         /// <summary>
+        /// TextBox5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBox5;
+
+        /// <summary>
         /// TextBox4 control.
         /// </summary>
         /// <remarks>
@@ -78,7 +87,29 @@ namespace HouseRental
         protected global::System.Web.UI.WebControls.DropDownList DropDownList2;
 
         /// <summary>
+<<<<<<< HEAD
+        /// Label7 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label7;
 
+        /// <summary>
+        /// imgPhoto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton imgPhoto;
+
+        /// <summary>
+        /// Label2 control.
+=======
+
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
@@ -102,21 +133,28 @@ namespace HouseRental
         protected global::System.Web.UI.WebControls.Label Label3;
 
         /// <summary>
-        /// Button1 control.
+        /// Label3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Label Label3;
 
         /// <summary>
+<<<<<<< HEAD
+        /// Button2 control.
+=======
         /// Label7 control.
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+<<<<<<< HEAD
+        protected global::System.Web.UI.WebControls.Button Button2;
+=======
         protected global::System.Web.UI.WebControls.Label Label7;
 
         /// <summary>
@@ -127,6 +165,7 @@ namespace HouseRental
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton imgPhoto;
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
 
         /// <summary>
         /// Image1 control.

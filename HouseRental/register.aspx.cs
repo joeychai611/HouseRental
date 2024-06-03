@@ -49,44 +49,54 @@ namespace HouseRental
                 }
 
 
+<<<<<<< HEAD
+                
+=======
                 {
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
                     if (TextBox2.Text.Trim() != string.Empty)
                     {
                         if (TextBox3.Text.Trim() != string.Empty)
                         {
-                            if (TextBox5.Text.Trim() != string.Empty)
+                            if (TextBox7.Text.Trim() != string.Empty)
                             {
-                                if (TextBox6.Text.Trim() != string.Empty)
+                                if (TextBox5.Text.Trim() != string.Empty)
                                 {
-                                    if (TextBox5.Text.Trim() == TextBox6.Text.Trim())
+                                    if (TextBox6.Text.Trim() != string.Empty)
                                     {
-                                        return true;
+                                        if (TextBox5.Text.Trim() == TextBox6.Text.Trim())
+                                        {
+                                            return true;
+                                        }
+                                        else
+                                        {
+                                            Response.Write("<script>alert('Please fill in Same Password.');</script>");
+                                            return false;
+                                        }
                                     }
                                     else
                                     {
-                                        Response.Write("<script>alert('Please fill in Same Password.');</script>");
+                                        Response.Write("<script>alert('Please fill in Confirm Password.');</script>");
                                         return false;
                                     }
                                 }
                                 else
                                 {
-                                    Response.Write("<script>alert('Please fill in Confirm Password.');</script>");
+                                    Response.Write("<script>alert('Please fill in Password.');</script>");
                                     return false;
                                 }
                             }
                             else
                             {
-                                Response.Write("<script>alert('Please fill in Password.');</script>");
+                                Response.Write("<script>alert('Please fill in IC.');</script>");
                                 return false;
                             }
-
                         }
                         else
                         {
                             Response.Write("<script>alert('Please fill in Contact Number.');</script>");
                             return false;
                         }
-
                     }
                     else
                     {
@@ -94,13 +104,7 @@ namespace HouseRental
                         return false;
                     }
 
-                }
-                else
-                {
-                    Response.Write("<script>alert('Please fill in Full Name.');</script>");
-                    return false;
-                }
-
+                
             }
             catch (Exception ex)
             {
@@ -119,7 +123,7 @@ namespace HouseRental
                     con.Open();
                 }
 
-                SqlCommand cmd = new SqlCommand("SELECT * from people where email='"+TextBox2.Text.Trim()+"';", con);
+                SqlCommand cmd = new SqlCommand("SELECT * from people where email='"+ TextBox2.Text.Trim() +"';", con);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
@@ -155,6 +159,10 @@ namespace HouseRental
                     con.Open();
                 }
 
+<<<<<<< HEAD
+                string insertQuery = "INSERT INTO people VALUES(@name,@email,@contactnum,@dateofbirth,@gender,@usertype,@password,@accountstatus,@activationcode,@is_active,@ic)";
+=======
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
 
                 SqlCommand cmd = new SqlCommand(insertQuery, con);
                 cmd.Parameters.AddWithValue("@name", TextBox1.Text.Trim());
@@ -165,6 +173,22 @@ namespace HouseRental
                 cmd.Parameters.AddWithValue("@usertype", DropDownList2.SelectedItem.Value);
                 cmd.Parameters.AddWithValue("@password", TextBox5.Text.Trim());
 
+<<<<<<< HEAD
+                cmd.Parameters.AddWithValue("@@password", TextBox6.Text.Trim());
+                if(DropDownList2.SelectedItem.Text == "Student")
+                {
+                    cmd.Parameters.AddWithValue("@accountstatus", "Pending");
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@accountstatus", "Active");
+                }
+                cmd.Parameters.AddWithValue("@activationcode", activationcode);
+                cmd.Parameters.AddWithValue("@is_active", 0);
+                cmd.Parameters.AddWithValue("@ic", TextBox7.Text.Trim());
+
+=======
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
 
                 cmd.ExecuteNonQuery();
 
@@ -175,9 +199,11 @@ namespace HouseRental
 
                 string emailBody = "";
 
-                emailBody += "<h1>Hello " + TextBox1.Text.ToString() + ",</h1>";
+                emailBody += "<h2>Hello " + TextBox1.Text.ToString() + ",</h2>";
+                emailBody += "We're so glad you decided to join House Rental! It's a pleasure to welcome you to our growing family.";
                 emailBody += "Click below link for activate your account.<br>";
                 emailBody += "<p><a href='" + "https://localhost:44358/activateaccount.aspx?activationcode=" + activationcode + "&email=" + TextBox2.Text.ToString() + "'>Click Here To Activate</a></p>";
+                emailBody += "If you have any questions or need assistance, please don't hesitate to reach out to our moderators or admins. We're here to help! ";
                 emailBody += "Thank You.";
 
                 mail.Body = emailBody;
@@ -213,6 +239,7 @@ namespace HouseRental
             DropDownList2.SelectedValue = "Student";
             TextBox5.Text = "";
             TextBox6.Text = "";
+            TextBox7.Text = "";
         }
 
     }

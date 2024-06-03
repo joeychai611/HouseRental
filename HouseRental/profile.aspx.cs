@@ -24,6 +24,42 @@ namespace HouseRental
                 }
                 else
                 {
+<<<<<<< HEAD
+                    SqlConnection con = new SqlConnection("Data Source=LAPTOP-GAS8R8RV\\SQLEXPRESS;Initial Catalog=houserentalDB;Integrated Security=True");
+                    if (con.State == ConnectionState.Closed)
+                    {
+                        con.Open();
+                    }
+                    SqlCommand cmd = new SqlCommand("SELECT * from people where email='" + Session["email"].ToString() + "';", con);
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+
+                    DropDownList2.Text = dt.Rows[0]["usertype"].ToString().Trim();
+
+                    if (dt.Rows[0]["usertype"].ToString().Trim() == "Student")
+                    {
+                        FileUpload1.Visible = true;
+                        Label2.Visible = true;
+                        Label3.Visible = true;
+                        Label7.Visible = true;
+                        imgPhoto.Visible = true;
+                    }
+                    else
+                    {
+                        FileUpload1.Visible = false;
+                        Label2.Visible = false;
+                        Label3.Visible = false;
+                        Label7.Visible = false;
+                        imgPhoto.Visible = false;
+                    }
+                    getUserData();
+
+                    if (!Page.IsPostBack)
+                    {
+                        getUserPersonalDetails();
+=======
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
                     }
                 }
             }
@@ -54,7 +90,11 @@ namespace HouseRental
             }
             else
             {
+<<<<<<< HEAD
+                updateUserPersonalDetails();
+=======
 
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
             }
         }
 
@@ -68,7 +108,11 @@ namespace HouseRental
                     con.Open();
                 }
 
+<<<<<<< HEAD
+                SqlCommand cmd = new SqlCommand("UPDATE people SET name=@name, email=@email, contactnum=@contactnum, dateofbirth=@dateofbirth, gender=@gender, usertype=@usertype, ic=@ic WHERE email='" + Session["email"].ToString().Trim() + "'", con);
+=======
 
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
 
                 cmd.Parameters.AddWithValue("@name", TextBox1.Text.Trim());
                 cmd.Parameters.AddWithValue("@email", TextBox2.Text.Trim());
@@ -76,7 +120,45 @@ namespace HouseRental
                 cmd.Parameters.AddWithValue("@dateofbirth", TextBox4.Text.Trim());
                 cmd.Parameters.AddWithValue("@gender", DropDownList1.SelectedItem.Value);
                 cmd.Parameters.AddWithValue("@usertype", DropDownList2.SelectedItem.Value);
+<<<<<<< HEAD
+                cmd.Parameters.AddWithValue("@ic", TextBox5.Text.Trim());
 
+                int result = cmd.ExecuteNonQuery();
+                con.Close();
+
+                if (FileUpload1.HasFile)
+                {
+                    byte[] bytes;
+                    using (BinaryReader br = new BinaryReader(FileUpload1.PostedFile.InputStream))
+                    {
+                        bytes = br.ReadBytes(FileUpload1.PostedFile.ContentLength);
+                    }
+                    if (con.State == ConnectionState.Closed)
+                    {
+                        con.Open();
+                    }
+                    SqlCommand insertCmd = new SqlCommand("SELECT (ID) FROM people WHERE email='" + Session["email"].ToString() + "';", con);
+                    int userID = Convert.ToInt32(insertCmd.ExecuteScalar());
+
+                    string insertUpload = "UPDATE proof SET proof=@proof, userID=@userID WHERE userID=@userID";
+                    insertCmd = new SqlCommand(insertUpload, con);
+                    insertCmd.Parameters.AddWithValue("@proof", bytes);
+                    insertCmd.Parameters.AddWithValue("@userID", userID);
+                    int exe = insertCmd.ExecuteNonQuery();
+                    if (exe < 1)
+                    {
+                        string insertNew = "INSERT INTO proof (proof, userID) VALUES (@proof, @userID)";
+                        insertCmd = new SqlCommand(insertNew, con);
+                        insertCmd.Parameters.AddWithValue("@proof", bytes);
+                        insertCmd.Parameters.AddWithValue("@userID", userID);
+                        insertCmd.ExecuteNonQuery();
+                        con.Close();
+                    }
+                    con.Close();
+                }
+=======
+
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
 
                 if (result > 0)
                 {
@@ -116,7 +198,12 @@ namespace HouseRental
                 TextBox4.Text = dt.Rows[0]["dateofbirth"].ToString();
                 DropDownList1.SelectedValue = dt.Rows[0]["gender"].ToString().Trim();
                 DropDownList2.SelectedValue = dt.Rows[0]["usertype"].ToString().Trim();
+<<<<<<< HEAD
+                TextBox5.Text = dt.Rows[0]["ic"].ToString();
+
+=======
                 
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
                 Label1.Text = dt.Rows[0]["accountstatus"].ToString().Trim();
 
                 if (dt.Rows[0]["accountstatus"].ToString().Trim() == "Active")
@@ -167,7 +254,13 @@ namespace HouseRental
             }
         }
 
+<<<<<<< HEAD
+        protected void changepassword_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("changepassword.aspx");
+=======
 
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
         }
     }
 }

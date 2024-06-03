@@ -23,20 +23,25 @@
                                 <a class="nav-link" href="ldashboard.aspx"><i class="fa-solid fa-gauge"></i>Dashboard</a>
                             </li>
                             <li class="nav-item ">
-                                <a class="nav-link" href="lappointment.aspx"><i class="fas fa-clipboard-list"></i>Appointment</a>
-                            </li>
-                            <li class="nav-item ">
                                 <a class="nav-link" href="landlordhouse.aspx"><i class="fa-solid fa-house"></i>House</a>
                             </li>
+                            <li class="nav-item ">
+<<<<<<< HEAD
+                                <a class="nav-link" href="landlordAppointment.aspx"><i class="fas fa-clipboard-list"></i>Appointment</a>
+=======
+                                <a class="nav-link" href="landlordhouse.aspx"><i class="fa-solid fa-house"></i>House</a>
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
+                            </li>
+                            
                             <li class="nav-item">
                                 <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-5" aria-controls="submenu-5"><i class="fa-solid fa-pen-nib"></i>Rental</a>
                                 <div id="submenu-5" class="collapse submenu" style="">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="lcontract.aspx">Contract</a>
+                                            <a class="nav-link" href="landlordContract.aspx">Contract</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="lpayment.aspx">Payment</a>
+                                            <a class="nav-link" href="landlordPayment.aspx">Payment</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -45,7 +50,7 @@
                                 <a class="nav-link" href="lreport.aspx"><i class="fa-solid fa-chart-line"></i>Report</a>
                             </li>
                             <li class="nav-item ">
-                                <a class="nav-link" href="lprofile.aspx"><i class="fa-solid fa-user-tie"></i>Profile</a>
+                                <a class="nav-link" href="profile.aspx"><i class="fa-solid fa-user-tie"></i>Profile</a>
                             </li>
                         </ul>
                     </div>
