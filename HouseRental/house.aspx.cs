@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+<<<<<<< HEAD
 using System.IO;
 using System.Data;
 using System.Configuration;
 using System.Data.SqlClient;
+=======
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -42,6 +45,7 @@ namespace HouseRental
                 {
                     lblStatus.Attributes.Add("class", "badge badge-pill badge-warning");
                 }
+<<<<<<< HEAD
 
             }
 
@@ -236,6 +240,10 @@ namespace HouseRental
             TextBox3.Text = "";
             TextBox4.Text = "";
             TextBox5.Text = "";
+=======
+            }
+
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
         }
     }
 }

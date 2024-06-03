@@ -1,12 +1,17 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/admin.master" AutoEventWireup="true" CodeBehind="managelandlord.aspx.cs" Inherits="HouseRental.managelandlord" %>
+<<<<<<< HEAD
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
+=======
+
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
      <!-- ============================================================== -->
 	    <!-- wrapper  -->
 	    <!-- ============================================================== -->
 	    <div class="dashboard-wrapper">
 	        <div class="dashboard-influence">
 	            <div class="container-fluid dashboard-content">
+<<<<<<< HEAD
 
         <!-- ============================================================== -->    
             <!-- ============================================================== -->
@@ -89,6 +94,9 @@
                     <div class="modal-content">
                         <div class="modal-header text-center">
 
+=======
+
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
                             <h4 class="modal-title w-100">Landlord</h4>
                         </div>
                         <div class="modal-body">
@@ -106,7 +114,10 @@
                         <div class="col-md-12">
                             <label>Email Address</label>
                                 <div class="form-group">
+<<<<<<< HEAD
                                     <asp:TextBox CssClass="form-control" ID="TextBox2" ReadOnly="True" runat="server" TextMode="Email"></asp:TextBox>   
+=======
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
 
                                 </div>
                                 </div>
@@ -154,6 +165,7 @@
                                     </asp:DropDownList>
                                 </div>
                             </div>
+<<<<<<< HEAD
                       <div class="col-md-6">
                                 <label>Status</label>
                                 <div class="form-group">
@@ -168,21 +180,33 @@
                         <div class="modal-footer">
                             <button type="button" ID="Button2" class="btn btn-default" data-dismiss="modal">Close</button>
                             <asp:Button ID="Button1" class="btn btn-primary" runat="server" Text="Save" OnClick="Save" />
+=======
+                        </div>
+
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
 
                         </div>
                     </div>
                     <!-- /.modal-content -->
                 </div>
                 <!-- /.modal-dialog -->
+<<<<<<< HEAD
 </asp:Panel>
                     <asp:LinkButton ID="LinkButton1" Style="display:none" runat="server">LinkButton</asp:LinkButton>
                     <asp:Label ID="Label3" Style="display:none" runat="server" Text="Label"></asp:Label>
                     <ajaxToolkit:ModalPopupExtender ID="ModalPopupExtender1" TargetControlID="LinkButton1" PopupControlID="Panel1" CancelControlID="Button2" BackgroundCssClass="modalBackground" runat="server"></ajaxToolkit:ModalPopupExtender>
 					
+=======
+
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
 					<!-- ============================================================== -->
 	               <!-- end content  -->
 	               <!-- ============================================================== -->
 	                 </div>
 	             </div>
+<<<<<<< HEAD
             </div>
+=======
+
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
 </asp:Content>

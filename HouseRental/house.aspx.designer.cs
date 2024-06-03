@@ -112,6 +112,7 @@ namespace HouseRental
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblLandlord;
+<<<<<<< HEAD
 
         /// <summary>
         /// btnShowPopup control.
@@ -184,5 +185,7 @@ namespace HouseRental
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button2;
+=======
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
     }
 }

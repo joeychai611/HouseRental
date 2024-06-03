@@ -1,7 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/landlord.master" AutoEventWireup="true" CodeBehind="landlordhouse.aspx.cs" Inherits="HouseRental.landlordhouse" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
     <br />
 <!-- ============================================================== -->
 <!-- wrapper  -->
@@ -129,14 +132,19 @@
                                         <div class="col-md-12">
                                             <label>* Address</label>
                                             <div class="form-group">
+<<<<<<< HEAD
 
                                                 <asp:TextBox CssClass="form-control" ID="txtPlaces" TextMode="MultiLine" runat="server"></asp:TextBox>
                                                 <div id="dvMap" style="width: 400px; height: 400px"></div>
 
+=======
+                                                <asp:TextBox CssClass="form-control" ID="TextBox2" runat="server"></asp:TextBox>
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
                                             </div>
                                         </div>
                                     </div>
 
+<<<<<<< HEAD
 
                                     <asp:TextBox ID="txtLatitude" runat="server" Width="200" type="hidden" />
                                     <asp:TextBox ID="txtLongitude" runat="server" Width="200" type="hidden" />
@@ -146,6 +154,12 @@
                                             <label>* Postcode</label>
                                             <div class="form-group"> 
 
+=======
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>* Postcode</label>
+                                            <div class="form-group">
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
                                                 <asp:TextBox CssClass="form-control" ID="TextBox3" runat="server" TextMode="Number"></asp:TextBox> 
                                             </div>
                                         </div>
@@ -161,9 +175,13 @@
                                         <div class="col-md-12">
                                             <label>Description</label>
                                             <div class="form-group">
+<<<<<<< HEAD
 
                                                 <asp:TextBox CssClass="form-control" ID="TextBox5" TextMode="MultiLine" runat="server"></asp:TextBox>
 
+=======
+                                                <asp:TextBox CssClass="form-control" ID="TextBox5" runat="server"></asp:TextBox>
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
                                             </div>
                                         </div>
                                     </div>
@@ -220,7 +238,10 @@
                                             </center>
                                         </div>
                                     </div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
                                 </div>
                             </div> 
                             <div class="modal-footer">
@@ -269,6 +290,7 @@
                                     </div>
 
                                     <div class="row">
+<<<<<<< HEAD
 
                                         <div class="col-md-12">
                                             <label>Address</label>
@@ -276,14 +298,37 @@
                                                 <asp:TextBox CssClass="form-control" ID="TextBox8" Textmode="MultiLine" runat="server"></asp:TextBox>
                                                 <div id="Map" style="width: 400px; height: 400px"></div>
 
+=======
+                                        <div class="col-md-6">
+                                            <label>Landlord Name</label>
+                                            <div class="form-group">
+                                                <asp:TextBox CssClass="form-control" ID="TextBox13" runat="server" ReadOnly="True"></asp:TextBox> 
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label>Email</label>
+                                            <div class="form-group">
+                                                <asp:TextBox CssClass="form-control" ID="TextBox14" runat="server" ReadOnly="True"></asp:TextBox> 
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
                                             </div>
                                         </div>
                                     </div>
 
+<<<<<<< HEAD
 
                                     <asp:TextBox ID="TextBox15" runat="server" Width="200" Type="hidden" />
                                     <asp:TextBox ID="TextBox16" runat="server" Width="200" Type="hidden" />
 
+=======
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <label>Address</label>
+                                            <div class="form-group">
+                                                <asp:TextBox CssClass="form-control" ID="TextBox8" runat="server"></asp:TextBox>
+                                            </div>
+                                        </div>
+                                    </div>
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
 
                                     <div class="row">
                                         <div class="col-md-6">
@@ -304,9 +349,13 @@
                                         <div class="col-md-12">
                                             <label>Description</label>
                                             <div class="form-group">
+<<<<<<< HEAD
 
                                                 <asp:TextBox CssClass="form-control" ID="TextBox11" Textmode="MultiLine" runat="server"></asp:TextBox>
 
+=======
+                                                <asp:TextBox CssClass="form-control" ID="TextBox11" runat="server"></asp:TextBox>
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
                                             </div>
                                         </div>
                                     </div>
@@ -338,9 +387,13 @@
  
                                     <div class="row">
                                         <div class="col-md-6">
+<<<<<<< HEAD
 
                                             <label>Monthly Rent Price (RM)</label>
 
+=======
+                                            <label>Monthly Rent Price</label>
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
                                             <div class="form-group">
                                                 <asp:TextBox CssClass="form-control" ID="TextBox12" runat="server" Text="RM" TextMode="Number"></asp:TextBox> 
                                             </div>
@@ -367,7 +420,11 @@
                                         <div class="col-8 mx-auto">
                                             <center><br />
                                                 <asp:Label ID="Label7" Text="Images" runat="server"></asp:Label>
+<<<<<<< HEAD
 
+=======
+                                                <div class="form-group">
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
                                                     <asp:ImageButton ID="imgPhoto" OnClientClick ="popimage(this);return false" style="max-height:100%;max-width:80%; border: 1px solid #D3D3D3;" runat="server" />
                                                     <div id="dialog" style="display: none"></div>
                                                     <asp:Label ID="Span1" runat="server"></asp:Label>
@@ -375,9 +432,13 @@
                                                      <asp:Image ID="Image1" runat="server" ClientIDMode="Static" style="height:96%"/>
                                             </div>
                                             </center>
+<<<<<<< HEAD
 
                                         </div> 
 
+=======
+                                        </div>
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
                                         </div>
                                     </div>
                             </div> 
@@ -388,10 +449,15 @@
                     </div>
                     <!-- /.modal-content -->
                 </div>
+<<<<<<< HEAD
 
                  </asp:Panel>
                  </div>
                     
+=======
+                 </div>
+                    </asp:Panel>
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
                     <asp:LinkButton ID="LinkButton1" Style="display:none" runat="server">LinkButton</asp:LinkButton>
                     <asp:Label ID="Label3" Style="display:none" runat="server" Text="Label"></asp:Label>
                     <ajaxToolkit:ModalPopupExtender ID="ModalPopupExtender1" TargetControlID="LinkButton1" PopupControlID="Panel1" CancelControlID="Button3" BackgroundCssClass="modalBackground" runat="server"></ajaxToolkit:ModalPopupExtender>
@@ -400,6 +466,7 @@
 	               <!-- ============================================================== -->
             </div>
         </div>
+<<<<<<< HEAD
 
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2wuf6sUkJ13LDUMV4KiJEpKHO4TK03oU"></script>
 <script type="text/javascript">
@@ -498,3 +565,7 @@
     </script>
 
 </asp:Content>
+=======
+    </div>
+</asp:Content>
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d

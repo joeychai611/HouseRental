@@ -86,9 +86,13 @@
                     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
                           <asp:Panel ID="Panel1" runat="server" Style="display:none">
 
+<<<<<<< HEAD
                               <div class="modal-dialog modal-dialog-scrollable">
                     <div class="modal-content">
                         <div class="modal-header text-center">
+=======
+
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
                             <h4 class="modal-title w-100">Student</h4>
                         </div>
                         <div class="modal-body">
@@ -115,8 +119,12 @@
                                 <div class="col-md-6">
                             <label>Contact Number</label>
                                 <div class="form-group">
+<<<<<<< HEAD
                                     <asp:TextBox CssClass="form-control" ID="TextBox3" runat="server" TextMode="Number" ReadOnly="True"></asp:TextBox>   
 
+=======
+                                    <asp:TextBox CssClass="form-control" ID="TextBox3" runat="server" TextMode="Number"></asp:TextBox>   
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
                                 </div>
                                 </div>
                             <div class="col-md-6">
@@ -155,8 +163,15 @@
                                 </div>
                             </div>
 
+<<<<<<< HEAD
                                      <div class="col-md-6">
 
+=======
+                                 <div class="row">
+
+
+                            <div class="col-md-6">
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
                                 <label>Status</label>
                                 <div class="form-group">
                                     <asp:DropDownList class="form-control" ID="DropDownList3" runat="server" CssClass="badge badge-pill badge-info">

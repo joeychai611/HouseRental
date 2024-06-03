@@ -87,6 +87,7 @@ namespace HouseRental
         protected global::System.Web.UI.WebControls.DropDownList DropDownList2;
 
         /// <summary>
+<<<<<<< HEAD
         /// Label7 control.
         /// </summary>
         /// <remarks>
@@ -106,21 +107,21 @@ namespace HouseRental
 
         /// <summary>
         /// Label2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+=======
 
-        /// <summary>
-        /// FileUpload1 control.
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload FileUpload1;
+
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+
 
         /// <summary>
         /// Label3 control.
@@ -132,13 +133,39 @@ namespace HouseRental
         protected global::System.Web.UI.WebControls.Label Label3;
 
         /// <summary>
-        /// Button2 control.
+        /// Label3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label3;
+
+        /// <summary>
+<<<<<<< HEAD
+        /// Button2 control.
+=======
+        /// Label7 control.
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+<<<<<<< HEAD
         protected global::System.Web.UI.WebControls.Button Button2;
+=======
+        protected global::System.Web.UI.WebControls.Label Label7;
+
+        /// <summary>
+        /// imgPhoto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton imgPhoto;
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
 
         /// <summary>
         /// Image1 control.

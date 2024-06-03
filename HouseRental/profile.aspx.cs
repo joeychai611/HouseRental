@@ -24,6 +24,7 @@ namespace HouseRental
                 }
                 else
                 {
+<<<<<<< HEAD
                     SqlConnection con = new SqlConnection("Data Source=LAPTOP-GAS8R8RV\\SQLEXPRESS;Initial Catalog=houserentalDB;Integrated Security=True");
                     if (con.State == ConnectionState.Closed)
                     {
@@ -57,6 +58,8 @@ namespace HouseRental
                     if (!Page.IsPostBack)
                     {
                         getUserPersonalDetails();
+=======
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
                     }
                 }
             }
@@ -87,7 +90,11 @@ namespace HouseRental
             }
             else
             {
+<<<<<<< HEAD
                 updateUserPersonalDetails();
+=======
+
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
             }
         }
 
@@ -101,7 +108,11 @@ namespace HouseRental
                     con.Open();
                 }
 
+<<<<<<< HEAD
                 SqlCommand cmd = new SqlCommand("UPDATE people SET name=@name, email=@email, contactnum=@contactnum, dateofbirth=@dateofbirth, gender=@gender, usertype=@usertype, ic=@ic WHERE email='" + Session["email"].ToString().Trim() + "'", con);
+=======
+
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
 
                 cmd.Parameters.AddWithValue("@name", TextBox1.Text.Trim());
                 cmd.Parameters.AddWithValue("@email", TextBox2.Text.Trim());
@@ -109,6 +120,7 @@ namespace HouseRental
                 cmd.Parameters.AddWithValue("@dateofbirth", TextBox4.Text.Trim());
                 cmd.Parameters.AddWithValue("@gender", DropDownList1.SelectedItem.Value);
                 cmd.Parameters.AddWithValue("@usertype", DropDownList2.SelectedItem.Value);
+<<<<<<< HEAD
                 cmd.Parameters.AddWithValue("@ic", TextBox5.Text.Trim());
 
                 int result = cmd.ExecuteNonQuery();
@@ -144,6 +156,9 @@ namespace HouseRental
                     }
                     con.Close();
                 }
+=======
+
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
 
                 if (result > 0)
                 {
@@ -183,8 +198,12 @@ namespace HouseRental
                 TextBox4.Text = dt.Rows[0]["dateofbirth"].ToString();
                 DropDownList1.SelectedValue = dt.Rows[0]["gender"].ToString().Trim();
                 DropDownList2.SelectedValue = dt.Rows[0]["usertype"].ToString().Trim();
+<<<<<<< HEAD
                 TextBox5.Text = dt.Rows[0]["ic"].ToString();
 
+=======
+                
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
                 Label1.Text = dt.Rows[0]["accountstatus"].ToString().Trim();
 
                 if (dt.Rows[0]["accountstatus"].ToString().Trim() == "Active")
@@ -235,9 +254,13 @@ namespace HouseRental
             }
         }
 
+<<<<<<< HEAD
         protected void changepassword_Click(object sender, EventArgs e)
         {
             Response.Redirect("changepassword.aspx");
+=======
+
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
         }
     }
 }

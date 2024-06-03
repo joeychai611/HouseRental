@@ -37,6 +37,12 @@
                             </li>
                             <li class="nav-item ">
                                 <a class="nav-link" href="managehouse.aspx"><i class="fa-solid fa-house"></i>House</a>
+<<<<<<< HEAD
+=======
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link" href="adminreport.aspx"><i class="fa-solid fa-chart-line"></i>Report</a>
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
                             </li>
                             <li class="nav-item ">
                                 <a class="nav-link" href="manageappointment.aspx"><i class="fas fa-clipboard-list"></i>Appointment</a>

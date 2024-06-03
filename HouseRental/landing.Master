@@ -161,6 +161,7 @@
         opacity: 0.4;
     }
 
+<<<<<<< HEAD
 </script>
 
      <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css" />
@@ -217,6 +218,8 @@
 
   </div>
 
+=======
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
         </div>
 
     </form>

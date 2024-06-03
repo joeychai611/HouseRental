@@ -2696,11 +2696,15 @@
     <Content Include="js\popper.min.js" />
     <Content Include="js\range.js" />
     <Content Include="js\scrollax.min.js" />
+<<<<<<< HEAD
     <Content Include="landlordAppointment.aspx" />
     <Content Include="landlordContract.aspx" />
     <Content Include="landlordhouse.aspx" />
     <Content Include="landlordPayment.aspx" />
     <Content Include="landlordReport.aspx" />
+=======
+    <Content Include="landlordhouse.aspx" />
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
     <Content Include="ldashboard.aspx" />
     <Content Include="login.aspx" />
     <Content Include="manageAppointment.aspx" />
@@ -2720,10 +2724,17 @@
     <Content Include="studentPayment.aspx" />
     <Content Include="Web.config" />
     <Content Include="managehouse.aspx" />
+<<<<<<< HEAD
     <Content Include="WebForm2.aspx" />
     <Content Include="WebForm3.aspx" />
     <Content Include="WebForm4.aspx" />
     <Content Include="WebForm5.aspx" />
+=======
+    <Content Include="WebForm3.aspx" />
+    <Content Include="WebForm4.aspx" />
+    <Content Include="WebForm5.aspx" />
+
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
   </ItemGroup>
   <ItemGroup>
     <Compile Include="aboutus.aspx.cs">
@@ -2768,6 +2779,8 @@
     <Compile Include="contactus.aspx.designer.cs">
       <DependentUpon>contactus.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DataAccess.cs" />
+    <Compile Include="EmailRegister.cs" />
     <Compile Include="forgotpassword.aspx.cs">
       <DependentUpon>forgotpassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2813,6 +2826,7 @@
     <Compile Include="landlord.master.designer.cs">
       <DependentUpon>landlord.master</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="landlordAppointment.aspx.cs">
       <DependentUpon>landlordAppointment.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2827,6 +2841,8 @@
     <Compile Include="landlordContract.aspx.designer.cs">
       <DependentUpon>landlordContract.aspx</DependentUpon>
     </Compile>
+=======
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
     <Compile Include="landlordhouse.aspx.cs">
       <DependentUpon>landlordhouse.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2834,6 +2850,7 @@
     <Compile Include="landlordhouse.aspx.designer.cs">
       <DependentUpon>landlordhouse.aspx</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="landlordPayment.aspx.cs">
       <DependentUpon>landlordPayment.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2848,6 +2865,8 @@
     <Compile Include="landlordReport.aspx.designer.cs">
       <DependentUpon>landlordReport.aspx</DependentUpon>
     </Compile>
+=======
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
     <Compile Include="ldashboard.aspx.cs">
       <DependentUpon>ldashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2862,6 +2881,7 @@
     <Compile Include="login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="manageAppointment.aspx.cs">
       <DependentUpon>manageAppointment.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2876,6 +2896,9 @@
     <Compile Include="managecontract.aspx.designer.cs">
       <DependentUpon>managecontract.aspx</DependentUpon>
     </Compile>
+=======
+
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
     <Compile Include="managelandlord.aspx.cs">
       <DependentUpon>managelandlord.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2970,6 +2993,7 @@
     </Compile>
     <Compile Include="managehouse.aspx.designer.cs">
       <DependentUpon>managehouse.aspx</DependentUpon>
+<<<<<<< HEAD
     </Compile>
     <Compile Include="studentAppointment.aspx.cs">
       <DependentUpon>studentAppointment.aspx</DependentUpon>
@@ -2998,6 +3022,8 @@
     </Compile>
     <Compile Include="WebForm2.aspx.designer.cs">
       <DependentUpon>WebForm2.aspx</DependentUpon>
+=======
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
     </Compile>
     <Compile Include="WebForm3.aspx.cs">
       <DependentUpon>WebForm3.aspx</DependentUpon>
@@ -3020,6 +3046,7 @@
     <Compile Include="WebForm5.aspx.designer.cs">
       <DependentUpon>WebForm5.aspx</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="WebForm6.aspx.cs">
       <DependentUpon>WebForm6.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -3037,6 +3064,9 @@
     <Compile Include="Webhooks.ashx.cs">
       <DependentUpon>Webhooks.ashx</DependentUpon>
     </Compile>
+=======
+
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
   </ItemGroup>
   <ItemGroup>
     <Content Include="landing.Master" />
@@ -3262,8 +3292,12 @@
     <Content Include="Webhooks.ashx" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Folder Include="Proof\" />
     <Folder Include="UploadedImages\" />
+=======
+
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -121,6 +121,7 @@
                   <div class="row">
                      <div class="col-8 mx-auto">
                         <center>
+<<<<<<< HEAD
                             <div class="form-group"><br />
                                 <asp:Label ID="Label2" Text="Matric Card" runat="server"></asp:Label><br />
                                 <asp:FileUpload ID="FileUpload1" AllowMultiple="true" runat="server" /><br />
@@ -129,8 +130,23 @@
                             <br />
                             
                               <asp:Button class="btn btn-primary btn-block btn-lg" ID="Button2" runat="server" Text="Update" OnClick="Button1_Click" />
+=======
+
+                            <br />
+                            
+                              <asp:Button class="btn btn-primary btn-block btn-lg" ID="Button1" runat="server" Text="Update" OnClick="Button1_Click" />
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
                         </center>
                      </div>
+                      <div class="col-8 mx-auto">
+                                            <center><br />
+                                                <asp:Label ID="Label7" Text="Images" runat="server"></asp:Label>
+                                                <div class="form-group">
+                                                    <asp:ImageButton ID="imgPhoto" OnClientClick ="popimage(this);return false" style="max-height:100%;max-width:80%; border: 1px solid #D3D3D3;" runat="server" />
+                                                    <div id="dialog" style="display: none"></div>
+                                            </div>
+                                            </center>
+                                        </div>
                   </div>
                         <div id="imagepop" style="display:none;text-align:center;height:80%">
                     <asp:Image ID="Image1" runat="server" ClientIDMode="Static" style="height:96%"/>

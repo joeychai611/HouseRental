@@ -38,6 +38,7 @@ namespace HouseRental
             }
         }
 
+<<<<<<< HEAD
 
         private DataTable GetData(string query)
         {
@@ -59,6 +60,8 @@ namespace HouseRental
             }
         }
 
+=======
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
         protected void OnRowDataBound(object sender, GridViewRowEventArgs e)
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
@@ -75,6 +78,10 @@ namespace HouseRental
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", "ShowPopup();", true);
             }
+<<<<<<< HEAD
+=======
+            
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
         }
 
         protected void Button2_Click(object sender, EventArgs e)
@@ -222,8 +229,12 @@ namespace HouseRental
                 insertCmd = new SqlCommand(insertQuery, con);
                 insertCmd.Parameters.AddWithValue("@hname", TextBox1.Text.Trim());
                 insertCmd.Parameters.AddWithValue("@housetype", DropDownList1.SelectedItem.Value);
+<<<<<<< HEAD
 
                 insertCmd.Parameters.AddWithValue("@address", txtPlaces.Text.Trim());
+=======
+                insertCmd.Parameters.AddWithValue("@address", TextBox2.Text.Trim());
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
                 insertCmd.Parameters.AddWithValue("@postcode", TextBox3.Text.Trim());
                 insertCmd.Parameters.AddWithValue("@city", TextBox4.Text.Trim());
                 insertCmd.Parameters.AddWithValue("@description", TextBox5.Text.Trim());
@@ -262,6 +273,7 @@ namespace HouseRental
                 {
                     ((LinkButton)control).OnClientClick = "return confirm('Are you confirm to delete?');";
                 }
+<<<<<<< HEAD
 
                 TextBox status = e.Row.Cells[4].FindControl("status") as TextBox;
                 if (e.Row.Cells[4].Text == "Unavailable")
@@ -273,6 +285,8 @@ namespace HouseRental
                     e.Row.Cells[4].CssClass = "badge badge-pill badge-success";
                 }
 
+=======
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
             }
         }
 
@@ -405,7 +419,10 @@ namespace HouseRental
                     duration = CheckBox22.Text;
                 }
                 SqlConnection con = new SqlConnection("Data Source=LAPTOP-GAS8R8RV\\SQLEXPRESS;Initial Catalog=houserentalDB;Integrated Security=True");
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
                 if (con.State == ConnectionState.Closed)
                 {
                     con.Open();
@@ -464,12 +481,21 @@ namespace HouseRental
                     con.Open();
                 }
 
+<<<<<<< HEAD
                 SqlCommand cmd = new SqlCommand("SELECT * from room LEFT JOIN people ON people.ID = room.userID WHERE room.hname='" + TextBox7.Text.Trim() + "'", con);
 
+=======
+                SqlCommand cmd = new SqlCommand("SELECT * from room LEFT JOIN people ON people.ID = room.userID where room.hname='" + TextBox7.Text.Trim() + "'", con);
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
 
+<<<<<<< HEAD
+=======
+                TextBox13.Text = dt.Rows[0]["name"].ToString();
+                TextBox14.Text = dt.Rows[0]["email"].ToString();
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
                 TextBox7.Text = dt.Rows[0]["hname"].ToString();
                 DropDownList2.SelectedValue = dt.Rows[0]["housetype"].ToString();
                 TextBox8.Text = dt.Rows[0]["address"].ToString();
@@ -589,7 +615,11 @@ namespace HouseRental
                 SqlCommand cmd = new SqlCommand("SELECT * from room", con);
                 if (TextBox1.Text.Trim() != string.Empty)
                 {
+<<<<<<< HEAD
                     if (txtPlaces.Text.Trim() != string.Empty)
+=======
+                    if (TextBox2.Text.Trim() != string.Empty)
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
                     {
                         if (TextBox3.Text.Trim() != string.Empty)
                         {
@@ -720,8 +750,12 @@ namespace HouseRental
         {
             TextBox1.Text = "";
             DropDownList1.SelectedValue = "Apartment";
+<<<<<<< HEAD
             txtPlaces.Text = "";
 
+=======
+            TextBox2.Text = "";
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
             TextBox3.Text = "";
             TextBox4.Text = "";
             TextBox5.Text = "";

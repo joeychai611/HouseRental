@@ -28,7 +28,11 @@ namespace HouseRental
                     con.Open();
                 }
 
+<<<<<<< HEAD
                 SqlCommand cmd = new SqlCommand("select * from people where email='" + TextBox1.Text.Trim() + "' AND password='" + TextBox2.Text.Trim() + "'", con);
+=======
+
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
                 SqlDataReader dr = cmd.ExecuteReader();
                 if (dr.HasRows)
                 {

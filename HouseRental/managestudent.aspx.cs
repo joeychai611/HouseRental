@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -13,6 +17,7 @@ namespace HouseRental
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             if (Session["email"] == null || string.IsNullOrEmpty(Session["email"].ToString()))
             {
                 Response.Write("<script>alert('Session expired, login again.');</script>");
@@ -32,6 +37,9 @@ namespace HouseRental
                 da.Fill(dt);
                 Session.Add("ID", adminID);
             }
+=======
+
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
         }
 
         protected void GridView2_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -66,7 +74,11 @@ namespace HouseRental
             TextBox2.Text = GridView2.SelectedRow.Cells[2].Text;
             TextBox3.Text = GridView2.SelectedRow.Cells[3].Text;
             DropDownList3.SelectedValue = GridView2.SelectedRow.Cells[4].Text;
+<<<<<<< HEAD
 
+=======
+            
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
             ModalPopupExtender1.Show();
             getUserPersonalDetails();
         }
@@ -111,6 +123,7 @@ namespace HouseRental
             }
         }
 
+<<<<<<< HEAD
         void getUserPersonalDetails()
         {
             try
@@ -143,5 +156,7 @@ namespace HouseRental
                 Response.Write("<script>alert('" + ex.Message + "');</script>");
             }
         }
+=======
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
     }
 }

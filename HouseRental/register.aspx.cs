@@ -49,7 +49,11 @@ namespace HouseRental
                 }
 
 
+<<<<<<< HEAD
                 
+=======
+                {
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
                     if (TextBox2.Text.Trim() != string.Empty)
                     {
                         if (TextBox3.Text.Trim() != string.Empty)
@@ -155,7 +159,10 @@ namespace HouseRental
                     con.Open();
                 }
 
+<<<<<<< HEAD
                 string insertQuery = "INSERT INTO people VALUES(@name,@email,@contactnum,@dateofbirth,@gender,@usertype,@password,@accountstatus,@activationcode,@is_active,@ic)";
+=======
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
 
                 SqlCommand cmd = new SqlCommand(insertQuery, con);
                 cmd.Parameters.AddWithValue("@name", TextBox1.Text.Trim());
@@ -166,6 +173,7 @@ namespace HouseRental
                 cmd.Parameters.AddWithValue("@usertype", DropDownList2.SelectedItem.Value);
                 cmd.Parameters.AddWithValue("@password", TextBox5.Text.Trim());
 
+<<<<<<< HEAD
                 cmd.Parameters.AddWithValue("@@password", TextBox6.Text.Trim());
                 if(DropDownList2.SelectedItem.Text == "Student")
                 {
@@ -179,6 +187,8 @@ namespace HouseRental
                 cmd.Parameters.AddWithValue("@is_active", 0);
                 cmd.Parameters.AddWithValue("@ic", TextBox7.Text.Trim());
 
+=======
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
 
                 cmd.ExecuteNonQuery();
 

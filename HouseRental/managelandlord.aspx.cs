@@ -13,6 +13,7 @@ namespace HouseRental
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             if (Session["email"] == null || string.IsNullOrEmpty(Session["email"].ToString()))
             {
                 Response.Write("<script>alert('Session expired, login again.');</script>");
@@ -67,6 +68,9 @@ namespace HouseRental
         }
 
         protected void Save(object sender, EventArgs e)
+=======
+
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
         {
             try
             {
@@ -75,7 +79,10 @@ namespace HouseRental
                 {
                     con.Open();
                 }
+<<<<<<< HEAD
                 SqlCommand cmd = new SqlCommand("UPDATE people SET name=@name, email=@email, contactnum=@contactnum, dateofbirth=@dateofbirth, gender=@gender, usertype=@usertype,accountstatus=@accountstatus WHERE email='" + TextBox2.Text + "'", con);
+=======
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
 
                 cmd.Parameters.AddWithValue("@name", TextBox1.Text.Trim());
                 cmd.Parameters.AddWithValue("@email", TextBox2.Text.Trim());
@@ -83,25 +90,12 @@ namespace HouseRental
                 cmd.Parameters.AddWithValue("@dateofbirth", TextBox4.Text.Trim());
                 cmd.Parameters.AddWithValue("@gender", DropDownList1.SelectedItem.Value);
                 cmd.Parameters.AddWithValue("@usertype", DropDownList2.SelectedItem.Value);
-                cmd.Parameters.AddWithValue("@accountstatus", DropDownList3.SelectedItem.Value);
 
-                int result = cmd.ExecuteNonQuery();
-                if (result > 0)
-                {
-                    Response.Write("<script>alert('Details updated successfully.');</script>");
-                }
-                else
-                {
-                    Response.Write("<script>alert('Invaid entry');</script>");
-                }
-                SqlDataSource1.DataBind();
-                GridView2.DataSource = null;
-                GridView2.DataSourceID = "SqlDataSource1";
-                GridView2.SelectedIndex = -1;
             }
             catch (Exception ex)
             {
                 Response.Write("<script>alert('" + ex.Message + "');</script>");
+<<<<<<< HEAD
 
             }
         }
@@ -134,6 +128,9 @@ namespace HouseRental
             {
                 Response.Write("<script>alert('" + ex.Message + "');</script>");
             }
+=======
+
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
         }
     }
 }

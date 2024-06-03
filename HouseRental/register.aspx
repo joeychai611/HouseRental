@@ -50,11 +50,16 @@
                                 </div>
                             </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
                         </div>
 
                         <div class="row">
                             <div class="col-md-6">
                             <label>* Email Address</label>
+=======
+                        <div class="col-md-6">
+
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
 =======
                         <div class="col-md-6">
 
@@ -72,8 +77,13 @@
                         </div>
 
                         <div class="row">
+<<<<<<< HEAD
                             <div class="col-md-6">
                                 <label>* IC (XXXXXX-XX-XXXX)</label>
+=======
+                                <div class="col-md-6">
+
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
                                 <div class="form-group">
                                     <asp:TextBox CssClass="form-control" ID="TextBox7" runat="server" ></asp:TextBox>   
                                 </div>

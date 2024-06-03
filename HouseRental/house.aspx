@@ -18,7 +18,11 @@
 <!-- ============================================================== -->
 <!-- end pageheader  -->
 <!-- ============================================================== -->   
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
     <section class="ftco-section" style="margin-left: 15%; margin-right: 20%;">
       <div class="container">
         <div class="row">
@@ -53,7 +57,11 @@
         <h3>
         <td><b>RM </b></td>
         <td><asp:Label ID="lblRentprice" runat="server"></asp:Label></td>
+<<<<<<< HEAD
         <td><b> / month </b></td><br /><br />
+=======
+        <td><b> / mo </b></td><br /><br />
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
         </h3>
     </tr>
     <hr>
@@ -98,6 +106,7 @@
         <td><b>Landlord</b></td><br />
         <td><asp:Label ID="lblLandlord" runat="server"></asp:Label></td><br /><br />
     </tr>
+<<<<<<< HEAD
        <button type="button" id="btnShowPopup" runat="server" onclick="btnShowPopup_Click" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Make Appointment</button>
           		</div>
 <!-- ============================================================== -->
@@ -185,16 +194,69 @@
 <!-- ============================================================== -->
 <!-- end make appointment  -->
 <!-- ============================================================== -->
+=======
+                      <p><a href="#" class="btn btn-secondary rounded">Book Appointment</a></p>
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
           		</div>
 
 <!-- ============================================================== -->
 <!-- end house details  -->
+<<<<<<< HEAD
 <!-- ============================================================== -->            	 
+=======
+<!-- ============================================================== -->            	
+                  <div class="rd-reviews">
+                        <h4>Reviews</h4>
+                        <div class="review-item">
+                            <div class="ri-pic">
+                                <img src="img/room/avatar/avatar-1.jpg" alt="">
+                            </div>
+                            <div class="ri-text">
+                                <span>27 Aug 2019</span>
+                                <div class="rating">
+                                    <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                    <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                    <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                    <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                    <i class="fa-solid fa-star-half-stroke" style="color: #FFD43B;"></i>
+                                </div>
+                                <h5>Brandon Kelley</h5>
+                                <p>Neque porro qui squam est, qui dolorem ipsum quia dolor sit amet, consectetur,
+                                    adipisci velit, sed quia non numquam eius modi tempora. incidunt ut labore et dolore
+                                    magnam.</p>
+                            </div>
+                        </div>
+                        <div class="review-item">
+                            <div class="ri-pic">
+                                <img src="img/room/avatar/avatar-2.jpg" alt="">
+                            </div>
+                            <div class="ri-text">
+                                <span>27 Aug 2019</span>
+                                <div class="rating">
+                                    <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                    <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                    <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                    <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                    <i class="fa-solid fa-star-half-stroke" style="color: #FFD43B;"></i>
+                                </div>
+                                <h5>Brandon Kelley</h5>
+                                <p>Neque porro qui squam est, qui dolorem ipsum quia dolor sit amet, consectetur,
+                                    adipisci velit, sed quia non numquam eius modi tempora. incidunt ut labore et dolore
+                                    magnam.</p>
+                            </div>
+                        </div>
+                    </div>
+<!-- ============================================================== -->
+<!-- end review  -->
+<!-- ============================================================== -->  
+                    
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
           				</div>
           			</div>
           		</div>
           	</div>
     </section>
+<<<<<<< HEAD
 
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script type="text/javascript">
@@ -207,4 +269,6 @@
         $('[id*=TextBox1]').attr('min', date);
     });
 </script>
+=======
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
 </asp:Content>
