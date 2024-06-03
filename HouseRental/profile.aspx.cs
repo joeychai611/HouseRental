@@ -88,6 +88,7 @@ namespace HouseRental
             else
             {
                 updateUserPersonalDetails();
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
             }
         }
 
@@ -102,6 +103,7 @@ namespace HouseRental
                 }
 
                 SqlCommand cmd = new SqlCommand("UPDATE people SET name=@name, email=@email, contactnum=@contactnum, dateofbirth=@dateofbirth, gender=@gender, usertype=@usertype, ic=@ic WHERE email='" + Session["email"].ToString().Trim() + "'", con);
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
 
                 cmd.Parameters.AddWithValue("@name", TextBox1.Text.Trim());
                 cmd.Parameters.AddWithValue("@email", TextBox2.Text.Trim());

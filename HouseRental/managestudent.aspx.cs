@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -32,6 +33,7 @@ namespace HouseRental
                 da.Fill(dt);
                 Session.Add("ID", adminID);
             }
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
         }
 
         protected void GridView2_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -67,6 +69,7 @@ namespace HouseRental
             TextBox3.Text = GridView2.SelectedRow.Cells[3].Text;
             DropDownList3.SelectedValue = GridView2.SelectedRow.Cells[4].Text;
 
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
             ModalPopupExtender1.Show();
             getUserPersonalDetails();
         }
@@ -110,6 +113,17 @@ namespace HouseRental
                 Response.Write("<script>alert('" + ex.Message + "');</script>");
             }
         }
+
+<<<<<<< HEAD
+        void getUserPersonalDetails()
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection("Data Source=LAPTOP-GAS8R8RV\\SQLEXPRESS;Initial Catalog=houserentalDB;Integrated Security=True");
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                }
 
         void getUserPersonalDetails()
         {

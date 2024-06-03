@@ -89,6 +89,7 @@
                               <div class="modal-dialog modal-dialog-scrollable">
                     <div class="modal-content">
                         <div class="modal-header text-center">
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
                             <h4 class="modal-title w-100">Student</h4>
                         </div>
                         <div class="modal-body">
@@ -117,6 +118,7 @@
                                 <div class="form-group">
                                     <asp:TextBox CssClass="form-control" ID="TextBox3" runat="server" TextMode="Number" ReadOnly="True"></asp:TextBox>   
 
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
                                 </div>
                                 </div>
                             <div class="col-md-6">

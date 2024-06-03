@@ -2876,6 +2876,7 @@
     <Compile Include="managecontract.aspx.designer.cs">
       <DependentUpon>managecontract.aspx</DependentUpon>
     </Compile>
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
     <Compile Include="managelandlord.aspx.cs">
       <DependentUpon>managelandlord.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2970,6 +2971,14 @@
     </Compile>
     <Compile Include="managehouse.aspx.designer.cs">
       <DependentUpon>managehouse.aspx</DependentUpon>
+<<<<<<< HEAD
+    </Compile>
+    <Compile Include="studentAppointment.aspx.cs">
+      <DependentUpon>studentAppointment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="studentAppointment.aspx.designer.cs">
+      <DependentUpon>studentAppointment.aspx</DependentUpon>
     </Compile>
     <Compile Include="studentAppointment.aspx.cs">
       <DependentUpon>studentAppointment.aspx</DependentUpon>
@@ -3037,6 +3046,7 @@
     <Compile Include="Webhooks.ashx.cs">
       <DependentUpon>Webhooks.ashx</DependentUpon>
     </Compile>
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
   </ItemGroup>
   <ItemGroup>
     <Content Include="landing.Master" />

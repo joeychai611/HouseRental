@@ -54,6 +54,7 @@
         <td><b>RM </b></td>
         <td><asp:Label ID="lblRentprice" runat="server"></asp:Label></td>
         <td><b> / month </b></td><br /><br />
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
         </h3>
     </tr>
     <hr>
@@ -99,6 +100,7 @@
         <td><asp:Label ID="lblLandlord" runat="server"></asp:Label></td><br /><br />
     </tr>
        <button type="button" id="btnShowPopup" runat="server" onclick="btnShowPopup_Click" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Make Appointment</button>
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
           		</div>
 <!-- ============================================================== -->
 <!-- start make appointment  -->

@@ -133,6 +133,7 @@
                                                 <asp:TextBox CssClass="form-control" ID="txtPlaces" TextMode="MultiLine" runat="server"></asp:TextBox>
                                                 <div id="dvMap" style="width: 400px; height: 400px"></div>
 
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
                                             </div>
                                         </div>
                                     </div>
@@ -164,6 +165,7 @@
 
                                                 <asp:TextBox CssClass="form-control" ID="TextBox5" TextMode="MultiLine" runat="server"></asp:TextBox>
 
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
                                             </div>
                                         </div>
                                     </div>
@@ -279,6 +281,7 @@
                                             </div>
                                         </div>
                                     </div>
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
 
 
                                     <asp:TextBox ID="TextBox15" runat="server" Width="200" Type="hidden" />
@@ -307,6 +310,7 @@
 
                                                 <asp:TextBox CssClass="form-control" ID="TextBox11" Textmode="MultiLine" runat="server"></asp:TextBox>
 
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
                                             </div>
                                         </div>
                                     </div>
@@ -341,6 +345,7 @@
 
                                             <label>Monthly Rent Price (RM)</label>
 
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
                                             <div class="form-group">
                                                 <asp:TextBox CssClass="form-control" ID="TextBox12" runat="server" Text="RM" TextMode="Number"></asp:TextBox> 
                                             </div>
@@ -368,6 +373,7 @@
                                             <center><br />
                                                 <asp:Label ID="Label7" Text="Images" runat="server"></asp:Label>
 
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
                                                     <asp:ImageButton ID="imgPhoto" OnClientClick ="popimage(this);return false" style="max-height:100%;max-width:80%; border: 1px solid #D3D3D3;" runat="server" />
                                                     <div id="dialog" style="display: none"></div>
                                                     <asp:Label ID="Span1" runat="server"></asp:Label>
@@ -378,6 +384,8 @@
 
                                         </div> 
 
+                                        </div>
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
                                         </div>
                                     </div>
                             </div> 
@@ -392,6 +400,7 @@
                  </asp:Panel>
                  </div>
                     
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
                     <asp:LinkButton ID="LinkButton1" Style="display:none" runat="server">LinkButton</asp:LinkButton>
                     <asp:Label ID="Label3" Style="display:none" runat="server" Text="Label"></asp:Label>
                     <ajaxToolkit:ModalPopupExtender ID="ModalPopupExtender1" TargetControlID="LinkButton1" PopupControlID="Panel1" CancelControlID="Button3" BackgroundCssClass="modalBackground" runat="server"></ajaxToolkit:ModalPopupExtender>

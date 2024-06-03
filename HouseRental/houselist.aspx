@@ -24,6 +24,7 @@
 
 <asp:Button ID="customSearchButton" runat="server" Text="Search"  class="btn btn-primary" OnClick="customSearchButton_Click" /><p></p>
 
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
         </center>
     <br />
 <asp:Repeater ID="rpQuestions" runat="server">
@@ -36,6 +37,7 @@
 
                         <asp:Image ID="image" ImageUrl='<%# "data:image/png;base64," + Convert.ToBase64String((byte[]) Eval("image"))%>' runat="server" style="max-height:100%;max-width:80%; border: 1px solid #D3D3D3;"/>
 
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
                     </td>
                     </div>
                     <div class="col-md-8">

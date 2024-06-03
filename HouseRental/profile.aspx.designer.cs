@@ -88,6 +88,8 @@ namespace HouseRental
 
         /// <summary>
         /// Label7 control.
+        /// <summary>
+        /// imgPhoto control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
@@ -103,6 +105,7 @@ namespace HouseRental
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton imgPhoto;
+
 
         /// <summary>
         /// Label2 control.
@@ -124,6 +127,7 @@ namespace HouseRental
 
         /// <summary>
         /// Label3 control.
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
         /// </summary>
         /// <remarks>
         /// Auto-generated field.

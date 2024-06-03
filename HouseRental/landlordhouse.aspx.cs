@@ -75,6 +75,7 @@ namespace HouseRental
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", "ShowPopup();", true);
             }
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
         }
 
         protected void Button2_Click(object sender, EventArgs e)
@@ -224,6 +225,7 @@ namespace HouseRental
                 insertCmd.Parameters.AddWithValue("@housetype", DropDownList1.SelectedItem.Value);
 
                 insertCmd.Parameters.AddWithValue("@address", txtPlaces.Text.Trim());
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
                 insertCmd.Parameters.AddWithValue("@postcode", TextBox3.Text.Trim());
                 insertCmd.Parameters.AddWithValue("@city", TextBox4.Text.Trim());
                 insertCmd.Parameters.AddWithValue("@description", TextBox5.Text.Trim());
@@ -273,6 +275,11 @@ namespace HouseRental
                     e.Row.Cells[4].CssClass = "badge badge-pill badge-success";
                 }
 
+            }
+        }
+
+=======
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
             }
         }
 
@@ -466,6 +473,7 @@ namespace HouseRental
 
                 SqlCommand cmd = new SqlCommand("SELECT * from room LEFT JOIN people ON people.ID = room.userID WHERE room.hname='" + TextBox7.Text.Trim() + "'", con);
 
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
@@ -590,6 +598,7 @@ namespace HouseRental
                 if (TextBox1.Text.Trim() != string.Empty)
                 {
                     if (txtPlaces.Text.Trim() != string.Empty)
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
                     {
                         if (TextBox3.Text.Trim() != string.Empty)
                         {

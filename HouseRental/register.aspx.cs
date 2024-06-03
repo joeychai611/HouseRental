@@ -50,6 +50,7 @@ namespace HouseRental
 
 
                 
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
                     if (TextBox2.Text.Trim() != string.Empty)
                     {
                         if (TextBox3.Text.Trim() != string.Empty)
