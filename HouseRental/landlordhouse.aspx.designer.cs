@@ -79,7 +79,6 @@ namespace HouseRental
 
         /// <summary>
         /// txtLongitude control.
->>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
@@ -310,7 +309,7 @@ namespace HouseRental
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox16;
+        protected global::System.Web.UI.WebControls.TextBox TextBox8;
 
         /// <summary>
         /// TextBox15 control.

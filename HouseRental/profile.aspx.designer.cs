@@ -124,7 +124,6 @@ namespace HouseRental
 
         /// <summary>
         /// Label3 control.
->>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
