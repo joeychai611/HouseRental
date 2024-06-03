@@ -18,7 +18,7 @@
 <!-- ============================================================== -->
 <!-- end pageheader  -->
 <!-- ============================================================== -->   
-    
+
     <section class="ftco-section" style="margin-left: 15%; margin-right: 20%;">
       <div class="container">
         <div class="row">
@@ -53,7 +53,7 @@
         <h3>
         <td><b>RM </b></td>
         <td><asp:Label ID="lblRentprice" runat="server"></asp:Label></td>
-        <td><b> / mo </b></td><br /><br />
+        <td><b> / month </b></td><br /><br />
         </h3>
     </tr>
     <hr>
@@ -98,60 +98,113 @@
         <td><b>Landlord</b></td><br />
         <td><asp:Label ID="lblLandlord" runat="server"></asp:Label></td><br /><br />
     </tr>
-                      <p><a href="#" class="btn btn-secondary rounded">Book Appointment</a></p>
+       <button type="button" id="btnShowPopup" runat="server" onclick="btnShowPopup_Click" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Make Appointment</button>
+          		</div>
+<!-- ============================================================== -->
+<!-- start make appointment  -->
+<!-- ============================================================== -->
+                <div class="modal fade" id="myModal">
+                    <div class="modal-dialog modal-dialog-scrollable"> 
+                        <div class="modal-content">
+                            <div class="modal-header text-center">
+                                <h4 class="modal-title w-100">Appointment</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="container">
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Date</label>
+                                            <div class="form-group">
+                                                <asp:TextBox CssClass="form-control" ID="TextBox1" TextMode="Date" runat="server"></asp:TextBox> 
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label>Time</label>
+                                            <div class="form-group">
+                                                <asp:DropDownList class="form-control" ID="DropDownList1" runat="server">
+                                                    <asp:ListItem Text ="9.00AM - 10.00AM" Value="9.00AM - 10.00AM" />
+                                                    <asp:ListItem Text ="10.00AM - 11.00AM" Value="10.00AM - 11.00AM" />
+                                                    <asp:ListItem Text ="11.00AM - 12.00PM" Value="11.00AM - 12.00PM" />
+                                                    <asp:ListItem Text ="2.00PM - 3.00PM" Value="2.00PM - 3.00PM" />
+                                                    <asp:ListItem Text ="3.00PM - 4.00PM" Value="3.00PM - 4.00PM" />
+                                                    <asp:ListItem Text ="4.00PM - 5.00PM" Value="4.00PM - 5.00PM" />
+                                                </asp:DropDownList>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <label>House Name</label>
+                                            <div class="form-group">
+                                                <asp:TextBox CssClass="form-control" ID="TextBox2" ReadOnly="True" runat="server"></asp:TextBox>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <label>Address</label>
+                                            <div class="form-group">
+                                                <asp:TextBox CssClass="form-control" ID="TextBox3" ReadOnly="True" runat="server"></asp:TextBox>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <label>Landlord</label>
+                                            <div class="form-group">
+                                                <asp:TextBox CssClass="form-control" ID="TextBox4" ReadOnly="True" runat="server"></asp:TextBox>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <label>Contact Number</label>
+                                            <div class="form-group">
+                                                <asp:TextBox CssClass="form-control" ID="TextBox5" ReadOnly="True" runat="server"></asp:TextBox>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div> 
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <asp:Button ID="Button2" class="btn btn-primary" runat="server" Text="Add" OnClick="Button2_Click" />
+                            </div>
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
+                <!-- /.modal -->
+<!-- ============================================================== -->
+<!-- end make appointment  -->
+<!-- ============================================================== -->
           		</div>
 
 <!-- ============================================================== -->
 <!-- end house details  -->
-<!-- ============================================================== -->            	
-                  <div class="rd-reviews">
-                        <h4>Reviews</h4>
-                        <div class="review-item">
-                            <div class="ri-pic">
-                                <img src="img/room/avatar/avatar-1.jpg" alt="">
-                            </div>
-                            <div class="ri-text">
-                                <span>27 Aug 2019</span>
-                                <div class="rating">
-                                    <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                                    <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                                    <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                                    <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                                    <i class="fa-solid fa-star-half-stroke" style="color: #FFD43B;"></i>
-                                </div>
-                                <h5>Brandon Kelley</h5>
-                                <p>Neque porro qui squam est, qui dolorem ipsum quia dolor sit amet, consectetur,
-                                    adipisci velit, sed quia non numquam eius modi tempora. incidunt ut labore et dolore
-                                    magnam.</p>
-                            </div>
-                        </div>
-                        <div class="review-item">
-                            <div class="ri-pic">
-                                <img src="img/room/avatar/avatar-2.jpg" alt="">
-                            </div>
-                            <div class="ri-text">
-                                <span>27 Aug 2019</span>
-                                <div class="rating">
-                                    <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                                    <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                                    <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                                    <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                                    <i class="fa-solid fa-star-half-stroke" style="color: #FFD43B;"></i>
-                                </div>
-                                <h5>Brandon Kelley</h5>
-                                <p>Neque porro qui squam est, qui dolorem ipsum quia dolor sit amet, consectetur,
-                                    adipisci velit, sed quia non numquam eius modi tempora. incidunt ut labore et dolore
-                                    magnam.</p>
-                            </div>
-                        </div>
-                    </div>
-<!-- ============================================================== -->
-<!-- end review  -->
-<!-- ============================================================== -->  
-                    
+<!-- ============================================================== -->            	 
           				</div>
           			</div>
           		</div>
           	</div>
     </section>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        var today = new Date();
+        var month = ('0' + (today.getMonth() + 1)).slice(-2);
+        var day = ('0' + today.getDate()).slice(-2);
+        var year = today.getFullYear();
+        var date = year + '-' + month + '-' + day;
+        $('[id*=TextBox1]').attr('min', date);
+    });
+</script>
 </asp:Content>

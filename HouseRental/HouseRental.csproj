@@ -47,9 +47,30 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\OneDrive\Documents\ASP.NET AJAX Control Toolkit\Bin\AjaxControlToolkit.dll</HintPath>
     </Reference>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.9\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.3, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.3\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.xmlworker, Version=5.5.13.3, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itextsharp.xmlworker.5.5.13.3\lib\itextsharp.xmlworker.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.1.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PayPal, Version=1.9.1.0, Culture=neutral, PublicKeyToken=5b4afc1ccaef40fb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PayPal.1.9.1\lib\net451\PayPal.dll</HintPath>
+    </Reference>
+    <Reference Include="PayPalCheckoutSdk, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PayPalCheckoutSdk.1.0.4\lib\netstandard2.0\PayPalCheckoutSdk.dll</HintPath>
+    </Reference>
+    <Reference Include="PayPalHttp-Dotnet, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PayPalHttp.1.0.1\lib\netstandard2.0\PayPalHttp-Dotnet.dll</HintPath>
     </Reference>
     <Reference Include="SendGrid, Version=9.29.3.0, Culture=neutral, PublicKeyToken=4f047e93159395ca, processorArchitecture=MSIL">
       <HintPath>..\packages\SendGrid.9.29.3\lib\net452\SendGrid.dll</HintPath>
@@ -57,11 +78,26 @@
     <Reference Include="StarkbankEcdsa, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b2e6337a5d77bfbc, processorArchitecture=MSIL">
       <HintPath>..\packages\starkbank-ecdsa.1.3.3\lib\net452\StarkbankEcdsa.dll</HintPath>
     </Reference>
+    <Reference Include="Stripe.net, Version=44.8.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stripe.net.44.8.0\lib\net461\Stripe.net.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data.SqlClient, Version=4.6.1.6, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Data.SqlClient.4.8.6\lib\net461\System.Data.SqlClient.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.2\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DataVisualization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -2582,6 +2618,7 @@
     <Content Include="fonts\ionicons\fonts\ionicons.svg" />
     <Content Include="fonts\open-iconic\open-iconic.svg" />
     <Content Include="forgotpassword.aspx" />
+    <Content Include="Global.asax" />
     <Content Include="home.aspx" />
     <Content Include="house.aspx" />
     <Content Include="houselist.aspx" />
@@ -2659,21 +2696,34 @@
     <Content Include="js\popper.min.js" />
     <Content Include="js\range.js" />
     <Content Include="js\scrollax.min.js" />
+    <Content Include="landlordAppointment.aspx" />
+    <Content Include="landlordContract.aspx" />
     <Content Include="landlordhouse.aspx" />
+    <Content Include="landlordPayment.aspx" />
+    <Content Include="landlordReport.aspx" />
     <Content Include="ldashboard.aspx" />
     <Content Include="login.aspx" />
+    <Content Include="manageAppointment.aspx" />
+    <Content Include="managecontract.aspx" />
     <Content Include="managelandlord.aspx" />
+    <Content Include="managepayment.aspx" />
+    <Content Include="managereport.aspx" />
     <Content Include="managestudent.aspx" />
+    <Content Include="payment.aspx" />
+    <Content Include="paymentGateway.aspx" />
     <Content Include="profile.aspx" />
     <Content Include="register.aspx" />
     <Content Include="resetpassword.aspx" />
     <Content Include="sdashboard.aspx" />
+    <Content Include="studentAppointment.aspx" />
+    <Content Include="studentContract.aspx" />
+    <Content Include="studentPayment.aspx" />
     <Content Include="Web.config" />
     <Content Include="managehouse.aspx" />
+    <Content Include="WebForm2.aspx" />
     <Content Include="WebForm3.aspx" />
     <Content Include="WebForm4.aspx" />
     <Content Include="WebForm5.aspx" />
-
   </ItemGroup>
   <ItemGroup>
     <Compile Include="aboutus.aspx.cs">
@@ -2718,14 +2768,15 @@
     <Compile Include="contactus.aspx.designer.cs">
       <DependentUpon>contactus.aspx</DependentUpon>
     </Compile>
-    <Compile Include="DataAccess.cs" />
-    <Compile Include="EmailRegister.cs" />
     <Compile Include="forgotpassword.aspx.cs">
       <DependentUpon>forgotpassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="forgotpassword.aspx.designer.cs">
       <DependentUpon>forgotpassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="home.aspx.cs">
       <DependentUpon>home.aspx</DependentUpon>
@@ -2762,12 +2813,40 @@
     <Compile Include="landlord.master.designer.cs">
       <DependentUpon>landlord.master</DependentUpon>
     </Compile>
+    <Compile Include="landlordAppointment.aspx.cs">
+      <DependentUpon>landlordAppointment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="landlordAppointment.aspx.designer.cs">
+      <DependentUpon>landlordAppointment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="landlordContract.aspx.cs">
+      <DependentUpon>landlordContract.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="landlordContract.aspx.designer.cs">
+      <DependentUpon>landlordContract.aspx</DependentUpon>
+    </Compile>
     <Compile Include="landlordhouse.aspx.cs">
       <DependentUpon>landlordhouse.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="landlordhouse.aspx.designer.cs">
       <DependentUpon>landlordhouse.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="landlordPayment.aspx.cs">
+      <DependentUpon>landlordPayment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="landlordPayment.aspx.designer.cs">
+      <DependentUpon>landlordPayment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="landlordReport.aspx.cs">
+      <DependentUpon>landlordReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="landlordReport.aspx.designer.cs">
+      <DependentUpon>landlordReport.aspx</DependentUpon>
     </Compile>
     <Compile Include="ldashboard.aspx.cs">
       <DependentUpon>ldashboard.aspx</DependentUpon>
@@ -2783,13 +2862,40 @@
     <Compile Include="login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
     </Compile>
-
+    <Compile Include="manageAppointment.aspx.cs">
+      <DependentUpon>manageAppointment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="manageAppointment.aspx.designer.cs">
+      <DependentUpon>manageAppointment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="managecontract.aspx.cs">
+      <DependentUpon>managecontract.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="managecontract.aspx.designer.cs">
+      <DependentUpon>managecontract.aspx</DependentUpon>
+    </Compile>
     <Compile Include="managelandlord.aspx.cs">
       <DependentUpon>managelandlord.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="managelandlord.aspx.designer.cs">
       <DependentUpon>managelandlord.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="managepayment.aspx.cs">
+      <DependentUpon>managepayment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="managepayment.aspx.designer.cs">
+      <DependentUpon>managepayment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="managereport.aspx.cs">
+      <DependentUpon>managereport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="managereport.aspx.designer.cs">
+      <DependentUpon>managereport.aspx</DependentUpon>
     </Compile>
     <Compile Include="managestudent.aspx.cs">
       <DependentUpon>managestudent.aspx</DependentUpon>
@@ -2804,6 +2910,20 @@
     </Compile>
     <Compile Include="navigation.Master.designer.cs">
       <DependentUpon>navigation.Master</DependentUpon>
+    </Compile>
+    <Compile Include="payment.aspx.cs">
+      <DependentUpon>payment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="payment.aspx.designer.cs">
+      <DependentUpon>payment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="paymentGateway.aspx.cs">
+      <DependentUpon>paymentGateway.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="paymentGateway.aspx.designer.cs">
+      <DependentUpon>paymentGateway.aspx</DependentUpon>
     </Compile>
     <Compile Include="PhotoHandler.ashx.cs">
       <DependentUpon>PhotoHandler.ashx</DependentUpon>
@@ -2851,6 +2971,34 @@
     <Compile Include="managehouse.aspx.designer.cs">
       <DependentUpon>managehouse.aspx</DependentUpon>
     </Compile>
+    <Compile Include="studentAppointment.aspx.cs">
+      <DependentUpon>studentAppointment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="studentAppointment.aspx.designer.cs">
+      <DependentUpon>studentAppointment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="studentContract.aspx.cs">
+      <DependentUpon>studentContract.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="studentContract.aspx.designer.cs">
+      <DependentUpon>studentContract.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="studentPayment.aspx.cs">
+      <DependentUpon>studentPayment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="studentPayment.aspx.designer.cs">
+      <DependentUpon>studentPayment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm2.aspx.cs">
+      <DependentUpon>WebForm2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm2.aspx.designer.cs">
+      <DependentUpon>WebForm2.aspx</DependentUpon>
+    </Compile>
     <Compile Include="WebForm3.aspx.cs">
       <DependentUpon>WebForm3.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2872,7 +3020,23 @@
     <Compile Include="WebForm5.aspx.designer.cs">
       <DependentUpon>WebForm5.aspx</DependentUpon>
     </Compile>
-
+    <Compile Include="WebForm6.aspx.cs">
+      <DependentUpon>WebForm6.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm6.aspx.designer.cs">
+      <DependentUpon>WebForm6.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm7.aspx.cs">
+      <DependentUpon>WebForm7.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm7.aspx.designer.cs">
+      <DependentUpon>WebForm7.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Webhooks.ashx.cs">
+      <DependentUpon>Webhooks.ashx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="landing.Master" />
@@ -3095,9 +3259,11 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+    <Content Include="Webhooks.ashx" />
   </ItemGroup>
   <ItemGroup>
-
+    <Folder Include="Proof\" />
+    <Folder Include="UploadedImages\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

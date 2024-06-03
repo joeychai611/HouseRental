@@ -49,21 +49,35 @@
                                     <asp:TextBox CssClass="form-control" ID="TextBox1" runat="server"></asp:TextBox>                                
                                 </div>
                             </div>
+<<<<<<< HEAD
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                            <label>* Email Address</label>
+=======
                         <div class="col-md-6">
 
+>>>>>>> 2c705f348bfbddd71134745bb509bc4f3e6ae56d
                                 <div class="form-group">
                                     <asp:TextBox CssClass="form-control" ID="TextBox2" runat="server" TextMode="Email"></asp:TextBox>   
                                 </div>
                                 </div>
-                        </div>
-
-                        <div class="row">
                                 <div class="col-md-6">
 
                                 <div class="form-group">
                                     <asp:TextBox CssClass="form-control" ID="TextBox3" runat="server"></asp:TextBox>   
                                 </div>
                                 </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>* IC (XXXXXX-XX-XXXX)</label>
+                                <div class="form-group">
+                                    <asp:TextBox CssClass="form-control" ID="TextBox7" runat="server" ></asp:TextBox>   
+                                </div>
+                            </div>
                             <div class="col-md-6">
                                 <label>Date of Birth</label>
                                 <div class="form-group">
@@ -122,16 +136,16 @@
             </div>
         </div>
     <script type="text/javascript">
-    function ShowHideDiv() {
-        var chkYes = document.getElementById("chkYes");
-        var dvPassport = document.getElementById("dvPassport");
-        dvPassport.style.display = chkYes.checked ? "block" : "none";
-    }
+        function ShowHideDiv() {
+            var chkYes = document.getElementById("chkYes");
+            var dvPassport = document.getElementById("dvPassport");
+            dvPassport.style.display = chkYes.checked ? "block" : "none";
+        }
     </script><script type="text/javascript">
-    function ShowHideDiv() {
-        var chkYes = document.getElementById("chkYes");
-        var dvPassport = document.getElementById("dvPassport");
-        dvPassport.style.display = chkYes.checked ? "block" : "none";
-    }
+                 function ShowHideDiv() {
+                     var chkYes = document.getElementById("chkYes");
+                     var dvPassport = document.getElementById("dvPassport");
+                     dvPassport.style.display = chkYes.checked ? "block" : "none";
+                 }
     </script>
 </asp:Content>

@@ -58,7 +58,7 @@ namespace HouseRental
                                     com.Parameters["@password"].Value = TextBox2.Text;
                                     com.ExecuteNonQuery();
                                     con.Close();
-                                    Response.Write("<script>alert('Successfully Updated.');</script>");
+                                    Response.Write("<script>alert('Password successfully updated.');</script>");
                                 }
                                 else
                                 {

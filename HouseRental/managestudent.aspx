@@ -86,19 +86,24 @@
                     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
                           <asp:Panel ID="Panel1" runat="server" Style="display:none">
 
-
+                              <div class="modal-dialog modal-dialog-scrollable">
+                    <div class="modal-content">
+                        <div class="modal-header text-center">
                             <h4 class="modal-title w-100">Student</h4>
                         </div>
                         <div class="modal-body">
                              <div class="container">
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <label>Full Name</label>
                                 <div class="form-group">
-                                    <asp:TextBox CssClass="form-control" ID="TextBox1" runat="server"></asp:TextBox>                                
+                                    <asp:TextBox CssClass="form-control" ID="TextBox1" ReadOnly="True" runat="server"></asp:TextBox>                                
                                 </div>
                             </div>
-                        <div class="col-md-6">
+                        </div>
+
+                                 <div class="row">
+                        <div class="col-md-12">
                             <label>Email Address</label>
                                 <div class="form-group">
                                     <asp:TextBox CssClass="form-control" ID="TextBox2" runat="server" TextMode="Email" ReadOnly="True"></asp:TextBox>   
@@ -110,18 +115,25 @@
                                 <div class="col-md-6">
                             <label>Contact Number</label>
                                 <div class="form-group">
-                                    <asp:TextBox CssClass="form-control" ID="TextBox3" runat="server" TextMode="Number"></asp:TextBox>   
+                                    <asp:TextBox CssClass="form-control" ID="TextBox3" runat="server" TextMode="Number" ReadOnly="True"></asp:TextBox>   
+
                                 </div>
                                 </div>
+                            <div class="col-md-6">
+                            <label>IC</label>
+                                <div class="form-group">
+                                    <asp:TextBox CssClass="form-control" ID="TextBox5" ReadOnly="True" runat="server"></asp:TextBox>   
+                                </div>
+                                </div>
+                        </div>
+
+                        <div class="row">
                             <div class="col-md-6">
                                 <label>Date of Birth</label>
                                 <div class="form-group">
                                     <asp:TextBox CssClass="form-control" ID="TextBox4" runat="server" placeholder="Date of Birth" TextMode="Date"></asp:TextBox>   
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="row">
                             <div class="col-md-6">
                                 <label>Gender</label>
                                 <div class="form-group">
@@ -131,7 +143,10 @@
                                         </asp:DropDownList>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                        </div>
+
+                                 <div class="row">
+                                     <div class="col-md-6">
                                 <label>User Type</label>
                                 <div class="form-group">
                                     <asp:DropDownList class="form-control" ID="DropDownList2" Enabled="False" runat="server">
@@ -139,12 +154,9 @@
                                     </asp:DropDownList>
                                 </div>
                             </div>
-                        </div>
 
-                                 <div class="row">
+                                     <div class="col-md-6">
 
-
-                            <div class="col-md-6">
                                 <label>Status</label>
                                 <div class="form-group">
                                     <asp:DropDownList class="form-control" ID="DropDownList3" runat="server" CssClass="badge badge-pill badge-info">
@@ -154,6 +166,13 @@
                                         </asp:DropDownList>
                                 </div>
                             </div>
+                                     <div class="col-md-6">
+                                <label>Proof</label><br />
+                                <asp:ImageButton ID="imgPhoto" OnClientClick ="popimage(this);return false" style="max-height:100%;max-width:80%; border: 1px solid #D3D3D3;" runat="server" />
+                                <div id="dialog" style="display: none"></div>
+                            </div>
+
+                            
                         </div>
                    </div>
 
