@@ -62,6 +62,60 @@
                                 </asp:CommandField>
 
 
+        <!-- ============================================================== -->    
+            <!-- ============================================================== -->
+	                <!-- pageheader  -->
+	                <!-- ============================================================== -->
+	                <div class="row">
+	                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+	                        <div class="page-header">
+	                            <h3 class="mb-2">Manage Landlord</h3>
+	                            <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit amet vestibulum mi. Morbi lobortis pulvinar quam.</p>
+	                            <div class="page-breadcrumb">
+	                                <nav aria-label="breadcrumb">
+	                                    <ol class="breadcrumb">
+	                                        <li class="breadcrumb-item"><a href="home.aspx" class="breadcrumb-link">Home</a></li>
+	                                        <li class="breadcrumb-item active" aria-current="page">Manage Landlord</li>
+	                                    </ol>
+	                                </nav>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div>
+	                <!-- ============================================================== -->
+	                <!-- end pageheader  -->
+	                <!-- ============================================================== -->
+			<div class="card">
+               <div class="card-body">
+                  <div class="row">
+                      <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:houserentalDBConnectionString %>" SelectCommand="SELECT [ID], [name], [email], [contactnum], [accountstatus] FROM [people] WHERE ([usertype] = @usertype)" DeleteCommand="DELETE FROM [people] WHERE [ID] = @ID" InsertCommand="INSERT INTO [people] ([name], [email], [contactnum], [accountstatus]) VALUES (@name, @email, @contactnum, @accountstatus)" UpdateCommand="UPDATE [people] SET [name] = @name, [email] = @email, [contactnum] = @contactnum, [accountstatus] = @accountstatus WHERE [ID] = @ID">
+                          <DeleteParameters>
+                              <asp:Parameter Name="ID" Type="Int32" />
+                          </DeleteParameters>
+                          <SelectParameters>
+                              <asp:Parameter DefaultValue="landlord" Name="usertype" Type="String" />
+                          </SelectParameters>
+                          <UpdateParameters>
+                              <asp:Parameter Name="name" Type="String" />
+                              <asp:Parameter Name="email" Type="String" />
+                              <asp:Parameter Name="contactnum" Type="String" />
+                              <asp:Parameter Name="accountstatus" Type="String" />
+                              <asp:Parameter Name="ID" Type="Int32" />
+                          </UpdateParameters>
+                      </asp:SqlDataSource>
+                     <div class="col">
+                         <asp:GridView class="table table-striped table-bordered" ID="GridView2" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" DataKeyNames="ID" OnRowDataBound="GridView2_RowDataBound" CellPadding="4" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView2_SelectedIndexChanged" >
+                             <AlternatingRowStyle BackColor="White" />
+                            <Columns>
+                                <asp:BoundField DataField="ID" HeaderText="ID" SortExpression="ID" InsertVisible="False" ReadOnly="True" Visible="false" />
+                                <asp:BoundField DataField="name" HeaderText="Name" SortExpression="name" />
+                                <asp:BoundField DataField="email" HeaderText="Email" SortExpression="email" />
+								<asp:BoundField DataField="contactnum" HeaderText="Contact" SortExpression="contactnum" /> 
+								<asp:BoundField DataField="accountstatus" HeaderText="Status" SortExpression="accountstatus" />
+                                <asp:CommandField HeaderText="Action" ShowSelectButton="True" SelectText="<img src='images/EditButton.png'>" ShowDeleteButton="True" DeleteText="<img src='images/CancelButton.png'>"  >
+                                </asp:CommandField>
+
+
                             </Columns>
                              <EditRowStyle BackColor="#2461BF" />
                              <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />

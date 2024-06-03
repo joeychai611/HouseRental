@@ -116,19 +116,6 @@ namespace HouseRental
                     con.Open();
                 }
 
-                SqlCommand cmd = new SqlCommand("SELECT * from people where email='" + TextBox2.Text.Trim() + "';", con);
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-
-                TextBox1.Text = dt.Rows[0]["name"].ToString();
-                TextBox2.Text = dt.Rows[0]["email"].ToString();
-                TextBox3.Text = dt.Rows[0]["contactnum"].ToString();
-                TextBox4.Text = dt.Rows[0]["dateofbirth"].ToString();
-                DropDownList1.SelectedValue = dt.Rows[0]["gender"].ToString().Trim();
-                DropDownList2.SelectedValue = dt.Rows[0]["usertype"].ToString().Trim();
-                DropDownList3.SelectedValue = dt.Rows[0]["accountstatus"].ToString().Trim();
-                TextBox5.Text = dt.Rows[0]["ic"].ToString();
             }
             catch (Exception ex)
             {
