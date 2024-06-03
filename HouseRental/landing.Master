@@ -24,7 +24,7 @@
 
     <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
     <link rel="stylesheet" href="css/animate.css">
-    
+
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
     <link rel="stylesheet" href="css/magnific-popup.css">
@@ -36,7 +36,7 @@
     <link rel="stylesheet" href="css/bootstrap-datepicker.css">
     <link rel="stylesheet" href="css/jquery.timepicker.css">
 
-    
+
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
@@ -45,7 +45,7 @@
 
     <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
     <link rel="stylesheet" href="css/animate.css">
-    
+
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
     <link rel="stylesheet" href="css/magnific-popup.css">
@@ -57,113 +57,114 @@
     <link rel="stylesheet" href="css/bootstrap-datepicker.css">
     <link rel="stylesheet" href="css/jquery.timepicker.css">
 
-    
+
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
     <link href="fontawesome/css/all.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.datatables.net/2.0.3/css/dataTables.dataTables.css" />
-    
-<asp:ContentPlaceHolder ID="head" runat="server">
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
         <div>
-        <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-	    <div class="container">
-	      <a class="navbar-brand" href="home.aspx">House<span>Rental</span></a>
-	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-	      </button>
-	      <div class="collapse navbar-collapse" id="ftco-nav">
-	        <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <asp:LinkButton class="navlink" ID="LinkButton1" runat="server" href="home.aspx" ><b>Home</b></asp:LinkButton>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                </li>
-                <li class="nav-item active">
-                    <asp:LinkButton class="navlink" ID="LinkButton2" runat="server" href="houselist.aspx"><b>View House</b></asp:LinkButton>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                </li>
-                <li class="nav-item active">
-                    <asp:LinkButton class="navlink" ID="LinkButton3" runat="server" href="aboutus.aspx"><b>About Us</b></asp:LinkButton>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                </li>
-                <li class="nav-item active">
-                    <asp:LinkButton class="navlink" ID="LinkButton4" runat="server" href="login.aspx"><b>Login</b></asp:LinkButton>
-                </li>
-                <li class="nav-item active">
-                    <asp:LinkButton class="navlink" ID="LinkButton5" runat="server" OnClick="LinkButton5_Click" Visible="False"><b>Log Out</b></asp:LinkButton>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                </li>
-                <li class="nav-item active">
-                    <asp:LinkButton class="navlink" ID="LinkButton6" runat="server" OnClick="LinkButton6_Click" Visible="False"></asp:LinkButton>
-                </li>
-	        </ul>
-              <asp:TextBox CssClass="form-control" ID="TextBox2" runat="server" Visible="false"></asp:TextBox>
-              <asp:TextBox ID="txtLatitude" runat="server" Width="200" Visible="false" />
-              <asp:TextBox ID="txtLongitude" runat="server" Width="200" Visible="false" />
-              <asp:TextBox CssClass="form-control" ID="TextBox8" runat="server" Visible="false"></asp:TextBox>
-              <asp:TextBox ID="TextBox15" runat="server" Width="200" Visible="false" />
-              <asp:TextBox ID="TextBox16" runat="server" Width="200" Visible="false" />
-                                        
-                                                
-	      </div>
-	    </div>
-	  </nav>
+            <div class="container">
+                <a class="navbar-brand" href="home.aspx">House<span>Rental</span></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                </button>
+                <div class="collapse navbar-collapse" id="ftco-nav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <asp:LinkButton class="navlink" ID="LinkButton1" runat="server" href="home.aspx"><b>Home</b></asp:LinkButton>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </li>
+                        <li class="nav-item active">
+                            <asp:LinkButton class="navlink" ID="LinkButton2" runat="server" href="houselist.aspx"><b>View House</b></asp:LinkButton>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </li>
+                        <li class="nav-item active">
+                            <asp:LinkButton class="navlink" ID="LinkButton3" runat="server" href="aboutus.aspx"><b>About Us</b></asp:LinkButton>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </li>
+                        <li class="nav-item active">
+                            <asp:LinkButton class="navlink" ID="LinkButton4" runat="server" href="login.aspx"><b>Login</b></asp:LinkButton>
+                        </li>
+                        <li class="nav-item active">
+                            <asp:LinkButton class="navlink" ID="LinkButton5" runat="server" OnClick="LinkButton5_Click" Visible="False"><b>Log Out</b></asp:LinkButton>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </li>
+                        <li class="nav-item active">
+                            <asp:LinkButton class="navlink" ID="LinkButton6" runat="server" OnClick="LinkButton6_Click" Visible="False"></asp:LinkButton>
+                        </li>
+                    </ul>
+                    <asp:TextBox CssClass="form-control" ID="TextBox2" runat="server" Visible="false"></asp:TextBox>
+                    <asp:TextBox ID="txtLatitude" runat="server" Width="200" Visible="false" />
+                    <asp:TextBox ID="txtLongitude" runat="server" Width="200" Visible="false" />
+                    <asp:TextBox CssClass="form-control" ID="TextBox8" runat="server" Visible="false"></asp:TextBox>
+                    <asp:TextBox ID="TextBox15" runat="server" Width="200" Visible="false" />
+                    <asp:TextBox ID="TextBox16" runat="server" Width="200" Visible="false" />
+                </div>
+            </div>
             <!-- Main Content Placeholder -->
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
             <!-- Main Content Placeholder -->
 
             <footer class="ftco-footer ftco-section img">
-    	<div class="overlay"></div>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12 text-center">
-            <p style="color:whitesmoke">&copy All right Reversed. <a class="footerlinks" href="#" target="_blank">House Rental System for Student Near UTM Campus</a></p>
-          </div>
-        </div>
-      </div>
-    </footer>
+                <div class="overlay"></div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <p style="color: whitesmoke">&copy All right Reversed. <a class="footerlinks" href="#" target="_blank">House Rental System for Student Near UTM Campus</a></p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
 
-    <!-- loader -->
-  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+            <!-- loader -->
+            <div id="ftco-loader" class="show fullscreen">
+                <svg class="circular" width="48px" height="48px">
+                    <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
+                    <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" />
+                </svg>
+            </div>
 
 
-  <script src="js/jquery.min.js"></script>
-  <script src="js/jquery-migrate-3.0.1.min.js"></script>
-  <script src="js/popper.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/jquery.easing.1.3.js"></script>
-  <script src="js/jquery.waypoints.min.js"></script>
-  <script src="js/jquery.stellar.min.js"></script>
-  <script src="js/owl.carousel.min.js"></script>
-  <script src="js/jquery.magnific-popup.min.js"></script>
-  <script src="js/aos.js"></script>
-  <script src="js/jquery.animateNumber.min.js"></script>
-  <script src="js/bootstrap-datepicker.js"></script>
-  <script src="js/scrollax.min.js"></script>
+            <script src="js/jquery.min.js"></script>
+            <script src="js/jquery-migrate-3.0.1.min.js"></script>
+            <script src="js/popper.min.js"></script>
+            <script src="js/bootstrap.min.js"></script>
+            <script src="js/jquery.easing.1.3.js"></script>
+            <script src="js/jquery.waypoints.min.js"></script>
+            <script src="js/jquery.stellar.min.js"></script>
+            <script src="js/owl.carousel.min.js"></script>
+            <script src="js/jquery.magnific-popup.min.js"></script>
+            <script src="js/aos.js"></script>
+            <script src="js/jquery.animateNumber.min.js"></script>
+            <script src="js/bootstrap-datepicker.js"></script>
+            <script src="js/scrollax.min.js"></script>
 
-  <script src="js/google-map.js"></script>
-  <script src="js/main.js"></script>
-  <script src="https://cdn.datatables.net/2.0.3/js/dataTables.js"></script>
+            <script src="js/google-map.js"></script>
+            <script src="js/main.js"></script>
+            <script src="https://cdn.datatables.net/2.0.3/js/dataTables.js"></script>
 
-<script type="text/javascript">
-    function ShowPopup() {
-        $("#btnShowPopup").click();
-    }
+            <script type="text/javascript">
+                function ShowPopup() {
+                    $("#btnShowPopup").click();
+                }
 
     .modalBackground
-    {
-        background - color: Black;
-        filter: alpha(opacity = 40);
-        opacity: 0.4;
-    }
+                {
+                    background - color: Black;
+                    filter: alpha(opacity = 40);
+                    opacity: 0.4;
+                }
 
-</script>
+            </script>
 
-     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css" />
+            <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css" />
             <script>
                 function popimage(btn) {
                     FromImage = $(btn)
@@ -198,24 +199,24 @@
             </script>
 
             <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places&key=AIzaSyA2wuf6sUkJ13LDUMV4KiJEpKHO4TK03oU"></script>
-<script type="text/javascript">
-    google.maps.event.addDomListener(window, 'load', function () {
-        var places = new google.maps.places.Autocomplete(document.getElementById('<%=TextBox8.ClientID %>'));
-        google.maps.event.addListener(places, 'place_changed', function () {
-            var place = places.getPlace();
-            document.getElementById('<%=TextBox8.ClientID %>').value = place.formatted_address;
-            document.getElementById('<%=TextBox15.ClientID %>').value = place.geometry.location.lat();
-            document.getElementById('<%=TextBox16.ClientID %>').value = place.geometry.location.lng();
-        });
-    });
-</script>
-<style>
-    .pac-container {
-        z-index: 20000 !important;
-    }
-</style>    
+            <script type="text/javascript">
+                google.maps.event.addDomListener(window, 'load', function () {
+                    var places = new google.maps.places.Autocomplete(document.getElementById('<%=TextBox8.ClientID %>'));
+                    google.maps.event.addListener(places, 'place_changed', function () {
+                        var place = places.getPlace();
+                        document.getElementById('<%=TextBox8.ClientID %>').value = place.formatted_address;
+                        document.getElementById('<%=TextBox15.ClientID %>').value = place.geometry.location.lat();
+                        document.getElementById('<%=TextBox16.ClientID %>').value = place.geometry.location.lng();
+                    });
+                });
+            </script>
+            <style>
+                .pac-container {
+                    z-index: 20000 !important;
+                }
+            </style>
 
-  </div>
+        </div>
 
         </div>
 

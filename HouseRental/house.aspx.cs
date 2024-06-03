@@ -51,7 +51,7 @@ namespace HouseRental
             }
             else
             {
-                SqlConnection con = new SqlConnection("Data Source=LAPTOP-GAS8R8RV\\SQLEXPRESS;Initial Catalog=houserentalDB;Integrated Security=True");
+                SqlConnection con = new SqlConnection("server=47.110.156.155;Initial Catalog=houserentalDB;User ID=sa;Password=Bk1770!Dev@;Persist Security Info=True;Connect Timeout=300;MultipleActiveResultSets=True;Encrypt=True;TrustServerCertificate=True;");
                 if (con.State == ConnectionState.Closed)
                 {
                     con.Open();
@@ -86,7 +86,7 @@ namespace HouseRental
         {
             if (checkEmptyBox())
             {
-                SqlConnection con = new SqlConnection("Data Source=LAPTOP-GAS8R8RV\\SQLEXPRESS;Initial Catalog=houserentalDB;Integrated Security=True");
+                SqlConnection con = new SqlConnection("server=47.110.156.155;Initial Catalog=houserentalDB;User ID=sa;Password=Bk1770!Dev@;Persist Security Info=True;Connect Timeout=300;MultipleActiveResultSets=True;Encrypt=True;TrustServerCertificate=True;");
 
                 if (con.State == ConnectionState.Closed)
                 {
@@ -114,7 +114,7 @@ namespace HouseRental
                 }
                 else
                 {
-                    SqlConnection con = new SqlConnection("Data Source=LAPTOP-GAS8R8RV\\SQLEXPRESS;Initial Catalog=houserentalDB;Integrated Security=True");
+                    SqlConnection con = new SqlConnection("server=47.110.156.155;Initial Catalog=houserentalDB;User ID=sa;Password=Bk1770!Dev@;Persist Security Info=True;Connect Timeout=300;MultipleActiveResultSets=True;Encrypt=True;TrustServerCertificate=True;");
 
                     /*SqlCommand cmd = new SqlCommand("SELECT * from appointment WHERE appointment_date='" + TextBox1.Text.Trim() + "' AND slot='" + DropDownList1.Text.Trim() + "'", con);
                     SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -175,7 +175,7 @@ namespace HouseRental
         {
             try
             {
-                SqlConnection con = new SqlConnection("Data Source=LAPTOP-GAS8R8RV\\SQLEXPRESS;Initial Catalog=houserentalDB;Integrated Security=True");
+                SqlConnection con = new SqlConnection("server=47.110.156.155;Initial Catalog=houserentalDB;User ID=sa;Password=Bk1770!Dev@;Persist Security Info=True;Connect Timeout=300;MultipleActiveResultSets=True;Encrypt=True;TrustServerCertificate=True;");
 
                 if (con.State == ConnectionState.Closed)
                 {
@@ -203,7 +203,7 @@ namespace HouseRental
         {
             try
             {
-                SqlConnection con = new SqlConnection("Data Source=LAPTOP-GAS8R8RV\\SQLEXPRESS;Initial Catalog=houserentalDB;Integrated Security=True");
+                SqlConnection con = new SqlConnection("server=47.110.156.155;Initial Catalog=houserentalDB;User ID=sa;Password=Bk1770!Dev@;Persist Security Info=True;Connect Timeout=300;MultipleActiveResultSets=True;Encrypt=True;TrustServerCertificate=True;");
                 if (con.State == ConnectionState.Closed)
                 {
                     con.Open();

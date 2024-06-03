@@ -24,7 +24,7 @@ namespace HouseRental
         protected void BindGrid()
         {
             string titleSearch = customSearchTextBox.Text;
-            using (SqlConnection con = new SqlConnection("Data Source=LAPTOP-GAS8R8RV\\SQLEXPRESS;Initial Catalog=houserentalDB;Integrated Security=True"))
+            using (SqlConnection con = new SqlConnection("server=47.110.156.155;Initial Catalog=houserentalDB;User ID=sa;Password=Bk1770!Dev@;Persist Security Info=True;Connect Timeout=300;MultipleActiveResultSets=True;Encrypt=True;TrustServerCertificate=True;"))
             {
                 using (SqlCommand cmd = new SqlCommand("SELECT * FROM room", con))
                 {
@@ -44,7 +44,7 @@ namespace HouseRental
         protected void customSearchButton_Click(object sender, EventArgs e)
         {
             string titleSearch = customSearchTextBox.Text;
-            using (SqlConnection con = new SqlConnection("Data Source=LAPTOP-GAS8R8RV\\SQLEXPRESS;Initial Catalog=houserentalDB;Integrated Security=True"))
+            using (SqlConnection con = new SqlConnection("server=47.110.156.155;Initial Catalog=houserentalDB;User ID=sa;Password=Bk1770!Dev@;Persist Security Info=True;Connect Timeout=300;MultipleActiveResultSets=True;Encrypt=True;TrustServerCertificate=True;"))
             {
                 using (SqlCommand cmd = new SqlCommand("SELECT * FROM room", con))
                 {
@@ -80,7 +80,7 @@ namespace HouseRental
 
         private void loadRecord(int getPageNo)
         {
-            SqlConnection con = new SqlConnection("Data Source=LAPTOP-GAS8R8RV\\SQLEXPRESS;Initial Catalog=houserentalDB;Integrated Security=True");
+            SqlConnection con = new SqlConnection("server=47.110.156.155;Initial Catalog=houserentalDB;User ID=sa;Password=Bk1770!Dev@;Persist Security Info=True;Connect Timeout=300;MultipleActiveResultSets=True;Encrypt=True;TrustServerCertificate=True;");
             SqlDataAdapter dap;
             DataTable dtp = new DataTable();
             PagedDataSource pds;
