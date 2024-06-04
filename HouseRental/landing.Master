@@ -19,51 +19,35 @@
     <link rel="stylesheet" href="assets/vendor/charts/c3charts/c3.css">
     <link rel="stylesheet" href="assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
     <link href="fontawesome/css/all.css" rel="stylesheet" />
-
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
     <link rel="stylesheet" href="css/animate.css">
-
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
     <link rel="stylesheet" href="css/magnific-popup.css">
-
     <link rel="stylesheet" href="css/aos.css">
-
     <link rel="stylesheet" href="css/ionicons.min.css">
-
     <link rel="stylesheet" href="css/bootstrap-datepicker.css">
     <link rel="stylesheet" href="css/jquery.timepicker.css">
-
-
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
-
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
     <link rel="stylesheet" href="css/animate.css">
-
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
     <link rel="stylesheet" href="css/magnific-popup.css">
-
     <link rel="stylesheet" href="css/aos.css">
-
     <link rel="stylesheet" href="css/ionicons.min.css">
-
     <link rel="stylesheet" href="css/bootstrap-datepicker.css">
     <link rel="stylesheet" href="css/jquery.timepicker.css">
-
-
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
     <link href="fontawesome/css/all.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.datatables.net/2.0.3/css/dataTables.dataTables.css" />
-
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -130,8 +114,6 @@
                     <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" />
                 </svg>
             </div>
-
-
             <script src="js/jquery.min.js"></script>
             <script src="js/jquery-migrate-3.0.1.min.js"></script>
             <script src="js/popper.min.js"></script>
@@ -145,26 +127,22 @@
             <script src="js/jquery.animateNumber.min.js"></script>
             <script src="js/bootstrap-datepicker.js"></script>
             <script src="js/scrollax.min.js"></script>
-
             <script src="js/google-map.js"></script>
             <script src="js/main.js"></script>
             <script src="https://cdn.datatables.net/2.0.3/js/dataTables.js"></script>
-
-            <script type="text/javascript">
-                function ShowPopup() {
-                    $("#btnShowPopup").click();
-                }
-
-    .modalBackground
-                {
+            <style>
+                .modalBackground {
                     background - color: Black;
                     filter: alpha(opacity = 40);
                     opacity: 0.4;
                 }
-
+            </style>
+            <script type="text/javascript">
+                function ShowPopup() {
+                    $("#btnShowPopup").click();
+                }
             </script>
 
-            <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css" />
             <script>
                 function popimage(btn) {
                     FromImage = $(btn)
@@ -217,9 +195,6 @@
             </style>
 
         </div>
-
-        </div>
-
     </form>
 </body>
 </html>

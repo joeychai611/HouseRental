@@ -1,6 +1,16 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/landing.Master" AutoEventWireup="true" CodeBehind="home.aspx.cs" Inherits="HouseRental.home" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+    <!-- (Optional) Latest compiled and minified JavaScript translation files -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/i18n/defaults-*.min.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="hero">
@@ -34,28 +44,37 @@
             </div>
         </section>
     </div>
-
     <section class="ftco-booking ftco-section ftco-no-pt ftco-no-pb">
         <div class="container">
             <div class="row no-gutters">
                 <div class="col-lg-12">
-                    <form action="#" class="booking-form aside-stretch">
-                        <div class="row">
-                            <div class="col-md-3 d-flex py-md-5" style="margin-left: 30%;">
-                                <div class="form-group align-self-stretch d-flex align-items-end">
-                                    <div class="wrap py-3 px-4">
-                                        <input type="text" class="form-control" placeholder="Location">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-2 py-md-4">
-                                <div class="form-group d-flex align-self-stretch">
-                                    <a href="houselist.aspx" class="btn btn-primary py-5 py-md-10 px-4 align-self-stretch d-block"><span>Search House</span></a>
-                                </div>
-                            </div>
+                    <div class="row" style="width: 3000px !important;">
+                        <div class="col-md-3 d-flex py-md-5" style="margin-left: 10%;">
+                            <select class="selectpicker" multiple data-width="500px" data-live-search="true">
+                                <optgroup label="housetype" data-max-options="1">
+                                    <option data-tokens="Apartment">Apartment</option>
+                                    <option data-tokens="Terrace">Terrace House</option>
+                                    <option data-tokens="Condominium">Condominium</option>
+                                </optgroup>
+                                <optgroup label="price" data-max-options="1">
+                                    <option data-tokens="300">300</option>
+                                    <option data-tokens="500">500</option>
+                                    <option data-tokens="200">200</option>
+                                </optgroup>
+                                <optgroup label="city" data-max-options="1">
+                                    <option data-tokens="Mount Austin">Mount Austin</option>
+                                    <option data-tokens="Johor Bahru">Johor Bahru</option>
+                                    <option data-tokens="Skudai">Skudai</option>
+                                </optgroup>
+                            </select>
+                            <button id="searchButton" class="btn btn-primary" style="margin-left: 5%;">Search</button>
                         </div>
-                    </form>
+                        <script>
+                            $(function () {
+                                $('.selectpicker').selectpicker();
+                            });
+                        </script>
+                    </div>
                 </div>
             </div>
         </div>
