@@ -8,6 +8,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using AjaxControlToolkit.HtmlEditor;
 
 namespace HouseRental
 {
@@ -209,20 +210,19 @@ namespace HouseRental
                 {
                     con.Open();
                 }
-                byte[] bytes;
-                using (BinaryReader br = new BinaryReader(fuUpload.PostedFile.InputStream))
-                {
-                    bytes = br.ReadBytes(fuUpload.PostedFile.ContentLength);
-                }
+
+                List<byte[]> images = new List<byte[]>();
+                foreach (HttpPostedFile upload in FileUpload1.PostedFiles)
+                    using (BinaryReader br = new BinaryReader(upload.InputStream))
+                        images.Add(br.ReadBytes(upload.ContentLength));
 
                 SqlCommand insertCmd = new SqlCommand("SELECT (ID) FROM people WHERE email='" + Session["email"].ToString() + "';", con);
                 int userID = Convert.ToInt32(insertCmd.ExecuteScalar());
 
-                string insertQuery = "INSERT INTO room VALUES(@hname,@housetype,@address,@postcode,@city,@description,@accommodation,@rentprice,@duration,@status,@image,@userID)";
+                string insertQuery = "INSERT INTO room VALUES(@hname,@housetype,@address,@postcode,@city,@description,@accommodation,@rentprice,@duration,@status,@userID)";
                 insertCmd = new SqlCommand(insertQuery, con);
                 insertCmd.Parameters.AddWithValue("@hname", TextBox1.Text.Trim());
                 insertCmd.Parameters.AddWithValue("@housetype", DropDownList1.SelectedItem.Value);
-
                 insertCmd.Parameters.AddWithValue("@address", txtPlaces.Text.Trim());
                 insertCmd.Parameters.AddWithValue("@postcode", TextBox3.Text.Trim());
                 insertCmd.Parameters.AddWithValue("@city", TextBox4.Text.Trim());
@@ -231,10 +231,18 @@ namespace HouseRental
                 insertCmd.Parameters.AddWithValue("@rentprice", TextBox6.Text.Trim());
                 insertCmd.Parameters.AddWithValue("@duration", duration);
                 insertCmd.Parameters.AddWithValue("@status", "Available");
-                insertCmd.Parameters.AddWithValue("@image", bytes);
                 insertCmd.Parameters.AddWithValue("@userID", userID);
 
                 int status = insertCmd.ExecuteNonQuery();
+                SqlCommand roomIDcmd = new SqlCommand("SELECT ID FROM room WHERE hname='" + TextBox7.Text + "';", con);
+                int roomID = Convert.ToInt32(roomIDcmd.ExecuteScalar());
+                foreach (var item in images)
+                {
+                    var cmd3 = new SqlCommand("insert into roompicture values(@roomID,@pic)", con);
+                    cmd3.Parameters.AddWithValue("@roomID", roomID);
+                    cmd3.Parameters.AddWithValue("@pic", item);
+                    cmd3.ExecuteNonQuery();
+                }
                 if (status > 0)
                 {
                     Response.Write("<script>alert('House added successfully.');</script>");
@@ -411,13 +419,15 @@ namespace HouseRental
                     con.Open();
                 }
 
-                byte[] bytes;
-                using (BinaryReader br = new BinaryReader(FileUpload1.PostedFile.InputStream))
-                {
-                    bytes = br.ReadBytes(FileUpload1.PostedFile.ContentLength);
-                }
+                List<byte[]> images = new List<byte[]>();
+                foreach (HttpPostedFile upload in FileUpload1.PostedFiles)
+                    using (BinaryReader br = new BinaryReader(upload.InputStream))
+                        images.Add(br.ReadBytes(upload.ContentLength));
 
-                SqlCommand cmd = new SqlCommand("UPDATE room SET hname=@hname,housetype=@housetype,address=@address,postcode=@postcode,city=@city,description=@description,accommodation=@accommodation,rentprice=@rentprice,duration=@duration,status=@status,image=@image WHERE hname='" + TextBox7.Text + "'", con);
+                SqlCommand roomIDcmd = new SqlCommand("SELECT ID FROM room WHERE hname='" + TextBox7.Text + "';", con);
+                int roomID = Convert.ToInt32(roomIDcmd.ExecuteScalar());
+
+                SqlCommand cmd = new SqlCommand("UPDATE room SET hname=@hname,housetype=@housetype,address=@address,postcode=@postcode,city=@city,description=@description,accommodation=@accommodation,rentprice=@rentprice,duration=@duration,status=@status WHERE hname='" + TextBox7.Text + "'", con);
 
                 cmd.Parameters.AddWithValue("@hname", TextBox7.Text.Trim());
                 cmd.Parameters.AddWithValue("@housetype", DropDownList2.SelectedItem.Value);
@@ -429,9 +439,21 @@ namespace HouseRental
                 cmd.Parameters.AddWithValue("@rentprice", TextBox12.Text.Trim());
                 cmd.Parameters.AddWithValue("@duration", duration);
                 cmd.Parameters.AddWithValue("@status", "Available");
-                cmd.Parameters.AddWithValue("@image", bytes);
 
                 int result = cmd.ExecuteNonQuery();
+
+                var cmd2 = new SqlCommand("delete t1 from roompicture t1 join room t2 on t1.roomID=t2.ID where roomID=@roomID", con);
+                cmd2.Parameters.AddWithValue("@roomID", roomID);
+                cmd2.ExecuteNonQuery();
+
+                foreach (var item in images)
+                {
+                    var cmd3 = new SqlCommand("insert into roompicture values(@roomID,@pic)", con);
+                    cmd3.Parameters.AddWithValue("@roomID", roomID);
+                    cmd3.Parameters.AddWithValue("@pic", item);
+                    cmd3.ExecuteNonQuery();
+                }
+
                 if (checkEmptyBox())
                 {
                     if (result > 0)
@@ -476,9 +498,29 @@ namespace HouseRental
                 TextBox9.Text = dt.Rows[0]["postcode"].ToString();
                 TextBox10.Text = dt.Rows[0]["city"].ToString();
                 TextBox11.Text = dt.Rows[0]["description"].ToString();
-                byte[] bytes = (byte[])dt.Rows[0]["image"];
-                string base64String = Convert.ToBase64String(bytes, 0, bytes.Length);
-                imgPhoto.ImageUrl = "data:image/png;base64," + base64String;
+
+                SqlCommand cmd2 = new SqlCommand("SELECT roompicture.* from roompicture join room ON roompicture.roomID = room.ID WHERE room.hname='" + TextBox7.Text.Trim() + "'", con);
+                SqlDataAdapter da2 = new SqlDataAdapter(cmd2);
+                DataTable dt2 = new DataTable();
+                da2.Fill(dt2);
+
+                for (int i = 0; i < dt2.Rows.Count; i++)
+                {
+                    ImageButton imgButton = new ImageButton
+                    {
+                        ID = "imgPhoto" + i,
+                        OnClientClick = "popimage(this);return false",
+                    };
+                    imgButton.Style.Add(HtmlTextWriterStyle.Height, "100%");
+                    imgButton.Style.Add(HtmlTextWriterStyle.Width, "80%");
+                    imgButton.Style.Add(HtmlTextWriterStyle.BorderStyle, "solid");
+                    imgButton.Style.Add(HtmlTextWriterStyle.BorderColor, "#D3D3D3");
+
+                    byte[] bytes = (byte[])dt2.Rows[i]["image"];
+                    string base64String = Convert.ToBase64String(bytes, 0, bytes.Length);
+                    imgButton.ImageUrl = "data:image/png;base64," + base64String;
+                    panel2.Controls.Add(imgButton);
+                }
 
                 if (dt.Rows[0]["accommodation"].ToString().Contains(CheckBox12.Text))
                 {

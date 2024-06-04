@@ -1,17 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Data;
+using System.Data.SqlClient;
+using System.IO;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.IO;
-using System.Text;
-using System.Data;
 using iTextSharp.text;
-using iTextSharp.text.pdf;
 using iTextSharp.text.html.simpleparser;
-using System.Data.SqlClient;
-using System.Configuration;
+using iTextSharp.text.pdf;
 
 namespace HouseRental
 {
@@ -171,8 +168,11 @@ namespace HouseRental
                 {
                     Response.Write("<script>alert('Invaid entry');</script>");
                 }
-                clearForm();
-                GridView2.DataBind();
+
+                SqlDataSource1.DataBind();
+                GridView2.DataSource = null;
+                GridView2.DataSourceID = "SqlDataSource1";
+                GridView2.SelectedIndex = -1;
             }
             catch (Exception ex)
             {

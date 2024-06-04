@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace HouseRental
 {
@@ -14,7 +9,7 @@ namespace HouseRental
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            string email = Request.QueryString["email"].ToString();
+            string email = Request.QueryString["email"] == null ? "" : Request.QueryString["email"].ToString();
 
             con.Open();
             string checkActivation = "SELECT ID FROM people WHERE email='" + email + "'";
@@ -25,7 +20,7 @@ namespace HouseRental
                 PlaceHolder1.Visible = true;
                 PlaceHolder2.Visible = true;
                 PlaceHolder3.Visible = true;
-                PlaceHolder4.Visible = false;    
+                PlaceHolder4.Visible = false;
                 con.Close();
             }
             else
@@ -45,12 +40,12 @@ namespace HouseRental
             if (TextBox1.Text.ToString() == TextBox2.Text.ToString())
             {
                 con.Open();
-                string updateAcc = "UPDATE people SET password='"+ TextBox1.Text.ToString() +"' WHERE email='" + email + "'";
+                string updateAcc = "UPDATE people SET password='" + TextBox1.Text.ToString() + "' WHERE email='" + email + "'";
                 using (SqlCommand cmdUpdate = new SqlCommand(updateAcc, con))
                 {
                     cmdUpdate.ExecuteNonQuery();
                 }
- 
+
                 string updateToken = "UPDATE resetpassword SET token=0 WHERE email='" + email + "'";
                 using (SqlCommand cmdUpdate = new SqlCommand(updateToken, con))
                 {

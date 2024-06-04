@@ -47,7 +47,6 @@ namespace HouseRental
                 {
                     con.Open();
                 }
-
                 if (TextBox2.Text.Trim() != string.Empty)
                 {
                     if (TextBox3.Text.Trim() != string.Empty)
@@ -163,6 +162,7 @@ namespace HouseRental
                 cmd.Parameters.AddWithValue("@gender", DropDownList1.SelectedItem.Value);
                 cmd.Parameters.AddWithValue("@usertype", DropDownList2.SelectedItem.Value);
                 cmd.Parameters.AddWithValue("@password", TextBox5.Text.Trim());
+
                 if (DropDownList2.SelectedItem.Text == "Student")
                 {
                     cmd.Parameters.AddWithValue("@accountstatus", "Pending");
@@ -174,7 +174,6 @@ namespace HouseRental
                 cmd.Parameters.AddWithValue("@activationcode", activationcode);
                 cmd.Parameters.AddWithValue("@is_active", 0);
                 cmd.Parameters.AddWithValue("@ic", TextBox7.Text.Trim());
-
 
                 cmd.ExecuteNonQuery();
 

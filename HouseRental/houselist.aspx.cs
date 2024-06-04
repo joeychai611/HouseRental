@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
+using System.Web.Services;
 using System.Web.UI.WebControls;
 
 namespace HouseRental
@@ -16,26 +13,23 @@ namespace HouseRental
         {
             if (!this.IsPostBack)
             {
-                BindGrid();
+                BindGrid(Request["keyword"]);
                 loadRecord(0);
             }
         }
 
-        protected void BindGrid()
+        protected void BindGrid(string searchParam)
         {
-            string titleSearch = customSearchTextBox.Text;
+            string titleSearch = searchParam == null || searchParam == "" ? customSearchTextBox.Text : searchParam;
             using (SqlConnection con = new SqlConnection("server=47.110.156.155;Initial Catalog=houserentalDB;User ID=sa;Password=Bk1770!Dev@;Persist Security Info=True;Connect Timeout=300;MultipleActiveResultSets=True;Encrypt=True;TrustServerCertificate=True;"))
             {
-                using (SqlCommand cmd = new SqlCommand("SELECT * FROM room", con))
+                using (SqlDataAdapter sda = new SqlDataAdapter("SELECT *,(SELECT TOP 1 image FROM roompicture rp WHERE rp.roomID = room.ID ORDER BY rp.id) as image FROM room WHERE [hname] LIKE '%" + titleSearch + "%' OR [housetype] LIKE '%" + titleSearch + "%' OR [city] LIKE '%" + titleSearch + "%' OR [rentprice] LIKE '%" + titleSearch + "%' ", con))
                 {
-                    using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+                    using (DataTable dt = new DataTable())
                     {
-                        using (DataTable dt = new DataTable())
-                        {
-                            sda.Fill(dt);
-                            rpQuestions.DataSource = dt;
-                            rpQuestions.DataBind();
-                        }
+                        sda.Fill(dt);
+                        rpQuestions.DataSource = dt;
+                        rpQuestions.DataBind();
                     }
                 }
             }
@@ -46,9 +40,9 @@ namespace HouseRental
             string titleSearch = customSearchTextBox.Text;
             using (SqlConnection con = new SqlConnection("server=47.110.156.155;Initial Catalog=houserentalDB;User ID=sa;Password=Bk1770!Dev@;Persist Security Info=True;Connect Timeout=300;MultipleActiveResultSets=True;Encrypt=True;TrustServerCertificate=True;"))
             {
-                using (SqlCommand cmd = new SqlCommand("SELECT * FROM room", con))
+                using (SqlCommand cmd = new SqlCommand("SELECT *,(SELECT TOP 1 image FROM roompicture rp WHERE rp.roomID = room.ID ORDER BY rp.id) as image FROM room", con))
                 {
-                    using (SqlDataAdapter sda = new SqlDataAdapter("SELECT * FROM room WHERE [hname] LIKE '%" + titleSearch + "%' OR [housetype] LIKE '%" + titleSearch + "%' OR [city] LIKE '%" + titleSearch + "%' OR [rentprice] LIKE '%" + titleSearch + "%' ", con))
+                    using (SqlDataAdapter sda = new SqlDataAdapter("SELECT *,(SELECT TOP 1 image FROM roompicture rp WHERE rp.roomID = room.ID ORDER BY rp.id) as image FROM room WHERE [hname] LIKE '%" + titleSearch + "%' OR [housetype] LIKE '%" + titleSearch + "%' OR [city] LIKE '%" + titleSearch + "%' OR [rentprice] LIKE '%" + titleSearch + "%' ", con))
                     {
                         try
                         {
@@ -85,7 +79,7 @@ namespace HouseRental
             DataTable dtp = new DataTable();
             PagedDataSource pds;
 
-            dap = new SqlDataAdapter("SELECT * from room", con);
+            dap = new SqlDataAdapter("SELECT *,(SELECT TOP 1 image FROM roompicture rp WHERE rp.roomID = room.ID ORDER BY rp.id) as image FROM room", con);
             dap.Fill(dtp);
 
             pds = new PagedDataSource();
