@@ -1,16 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/landing.Master" AutoEventWireup="true" CodeBehind="home.aspx.cs" Inherits="HouseRental.home" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
-
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
-    <!-- (Optional) Latest compiled and minified JavaScript translation files -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/i18n/defaults-*.min.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="hero">
@@ -50,28 +40,55 @@
                 <div class="col-lg-12">
                     <div class="row" style="width: 3000px !important;">
                         <div class="col-md-3 d-flex py-md-5" style="margin-left: 10%;">
-                            <select class="selectpicker" multiple data-width="500px" data-live-search="true">
+                            <select class="selectpicker" multiple data-width="300px" data-live-search="true">
                                 <optgroup label="housetype" data-max-options="1">
-                                    <option data-tokens="Apartment">Apartment</option>
-                                    <option data-tokens="Terrace">Terrace House</option>
-                                    <option data-tokens="Condominium">Condominium</option>
+                                    <%foreach (var item in HouseType)
+                                        {%>
+                                    <option data-tokens="<%=item %>"><%=item %></option>
+                                    <%} %>
                                 </optgroup>
-                                <optgroup label="price" data-max-options="1">
-                                    <option data-tokens="300">300</option>
-                                    <option data-tokens="500">500</option>
-                                    <option data-tokens="200">200</option>
+                                <optgroup label="rentprice" data-max-options="1">
+                                    <%foreach (var item in RentPriceList)
+                                        {%>
+                                    <option data-tokens="<%=item %>"><%=item %></option>
+                                    <%} %>
                                 </optgroup>
                                 <optgroup label="city" data-max-options="1">
-                                    <option data-tokens="Mount Austin">Mount Austin</option>
-                                    <option data-tokens="Johor Bahru">Johor Bahru</option>
-                                    <option data-tokens="Skudai">Skudai</option>
+                                    <%foreach (var item in CityList)
+                                        {%>
+                                    <option data-tokens="<%=item %>"><%=item %></option>
+                                    <%} %>
                                 </optgroup>
                             </select>
-                            <button id="searchButton" class="btn btn-primary" style="margin-left: 5%;">Search</button>
+                            <input type="text" id="customSearchTextBox" />
+                            <button type="button" id="searchButton" class="btn btn-primary">Search</button>
                         </div>
                         <script>
                             $(function () {
-                                $('.selectpicker').selectpicker();
+                                $('.selectpicker').change(function () {
+                                    var selections = [];
+                                    var selectedOptions = $(this).find('option:selected');
+                                    selectedOptions.each(function () {
+                                        var optgroupLabel = $(this).parent().attr('label');
+                                        var optionValue = $(this).val();
+                                        selections.push({ optgroup: optgroupLabel, value: optionValue });
+                                    });
+
+                                    $(this).data('selections', selections);
+                                });
+
+                                $('#searchButton').on('click', function (e) {
+                                    e.preventDefault();
+                                    var selections = $('.selectpicker').data('selections') || [];
+                                    var queryParams = "?";
+                                    for (var i = 0; i < selections.length; i++) {
+                                        queryParams += encodeURIComponent(selections[i].optgroup) + "=" + encodeURIComponent(selections[i].value);
+                                        if (i != selections.length - 1) {
+                                            queryParams += "&";
+                                        }
+                                    }
+                                    window.location.href = "houselist.aspx" + queryParams + "&keyword=" + $('#customSearchTextBox').val();
+                                });
                             });
                         </script>
                     </div>
