@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Web;
+using System.Configuration;
 
 namespace HouseRental
 {
@@ -37,7 +38,7 @@ namespace HouseRental
                 {
                     lblStatus.Attributes.Add("class", "badge badge-pill badge-warning");
                 }
-                SqlConnection con = new SqlConnection("Data Source=LAPTOP-GAS8R8RV\\SQLEXPRESS;Initial Catalog=houserentalDB;Integrated Security=True");
+                SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["houserentalDBConnectionString"].ConnectionString);
                 SqlCommand cmd = new SqlCommand("SELECT * from roompicture where roomid=" + Request["ID"].ToString() + ";", con);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
@@ -56,7 +57,7 @@ namespace HouseRental
             }
             else
             {
-                SqlConnection con = new SqlConnection("Data Source=LAPTOP-GAS8R8RV\\SQLEXPRESS;Initial Catalog=houserentalDB;Integrated Security=True");
+                SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["houserentalDBConnectionString"].ConnectionString);
                 if (con.State == ConnectionState.Closed)
                 {
                     con.Open();
@@ -91,7 +92,7 @@ namespace HouseRental
         {
             if (checkEmptyBox())
             {
-                SqlConnection con = new SqlConnection("Data Source=LAPTOP-GAS8R8RV\\SQLEXPRESS;Initial Catalog=houserentalDB;Integrated Security=True");
+                SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["houserentalDBConnectionString"].ConnectionString);
 
                 if (con.State == ConnectionState.Closed)
                 {
@@ -119,7 +120,7 @@ namespace HouseRental
                 }
                 else
                 {
-                    SqlConnection con = new SqlConnection("Data Source=LAPTOP-GAS8R8RV\\SQLEXPRESS;Initial Catalog=houserentalDB;Integrated Security=True");
+                    SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["houserentalDBConnectionString"].ConnectionString);
 
                     /*SqlCommand cmd = new SqlCommand("SELECT * from appointment WHERE appointment_date='" + TextBox1.Text.Trim() + "' AND slot='" + DropDownList1.Text.Trim() + "'", con);
                     SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -180,7 +181,7 @@ namespace HouseRental
         {
             try
             {
-                SqlConnection con = new SqlConnection("Data Source=LAPTOP-GAS8R8RV\\SQLEXPRESS;Initial Catalog=houserentalDB;Integrated Security=True");
+                SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["houserentalDBConnectionString"].ConnectionString);
 
                 if (con.State == ConnectionState.Closed)
                 {
@@ -208,7 +209,7 @@ namespace HouseRental
         {
             try
             {
-                SqlConnection con = new SqlConnection("Data Source=LAPTOP-GAS8R8RV\\SQLEXPRESS;Initial Catalog=houserentalDB;Integrated Security=True");
+                SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["houserentalDBConnectionString"].ConnectionString);
                 if (con.State == ConnectionState.Closed)
                 {
                     con.Open();

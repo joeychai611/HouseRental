@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Configuration;
 using System.Data.SqlClient;
 
 namespace HouseRental
 {
     public partial class resetpassword : System.Web.UI.Page
     {
-        SqlConnection con = new SqlConnection("Data Source=LAPTOP-GAS8R8RV\\SQLEXPRESS;Initial Catalog=houserentalDB;Integrated Security=True");
+        SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["houserentalDBConnectionString"].ConnectionString);
 
         protected void Page_Load(object sender, EventArgs e)
         {

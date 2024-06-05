@@ -13,7 +13,7 @@ namespace HouseRental
     /// </summary>
     public class PhotoHandler : IHttpHandler
     {
-        SqlConnection con = new SqlConnection("Data Source=LAPTOP-GAS8R8RV\\SQLEXPRESS;Initial Catalog=houserentalDB;Integrated Security=True");
+        SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["houserentalDBConnectionString"].ConnectionString);
 
         public void ProcessRequest(HttpContext context)
         {

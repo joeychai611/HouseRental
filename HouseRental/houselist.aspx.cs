@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Web.UI.WebControls;
@@ -14,42 +15,41 @@ namespace HouseRental
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!this.IsPostBack)
+            using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["houserentalDBConnectionString"].ConnectionString))
+            {
+                SqlCommand cmd = new SqlCommand("select top 10 housetype from room group by housetype", con);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    HouseType.Add((string)dt.Rows[i]["housetype"]);
+                }
+
+                cmd = new SqlCommand("select top 10 city from room group by city", con);
+                da = new SqlDataAdapter(cmd);
+                dt = new DataTable();
+                da.Fill(dt);
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    CityList.Add((string)dt.Rows[i]["city"]);
+                }
+
+                cmd = new SqlCommand("select top 10 rentprice from room group by rentprice", con);
+                da = new SqlDataAdapter(cmd);
+                dt = new DataTable();
+                da.Fill(dt);
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    RentPriceList.Add(dt.Rows[i]["rentprice"].ToString());
+                }
+                cmd.Dispose();
+                da.Dispose();
+                dt.Dispose();
+            }
+            if (!IsPostBack)
             {
                 loadRecord(Request["housetype"], Request["rentprice"], Request["city"], Request["keyword"], 0);
-
-                using (SqlConnection con = new SqlConnection("Data Source=LAPTOP-GAS8R8RV\\SQLEXPRESS;Initial Catalog=houserentalDB;Integrated Security=True"))
-                {
-                    SqlCommand cmd = new SqlCommand("select top 10 housetype from room group by housetype", con);
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    DataTable dt = new DataTable();
-                    da.Fill(dt);
-                    for (int i = 0; i < dt.Rows.Count; i++)
-                    {
-                        HouseType.Add((string)dt.Rows[i]["housetype"]);
-                    }
-
-                    cmd = new SqlCommand("select top 10 city from room group by city", con);
-                    da = new SqlDataAdapter(cmd);
-                    dt = new DataTable();
-                    da.Fill(dt);
-                    for (int i = 0; i < dt.Rows.Count; i++)
-                    {
-                        CityList.Add((string)dt.Rows[i]["city"]);
-                    }
-
-                    cmd = new SqlCommand("select top 10 rentprice from room group by rentprice", con);
-                    da = new SqlDataAdapter(cmd);
-                    dt = new DataTable();
-                    da.Fill(dt);
-                    for (int i = 0; i < dt.Rows.Count; i++)
-                    {
-                        RentPriceList.Add(dt.Rows[i]["rentprice"].ToString());
-                    }
-                    cmd.Dispose();
-                    da.Dispose();
-                    dt.Dispose();
-                }
             }
         }
 
@@ -62,7 +62,7 @@ namespace HouseRental
 
         private void loadRecord(string housetype, string rentprice, string city, string keyword, int getPageNo)
         {
-            using (SqlConnection con = new SqlConnection("Data Source=LAPTOP-GAS8R8RV\\SQLEXPRESS;Initial Catalog=houserentalDB;Integrated Security=True"))
+            using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["houserentalDBConnectionString"].ConnectionString))
             {
                 string sql = "SELECT *,(SELECT TOP 1 image FROM roompicture rp WHERE rp.roomID = room.ID ORDER BY rp.id) as image FROM room WHERE 1=1 ";
                 if (housetype != null && housetype != "")

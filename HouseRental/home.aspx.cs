@@ -2,6 +2,7 @@
 using System.Data.SqlClient;
 using System.Data;
 using System.Collections.Generic;
+using System.Configuration;
 
 namespace HouseRental
 {
@@ -14,7 +15,7 @@ namespace HouseRental
         {
             if (!IsPostBack)
             {
-                using (SqlConnection con = new SqlConnection("Data Source=LAPTOP-GAS8R8RV\\SQLEXPRESS;Initial Catalog=houserentalDB;Integrated Security=True"))
+                using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["houserentalDBConnectionString"].ConnectionString))
                 {
                     SqlCommand cmd = new SqlCommand("select top 10 housetype from room group by housetype", con);
                     SqlDataAdapter da = new SqlDataAdapter(cmd);

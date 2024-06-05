@@ -39,7 +39,6 @@
                     });
                     return params;
                 }
-
                 $('.selectpicker').change(function () {
                     var selections = [];
                     var selectedOptions = $(this).find('option:selected');
