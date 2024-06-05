@@ -40,7 +40,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="row">
-                            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:houserentalDBConnectionString %>" SelectCommand="SELECT [ID], [hname], [housetype], [rentprice], [status] FROM [room] WHERE ([userID] = @userID)" DeleteCommand="DELETE FROM [room] WHERE [ID] = @ID" InsertCommand="INSERT INTO [room] ([hname], [housetype], [rentprice], [status]) VALUES (@hname, @housetype, @rentprice, @status)" UpdateCommand="UPDATE [room] SET [hname] = @hname, [housetype] = @housetype, [rentprice] = @rentprice, [status] = @status WHERE [ID] = @ID">
+                            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:houserentalDBConnectionString %>" SelectCommand="SELECT [ID], [hname], [housetype], [rentprice], [status] FROM [room] WHERE ([userID] = @userID)" DeleteCommand="DELETE FROM [room] WHERE [ID] = @ID;DELETE FROM roompicture WHERE roomid = @ID;" InsertCommand="INSERT INTO [room] ([hname], [housetype], [rentprice], [status]) VALUES (@hname, @housetype, @rentprice, @status)" UpdateCommand="UPDATE [room] SET [hname] = @hname, [housetype] = @housetype, [rentprice] = @rentprice, [status] = @status WHERE [ID] = @ID">
                                 <DeleteParameters>
                                     <asp:Parameter Name="ID" Type="Int32" />
                                 </DeleteParameters>
@@ -129,10 +129,8 @@
                                         <div class="col-md-12">
                                             <label>* Address</label>
                                             <div class="form-group">
-
                                                 <asp:TextBox CssClass="form-control" ID="txtPlaces" TextMode="MultiLine" runat="server"></asp:TextBox>
                                                 <div id="dvMap" style="width: 400px; height: 400px"></div>
-
                                             </div>
                                         </div>
                                     </div>
@@ -140,12 +138,10 @@
 
                                     <asp:TextBox ID="txtLatitude" runat="server" Width="200" type="hidden" />
                                     <asp:TextBox ID="txtLongitude" runat="server" Width="200" type="hidden" />
-
                                     <div class="row">
                                         <div class="col-md-6">
                                             <label>* Postcode</label>
                                             <div class="form-group">
-
                                                 <asp:TextBox CssClass="form-control" ID="TextBox3" runat="server" TextMode="Number"></asp:TextBox>
                                             </div>
                                         </div>
@@ -161,9 +157,7 @@
                                         <div class="col-md-12">
                                             <label>Description</label>
                                             <div class="form-group">
-
                                                 <asp:TextBox CssClass="form-control" ID="TextBox5" TextMode="MultiLine" runat="server"></asp:TextBox>
-
                                             </div>
                                         </div>
                                     </div>

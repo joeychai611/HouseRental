@@ -212,7 +212,7 @@ namespace HouseRental
                 }
 
                 List<byte[]> images = new List<byte[]>();
-                foreach (HttpPostedFile upload in FileUpload1.PostedFiles)
+                foreach (HttpPostedFile upload in fuUpload.PostedFiles)
                     using (BinaryReader br = new BinaryReader(upload.InputStream))
                         images.Add(br.ReadBytes(upload.ContentLength));
 
@@ -234,7 +234,7 @@ namespace HouseRental
                 insertCmd.Parameters.AddWithValue("@userID", userID);
 
                 int status = insertCmd.ExecuteNonQuery();
-                SqlCommand roomIDcmd = new SqlCommand("SELECT ID FROM room WHERE hname='" + TextBox7.Text + "';", con);
+                SqlCommand roomIDcmd = new SqlCommand("SELECT ID FROM room WHERE hname='" + TextBox1.Text + "';", con);
                 int roomID = Convert.ToInt32(roomIDcmd.ExecuteScalar());
                 foreach (var item in images)
                 {
