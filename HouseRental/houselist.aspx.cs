@@ -64,7 +64,6 @@ namespace HouseRental
         {
             using (SqlConnection con = new SqlConnection("Data Source=LAPTOP-GAS8R8RV\\SQLEXPRESS;Initial Catalog=houserentalDB;Integrated Security=True"))
             {
-
                 string sql = "SELECT *,(SELECT TOP 1 image FROM roompicture rp WHERE rp.roomID = room.ID ORDER BY rp.id) as image FROM room WHERE 1=1 ";
                 if (housetype != null && housetype != "")
                     sql += $" and housetype like '%{housetype}%' ";
@@ -73,7 +72,7 @@ namespace HouseRental
                 if (city != null && city != "")
                     sql += $"and city like '%{city}%'";
                 if (keyword != null && keyword != "")
-                    sql += $" or( [hname] LIKE '%{keyword}%' OR [housetype] LIKE '%{keyword}%' OR [city] LIKE '%{keyword}%' OR [rentprice] LIKE '%{keyword}%')";
+                    sql += $" and ( [hname] LIKE '%{keyword}%' OR [housetype] LIKE '%{keyword}%' OR [city] LIKE '%{keyword}%' OR [rentprice] LIKE '%{keyword}%')";
 
                 using (var dap = new SqlDataAdapter(sql, con))
                 {
@@ -103,8 +102,8 @@ namespace HouseRental
                             rpQuestions.DataBind();
                         }
 
-                        LinkButton2.Enabled = pds.IsLastPage;
-                        LinkButton1.Enabled = pds.IsFirstPage;
+                        LinkButton2.Enabled = !pds.IsLastPage;
+                        LinkButton1.Enabled = !pds.IsFirstPage;
                     }
                 }
             }

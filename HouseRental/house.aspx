@@ -2,6 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <!-- ============================================================== -->
     <!-- end pageheader  -->
@@ -218,10 +219,8 @@
                 </div>
             </div>
         </div>
-        </div>
     </section>
 
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script type="text/javascript">
         $(function () {
             var today = new Date();

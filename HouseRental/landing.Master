@@ -56,43 +56,45 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <div class="container">
-                <a class="navbar-brand" href="home.aspx">House<span>Rental</span></a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-                </button>
-                <div class="collapse navbar-collapse" id="ftco-nav">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active">
-                            <asp:LinkButton class="navlink" ID="LinkButton1" runat="server" href="home.aspx"><b>Home</b></asp:LinkButton>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        </li>
-                        <li class="nav-item active">
-                            <asp:LinkButton class="navlink" ID="LinkButton2" runat="server" href="houselist.aspx"><b>View House</b></asp:LinkButton>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        </li>
-                        <li class="nav-item active">
-                            <asp:LinkButton class="navlink" ID="LinkButton3" runat="server" href="aboutus.aspx"><b>About Us</b></asp:LinkButton>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        </li>
-                        <li class="nav-item active">
-                            <asp:LinkButton class="navlink" ID="LinkButton4" runat="server" href="login.aspx"><b>Login</b></asp:LinkButton>
-                        </li>
-                        <li class="nav-item active">
-                            <asp:LinkButton class="navlink" ID="LinkButton5" runat="server" OnClick="LinkButton5_Click" Visible="False"><b>Log Out</b></asp:LinkButton>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        </li>
-                        <li class="nav-item active">
-                            <asp:LinkButton class="navlink" ID="LinkButton6" runat="server" OnClick="LinkButton6_Click" Visible="False"></asp:LinkButton>
-                        </li>
-                    </ul>
-                    <asp:TextBox CssClass="form-control" ID="TextBox2" runat="server" Visible="false"></asp:TextBox>
-                    <asp:TextBox ID="txtLatitude" runat="server" Width="200" Visible="false" />
-                    <asp:TextBox ID="txtLongitude" runat="server" Width="200" Visible="false" />
-                    <asp:TextBox CssClass="form-control" ID="TextBox8" runat="server" Visible="false"></asp:TextBox>
-                    <asp:TextBox ID="TextBox15" runat="server" Width="200" Visible="false" />
-                    <asp:TextBox ID="TextBox16" runat="server" Width="200" Visible="false" />
+            <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+                <div class="container">
+                    <a class="navbar-brand" href="home.aspx">House<span>Rental</span></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                    </button>
+                    <div class="collapse navbar-collapse" id="ftco-nav">
+                        <ul class="navbar-nav ml-auto" style="flex-direction: row; list-style-type: none;">
+                            <li class="nav-item active">
+                                <asp:LinkButton class="navlink" ID="LinkButton1" runat="server" href="home.aspx"><b>Home</b></asp:LinkButton>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </li>
+                            <li class="nav-item active">
+                                <asp:LinkButton class="navlink" ID="LinkButton2" runat="server" href="houselist.aspx"><b>View House</b></asp:LinkButton>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </li>
+                            <li class="nav-item active">
+                                <asp:LinkButton class="navlink" ID="LinkButton3" runat="server" href="aboutus.aspx"><b>About Us</b></asp:LinkButton>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </li>
+                            <li class="nav-item active">
+                                <asp:LinkButton class="navlink" ID="LinkButton4" runat="server" href="login.aspx"><b>Login</b></asp:LinkButton>
+                            </li>
+                            <li class="nav-item active">
+                                <asp:LinkButton class="navlink" ID="LinkButton5" runat="server" OnClick="LinkButton5_Click" Visible="False"><b>Log Out</b></asp:LinkButton>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </li>
+                            <li class="nav-item active">
+                                <asp:LinkButton class="navlink" ID="LinkButton6" runat="server" OnClick="LinkButton6_Click" Visible="False"></asp:LinkButton>
+                            </li>
+                        </ul>
+                        <asp:TextBox CssClass="form-control" ID="TextBox2" runat="server" Visible="false"></asp:TextBox>
+                        <asp:TextBox ID="txtLatitude" runat="server" Width="200" Visible="false" />
+                        <asp:TextBox ID="txtLongitude" runat="server" Width="200" Visible="false" />
+                        <asp:TextBox CssClass="form-control" ID="TextBox8" runat="server" Visible="false"></asp:TextBox>
+                        <asp:TextBox ID="TextBox15" runat="server" Width="200" Visible="false" />
+                        <asp:TextBox ID="TextBox16" runat="server" Width="200" Visible="false" />
+                    </div>
                 </div>
-            </div>
+            </nav>
             <!-- Main Content Placeholder -->
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>

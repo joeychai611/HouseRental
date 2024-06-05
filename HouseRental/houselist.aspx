@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <center>
+    <center style="margin-top: 50px;">
         <select class="selectpicker" multiple data-width="300px" data-live-search="true">
             <optgroup label="housetype" data-max-options="1">
                 <%foreach (var item in HouseType)

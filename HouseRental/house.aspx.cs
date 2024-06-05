@@ -28,7 +28,6 @@ namespace HouseRental
                 if (lblStatus.Text == "Available")
                 {
                     lblStatus.Attributes.Add("class", "badge badge-pill badge-success");
-
                 }
                 else if (lblStatus.Text == "Unavailable")
                 {
