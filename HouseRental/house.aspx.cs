@@ -1,18 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Data;
-using System.Configuration;
 using System.Data.SqlClient;
-using System.Linq;
 using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace HouseRental
 {
     public partial class house1 : System.Web.UI.Page
     {
+        public List<string> images = new List<string>();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!this.IsPostBack)
@@ -42,7 +38,17 @@ namespace HouseRental
                 {
                     lblStatus.Attributes.Add("class", "badge badge-pill badge-warning");
                 }
-
+                SqlConnection con = new SqlConnection("Data Source=LAPTOP-GAS8R8RV\\SQLEXPRESS;Initial Catalog=houserentalDB;Integrated Security=True");
+                SqlCommand cmd = new SqlCommand("SELECT * from roompicture where roomid=" + Request["ID"].ToString() + ";", con);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    byte[] bytes = (byte[])dt.Rows[i]["image"];
+                    string base64String = Convert.ToBase64String(bytes, 0, bytes.Length);
+                    images.Add("data:image/png;base64," + base64String);
+                }
             }
 
             if (Session["email"] == null || string.IsNullOrEmpty(Session["email"].ToString()))

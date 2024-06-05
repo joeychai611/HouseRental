@@ -34,7 +34,7 @@ namespace HouseRental
                 {
                     registerNewUser();
                 }
-            }      
+            }
         }
 
         //user defined method
@@ -47,60 +47,57 @@ namespace HouseRental
                 {
                     con.Open();
                 }
-
-
-                
-                    if (TextBox2.Text.Trim() != string.Empty)
+                if (TextBox2.Text.Trim() != string.Empty)
+                {
+                    if (TextBox3.Text.Trim() != string.Empty)
                     {
-                        if (TextBox3.Text.Trim() != string.Empty)
+                        if (TextBox7.Text.Trim() != string.Empty)
                         {
-                            if (TextBox7.Text.Trim() != string.Empty)
+                            if (TextBox5.Text.Trim() != string.Empty)
                             {
-                                if (TextBox5.Text.Trim() != string.Empty)
+                                if (TextBox6.Text.Trim() != string.Empty)
                                 {
-                                    if (TextBox6.Text.Trim() != string.Empty)
+                                    if (TextBox5.Text.Trim() == TextBox6.Text.Trim())
                                     {
-                                        if (TextBox5.Text.Trim() == TextBox6.Text.Trim())
-                                        {
-                                            return true;
-                                        }
-                                        else
-                                        {
-                                            Response.Write("<script>alert('Please fill in Same Password.');</script>");
-                                            return false;
-                                        }
+                                        return true;
                                     }
                                     else
                                     {
-                                        Response.Write("<script>alert('Please fill in Confirm Password.');</script>");
+                                        Response.Write("<script>alert('Please fill in Same Password.');</script>");
                                         return false;
                                     }
                                 }
                                 else
                                 {
-                                    Response.Write("<script>alert('Please fill in Password.');</script>");
+                                    Response.Write("<script>alert('Please fill in Confirm Password.');</script>");
                                     return false;
                                 }
                             }
                             else
                             {
-                                Response.Write("<script>alert('Please fill in IC.');</script>");
+                                Response.Write("<script>alert('Please fill in Password.');</script>");
                                 return false;
                             }
                         }
                         else
                         {
-                            Response.Write("<script>alert('Please fill in Contact Number.');</script>");
+                            Response.Write("<script>alert('Please fill in IC.');</script>");
                             return false;
                         }
                     }
                     else
                     {
-                        Response.Write("<script>alert('Please fill in Email Address.');</script>");
+                        Response.Write("<script>alert('Please fill in Contact Number.');</script>");
                         return false;
                     }
+                }
+                else
+                {
+                    Response.Write("<script>alert('Please fill in Email Address.');</script>");
+                    return false;
+                }
 
-                
+
             }
             catch (Exception ex)
             {
@@ -119,7 +116,7 @@ namespace HouseRental
                     con.Open();
                 }
 
-                SqlCommand cmd = new SqlCommand("SELECT * from people where email='"+ TextBox2.Text.Trim() +"';", con);
+                SqlCommand cmd = new SqlCommand("SELECT * from people where email='" + TextBox2.Text.Trim() + "';", con);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
@@ -138,7 +135,7 @@ namespace HouseRental
                 Response.Write("<script>alert('" + ex.Message + "');</script>");
                 return false;
             }
-            
+
         }
 
         void registerNewUser()
@@ -166,8 +163,7 @@ namespace HouseRental
                 cmd.Parameters.AddWithValue("@usertype", DropDownList2.SelectedItem.Value);
                 cmd.Parameters.AddWithValue("@password", TextBox5.Text.Trim());
 
-                cmd.Parameters.AddWithValue("@@password", TextBox6.Text.Trim());
-                if(DropDownList2.SelectedItem.Text == "Student")
+                if (DropDownList2.SelectedItem.Text == "Student")
                 {
                     cmd.Parameters.AddWithValue("@accountstatus", "Pending");
                 }
@@ -178,7 +174,6 @@ namespace HouseRental
                 cmd.Parameters.AddWithValue("@activationcode", activationcode);
                 cmd.Parameters.AddWithValue("@is_active", 0);
                 cmd.Parameters.AddWithValue("@ic", TextBox7.Text.Trim());
-
 
                 cmd.ExecuteNonQuery();
 
