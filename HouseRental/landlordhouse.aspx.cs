@@ -9,6 +9,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using AjaxControlToolkit.HtmlEditor;
+using System.Text.RegularExpressions;
 
 namespace HouseRental
 {
@@ -90,21 +91,22 @@ namespace HouseRental
         {
             try
             {
+                string pattern = "<.*?>";
                 string acc = "";
                 if (CheckBox1.Checked)
                 {
-                    acc += CheckBox1.Text;
+                    acc += Regex.Replace(CheckBox1.Text, pattern, string.Empty);
                 }
                 if (CheckBox2.Checked)
                 {
                     if (acc != "")
                     {
                         acc += ", ";
-                        acc += CheckBox2.Text;
+                        acc += Regex.Replace(CheckBox2.Text, pattern, string.Empty);
                     }
                     else
                     {
-                        acc += CheckBox2.Text;
+                        acc += Regex.Replace(CheckBox2.Text, pattern, string.Empty);
                     }
                 }
                 if (CheckBox3.Checked)
@@ -112,11 +114,11 @@ namespace HouseRental
                     if (acc != "")
                     {
                         acc += ", ";
-                        acc += CheckBox3.Text;
+                        acc += Regex.Replace(CheckBox3.Text, pattern, string.Empty);
                     }
                     else
                     {
-                        acc += CheckBox3.Text;
+                        acc += Regex.Replace(CheckBox3.Text, pattern, string.Empty);
                     }
                 }
                 if (CheckBox4.Checked)
@@ -124,11 +126,11 @@ namespace HouseRental
                     if (acc != "")
                     {
                         acc += ", ";
-                        acc += CheckBox4.Text;
+                        acc += Regex.Replace(CheckBox4.Text, pattern, string.Empty);
                     }
                     else
                     {
-                        acc += CheckBox4.Text;
+                        acc += Regex.Replace(CheckBox4.Text, pattern, string.Empty);
                     }
                 }
                 if (CheckBox5.Checked)
@@ -136,11 +138,11 @@ namespace HouseRental
                     if (acc != "")
                     {
                         acc += ", ";
-                        acc += CheckBox5.Text;
+                        acc += Regex.Replace(CheckBox5.Text, pattern, string.Empty);
                     }
                     else
                     {
-                        acc += CheckBox5.Text;
+                        acc += Regex.Replace(CheckBox5.Text, pattern, string.Empty);
                     }
                 }
                 if (CheckBox6.Checked)
@@ -148,11 +150,11 @@ namespace HouseRental
                     if (acc != "")
                     {
                         acc += ", ";
-                        acc += CheckBox6.Text;
+                        acc += Regex.Replace(CheckBox6.Text, pattern, string.Empty);
                     }
                     else
                     {
-                        acc += CheckBox6.Text;
+                        acc += Regex.Replace(CheckBox6.Text, pattern, string.Empty);
                     }
                 }
                 if (CheckBox7.Checked)
@@ -160,11 +162,11 @@ namespace HouseRental
                     if (acc != "")
                     {
                         acc += ", ";
-                        acc += CheckBox7.Text;
+                        acc += Regex.Replace(CheckBox7.Text, pattern, string.Empty);
                     }
                     else
                     {
-                        acc += CheckBox7.Text;
+                        acc += Regex.Replace(CheckBox7.Text, pattern, string.Empty);
                     }
                 }
                 if (CheckBox8.Checked)
@@ -172,11 +174,11 @@ namespace HouseRental
                     if (acc != "")
                     {
                         acc += ", ";
-                        acc += CheckBox8.Text;
+                        acc += Regex.Replace(CheckBox8.Text, pattern, string.Empty);
                     }
                     else
                     {
-                        acc += CheckBox8.Text;
+                        acc += Regex.Replace(CheckBox8.Text, pattern, string.Empty);
                     }
                 }
                 if (CheckBox9.Checked)
@@ -184,11 +186,11 @@ namespace HouseRental
                     if (acc != "")
                     {
                         acc += ", ";
-                        acc += CheckBox9.Text;
+                        acc += Regex.Replace(CheckBox9.Text, pattern, string.Empty);
                     }
                     else
                     {
-                        acc += CheckBox9.Text;
+                        acc += Regex.Replace(CheckBox9.Text, pattern, string.Empty);
                     }
                 }
 
@@ -297,21 +299,22 @@ namespace HouseRental
         {
             try
             {
+                string pattern = "<.*?>";
                 string acc = "";
                 if (CheckBox12.Checked)
                 {
-                    acc += CheckBox12.Text;
+                    acc += Regex.Replace(CheckBox12.Text, pattern, string.Empty);
                 }
                 if (CheckBox13.Checked)
                 {
                     if (acc != "")
                     {
                         acc += ", ";
-                        acc += CheckBox13.Text;
+                        acc += Regex.Replace(CheckBox13.Text, pattern, string.Empty);
                     }
                     else
                     {
-                        acc += CheckBox13.Text;
+                        acc += Regex.Replace(CheckBox13.Text, pattern, string.Empty);
                     }
                 }
                 if (CheckBox14.Checked)
@@ -319,11 +322,11 @@ namespace HouseRental
                     if (acc != "")
                     {
                         acc += ", ";
-                        acc += CheckBox14.Text;
+                        acc += Regex.Replace(CheckBox14.Text, pattern, string.Empty);
                     }
                     else
                     {
-                        acc += CheckBox14.Text;
+                        acc += Regex.Replace(CheckBox14.Text, pattern, string.Empty);
                     }
                 }
                 if (CheckBox15.Checked)
@@ -331,11 +334,11 @@ namespace HouseRental
                     if (acc != "")
                     {
                         acc += ", ";
-                        acc += CheckBox15.Text;
+                        acc += Regex.Replace(CheckBox15.Text, pattern, string.Empty);
                     }
                     else
                     {
-                        acc += CheckBox15.Text;
+                        acc += Regex.Replace(CheckBox15.Text, pattern, string.Empty);
                     }
                 }
                 if (CheckBox16.Checked)
@@ -343,11 +346,11 @@ namespace HouseRental
                     if (acc != "")
                     {
                         acc += ", ";
-                        acc += CheckBox16.Text;
+                        acc += Regex.Replace(CheckBox16.Text, pattern, string.Empty);
                     }
                     else
                     {
-                        acc += CheckBox16.Text;
+                        acc += Regex.Replace(CheckBox16.Text, pattern, string.Empty);
                     }
                 }
                 if (CheckBox17.Checked)
@@ -355,11 +358,11 @@ namespace HouseRental
                     if (acc != "")
                     {
                         acc += ", ";
-                        acc += CheckBox17.Text;
+                        acc += Regex.Replace(CheckBox17.Text, pattern, string.Empty);
                     }
                     else
                     {
-                        acc += CheckBox17.Text;
+                        acc += Regex.Replace(CheckBox17.Text, pattern, string.Empty);
                     }
                 }
                 if (CheckBox18.Checked)
@@ -367,11 +370,11 @@ namespace HouseRental
                     if (acc != "")
                     {
                         acc += ", ";
-                        acc += CheckBox18.Text;
+                        acc += Regex.Replace(CheckBox18.Text, pattern, string.Empty);
                     }
                     else
                     {
-                        acc += CheckBox18.Text;
+                        acc += Regex.Replace(CheckBox18.Text, pattern, string.Empty);
                     }
                 }
                 if (CheckBox19.Checked)
@@ -379,11 +382,11 @@ namespace HouseRental
                     if (acc != "")
                     {
                         acc += ", ";
-                        acc += CheckBox19.Text;
+                        acc += Regex.Replace(CheckBox19.Text, pattern, string.Empty);
                     }
                     else
                     {
-                        acc += CheckBox19.Text;
+                        acc += Regex.Replace(CheckBox19.Text, pattern, string.Empty);
                     }
                 }
                 if (CheckBox20.Checked)
@@ -391,11 +394,11 @@ namespace HouseRental
                     if (acc != "")
                     {
                         acc += ", ";
-                        acc += CheckBox20.Text;
+                        acc += Regex.Replace(CheckBox20.Text, pattern, string.Empty);
                     }
                     else
                     {
-                        acc += CheckBox20.Text;
+                        acc += Regex.Replace(CheckBox20.Text, pattern, string.Empty);
                     }
                 }
 
@@ -504,6 +507,7 @@ namespace HouseRental
                 DataTable dt2 = new DataTable();
                 da2.Fill(dt2);
 
+                string pattern = "<.*?>";
                 for (int i = 0; i < dt2.Rows.Count; i++)
                 {
                     ImageButton imgButton = new ImageButton
@@ -522,7 +526,7 @@ namespace HouseRental
                     panel2.Controls.Add(imgButton);
                 }
 
-                if (dt.Rows[0]["accommodation"].ToString().Contains(CheckBox12.Text))
+                if (dt.Rows[0]["accommodation"].ToString().Contains(Regex.Replace(CheckBox12.Text, pattern, string.Empty)))
                 {
                     CheckBox12.Checked = true;
                 }
@@ -530,7 +534,7 @@ namespace HouseRental
                 {
                     CheckBox12.Checked = false;
                 }
-                if (dt.Rows[0]["accommodation"].ToString().Contains(CheckBox13.Text))
+                if (dt.Rows[0]["accommodation"].ToString().Contains(Regex.Replace(CheckBox13.Text, pattern, string.Empty)))
                 {
                     CheckBox13.Checked = true;
                 }
@@ -538,7 +542,7 @@ namespace HouseRental
                 {
                     CheckBox13.Checked = false;
                 }
-                if (dt.Rows[0]["accommodation"].ToString().Contains(CheckBox14.Text))
+                if (dt.Rows[0]["accommodation"].ToString().Contains(Regex.Replace(CheckBox14.Text, pattern, string.Empty)))
                 {
                     CheckBox14.Checked = true;
                 }
@@ -546,7 +550,7 @@ namespace HouseRental
                 {
                     CheckBox14.Checked = false;
                 }
-                if (dt.Rows[0]["accommodation"].ToString().Contains(CheckBox15.Text))
+                if (dt.Rows[0]["accommodation"].ToString().Contains(Regex.Replace(CheckBox15.Text, pattern, string.Empty)))
                 {
                     CheckBox15.Checked = true;
                 }
@@ -554,7 +558,7 @@ namespace HouseRental
                 {
                     CheckBox15.Checked = false;
                 }
-                if (dt.Rows[0]["accommodation"].ToString().Contains(CheckBox16.Text))
+                if (dt.Rows[0]["accommodation"].ToString().Contains(Regex.Replace(CheckBox16.Text, pattern, string.Empty)))
                 {
                     CheckBox16.Checked = true;
                 }
@@ -562,7 +566,7 @@ namespace HouseRental
                 {
                     CheckBox16.Checked = false;
                 }
-                if (dt.Rows[0]["accommodation"].ToString().Contains(CheckBox17.Text))
+                if (dt.Rows[0]["accommodation"].ToString().Contains(Regex.Replace(CheckBox17.Text, pattern, string.Empty)))
                 {
                     CheckBox17.Checked = true;
                 }
@@ -570,7 +574,7 @@ namespace HouseRental
                 {
                     CheckBox17.Checked = false;
                 }
-                if (dt.Rows[0]["accommodation"].ToString().Contains(CheckBox18.Text))
+                if (dt.Rows[0]["accommodation"].ToString().Contains(Regex.Replace(CheckBox18.Text, pattern, string.Empty)))
                 {
                     CheckBox18.Checked = true;
                 }
@@ -578,7 +582,7 @@ namespace HouseRental
                 {
                     CheckBox18.Checked = false;
                 }
-                if (dt.Rows[0]["accommodation"].ToString().Contains(CheckBox19.Text))
+                if (dt.Rows[0]["accommodation"].ToString().Contains(Regex.Replace(CheckBox19.Text, pattern, string.Empty)))
                 {
                     CheckBox19.Checked = true;
                 }
@@ -586,7 +590,7 @@ namespace HouseRental
                 {
                     CheckBox19.Checked = false;
                 }
-                if (dt.Rows[0]["accommodation"].ToString().Contains(CheckBox20.Text))
+                if (dt.Rows[0]["accommodation"].ToString().Contains(Regex.Replace(CheckBox20.Text, pattern, string.Empty)))
                 {
                     CheckBox20.Checked = true;
                 }
