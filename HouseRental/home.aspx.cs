@@ -14,7 +14,7 @@ namespace HouseRental
         {
             if (!IsPostBack)
             {
-                using (SqlConnection con = new SqlConnection("server=47.110.156.155;Initial Catalog=houserentalDB;User ID=sa;Password=Bk1770!Dev@;Persist Security Info=True;Connect Timeout=300;MultipleActiveResultSets=True;Encrypt=True;TrustServerCertificate=True;"))
+                using (SqlConnection con = new SqlConnection("Data Source=LAPTOP-GAS8R8RV\\SQLEXPRESS;Initial Catalog=houserentalDB;Integrated Security=True"))
                 {
                     SqlCommand cmd = new SqlCommand("select top 10 housetype from room group by housetype", con);
                     SqlDataAdapter da = new SqlDataAdapter(cmd);

@@ -18,7 +18,7 @@ namespace HouseRental
             {
                 loadRecord(Request["housetype"], Request["rentprice"], Request["city"], Request["keyword"], 0);
 
-                using (SqlConnection con = new SqlConnection("server=47.110.156.155;Initial Catalog=houserentalDB;User ID=sa;Password=Bk1770!Dev@;Persist Security Info=True;Connect Timeout=300;MultipleActiveResultSets=True;Encrypt=True;TrustServerCertificate=True;"))
+                using (SqlConnection con = new SqlConnection("Data Source=LAPTOP-GAS8R8RV\\SQLEXPRESS;Initial Catalog=houserentalDB;Integrated Security=True"))
                 {
                     SqlCommand cmd = new SqlCommand("select top 10 housetype from room group by housetype", con);
                     SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -62,7 +62,7 @@ namespace HouseRental
 
         private void loadRecord(string housetype, string rentprice, string city, string keyword, int getPageNo)
         {
-            using (SqlConnection con = new SqlConnection("server=47.110.156.155;Initial Catalog=houserentalDB;User ID=sa;Password=Bk1770!Dev@;Persist Security Info=True;Connect Timeout=300;MultipleActiveResultSets=True;Encrypt=True;TrustServerCertificate=True;"))
+            using (SqlConnection con = new SqlConnection("Data Source=LAPTOP-GAS8R8RV\\SQLEXPRESS;Initial Catalog=houserentalDB;Integrated Security=True"))
             {
 
                 string sql = "SELECT *,(SELECT TOP 1 image FROM roompicture rp WHERE rp.roomID = room.ID ORDER BY rp.id) as image FROM room WHERE 1=1 ";

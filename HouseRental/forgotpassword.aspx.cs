@@ -15,7 +15,7 @@ namespace HouseRental
 {
     public partial class forgotpassword : System.Web.UI.Page
     {
-        SqlConnection con = new SqlConnection("server=47.110.156.155;Initial Catalog=houserentalDB;User ID=sa;Password=Bk1770!Dev@;Persist Security Info=True;Connect Timeout=300;MultipleActiveResultSets=True;Encrypt=True;TrustServerCertificate=True;");
+        SqlConnection con = new SqlConnection("Data Source=LAPTOP-GAS8R8RV\\SQLEXPRESS;Initial Catalog=houserentalDB;Integrated Security=True");
 
         protected void Page_Load(object sender, EventArgs e)
         {
