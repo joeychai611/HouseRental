@@ -1,18 +1,9 @@
 ﻿using System;
 using System.Configuration;
 using System.Data;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Web;
-using System.Web.Security;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Web.UI.HtmlControls;
 using System.Data.SqlClient;
-using System.Web.UI.WebControls.WebParts;
-using System.Xml.Linq;
-using System.Collections;
+using System.Drawing;
+using System.Web.UI.WebControls;
 
 namespace HouseRental
 {
@@ -27,7 +18,7 @@ namespace HouseRental
             }
             else
             {
-                SqlConnection con = new SqlConnection("Data Source=LAPTOP-GAS8R8RV\\SQLEXPRESS;Initial Catalog=houserentalDB;Integrated Security=True");
+                SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["houserentalDBConnectionString"].ConnectionString);
                 if (con.State == ConnectionState.Closed)
                 {
                     con.Open();
@@ -48,7 +39,7 @@ namespace HouseRental
 
         private void BindGrid()
         {
-            using (SqlConnection con = new SqlConnection("Data Source=LAPTOP-GAS8R8RV\\SQLEXPRESS;Initial Catalog=houserentalDB;Integrated Security=True"))
+            using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["houserentalDBConnectionString"].ConnectionString))
             {
                 using (SqlCommand cmd = new SqlCommand("SELECT * FROM people WHERE usertype ='Student'"))
                 {
@@ -159,7 +150,7 @@ namespace HouseRental
 
         private DataTable GetData()
         {
-            SqlConnection con = new SqlConnection("Data Source=LAPTOP-GAS8R8RV\\SQLEXPRESS;Initial Catalog=houserentalDB;Integrated Security=True");
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["houserentalDBConnectionString"].ConnectionString);
 
             if (con.State == ConnectionState.Closed)
             {

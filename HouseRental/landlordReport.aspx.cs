@@ -24,7 +24,7 @@ namespace HouseRental
             }
             else
             {
-                SqlConnection con = new SqlConnection("Data Source=LAPTOP-GAS8R8RV\\SQLEXPRESS;Initial Catalog=houserentalDB;Integrated Security=True");
+                SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["houserentalDBConnectionString"].ConnectionString);
                 if (con.State == ConnectionState.Closed)
                 {
                     con.Open();
@@ -46,7 +46,7 @@ namespace HouseRental
 
         private void BindGrid()
         {
-            using (SqlConnection con = new SqlConnection("Data Source=LAPTOP-GAS8R8RV\\SQLEXPRESS;Initial Catalog=houserentalDB;Integrated Security=True"))
+            using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["houserentalDBConnectionString"].ConnectionString))
             {
                 using (SqlCommand cmd = new SqlCommand("SELECT * FROM appointment WHERE landlordID='" + Session["ID"].ToString() + "' AND MONTH(appointment_date)= '" + DateTime.Now.Month.ToString() + "' AND YEAR(appointment_date)= '" + DateTime.Now.Year.ToString() + "' "))
                 {
