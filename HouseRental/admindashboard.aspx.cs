@@ -59,8 +59,15 @@ namespace HouseRental
                         using (DataTable dt = new DataTable())
                         {
                             sda.Fill(dt);
-                            GridView2.DataSource = dt;
-                            GridView2.DataBind();
+                            if (dt.Rows.Count == 0)
+                            {
+                                label1.Text = "0";
+                            }
+                            else
+                            {
+                                GridView2.DataSource = dt;
+                                GridView2.DataBind();
+                            }
                         }
                     }
                 }
@@ -74,8 +81,15 @@ namespace HouseRental
                         using (DataTable dtt = new DataTable())
                         {
                             sdaa.Fill(dtt);
-                            GridView1.DataSource = dtt;
-                            GridView1.DataBind();
+                            if (dtt.Rows.Count == 0)
+                            {
+                                label2.Text = "0";
+                            }
+                            else
+                            {
+                                GridView1.DataSource = dtt;
+                                GridView1.DataBind();
+                            }
                         }
                     }
                 }
@@ -89,8 +103,15 @@ namespace HouseRental
                         using (DataTable dttt = new DataTable())
                         {
                             sdaaa.Fill(dttt);
-                            GridView3.DataSource = dttt;
-                            GridView3.DataBind();
+                            if (dttt.Rows.Count == 0)
+                            {
+                                label3.Text = "0";
+                            }
+                            else
+                            {
+                                GridView3.DataSource = dttt;
+                                GridView3.DataBind();
+                            }
                         }
                     }
                 }
@@ -104,8 +125,15 @@ namespace HouseRental
                         using (DataTable dtttt = new DataTable())
                         {
                             sdaaaa.Fill(dtttt);
-                            GridView4.DataSource = dtttt;
-                            GridView4.DataBind();
+                            if (dtttt.Rows.Count == 0)
+                            {
+                                label4.Text = "0";
+                            }
+                            else
+                            {
+                                GridView4.DataSource = dtttt;
+                                GridView4.DataBind();
+                            }
                         }
                     }
                 }
@@ -119,8 +147,15 @@ namespace HouseRental
                         using (DataTable ddtttt = new DataTable())
                         {
                             ssdaaaa.Fill(ddtttt);
-                            GridView5.DataSource = ddtttt;
-                            GridView5.DataBind();
+                            if (ddtttt.Rows.Count == 0)
+                            {
+                                label5.Text = "0";
+                            }
+                            else
+                            {
+                                GridView5.DataSource = ddtttt;
+                                GridView5.DataBind();
+                            }
                         }
                     }
                 }
@@ -170,8 +205,15 @@ namespace HouseRental
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             da.Fill(dt);
-            dt.Rows[0]["appointment_date"].ToString();
-            dt.Rows[0]["hname"].ToString();
+            if (dt.Rows.Count == 0)
+            {
+
+            }
+            else
+            {
+                dt.Rows[0]["appointment_date"].ToString();
+                dt.Rows[0]["hname"].ToString();
+            }
             return dt;
         }
 

@@ -9,9 +9,10 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.IO;
 
+
 namespace HouseRental
 {
-    public partial class profile : System.Web.UI.Page
+    public partial class adminprofile : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

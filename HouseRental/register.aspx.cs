@@ -197,16 +197,22 @@ namespace HouseRental
                 MailMessage mail = new MailMessage();
                 mail.To.Add(TextBox2.Text.ToString().Trim());
                 mail.From = new MailAddress("joeychai0611@gmail.com");
-                mail.Subject = "Thank you for registering with us.";
+                mail.Subject = "Welcome to House Rental!";
 
                 string emailBody = "";
 
                 emailBody += "<h2>Hello " + TextBox1.Text.ToString() + ",</h2>";
-                emailBody += "We're so glad you decided to join House Rental! It's a pleasure to welcome you to our growing family.";
-                emailBody += "Click below link for activate your account.<br>";
+                emailBody += "We're so glad you decided to join House Rental! ";
+                emailBody += "It's a pleasure to welcome you to our growing family.<br>"; 
+                emailBody += "<br>";
+                emailBody += "Click below link for activate your account.";
                 emailBody += "<p><a href='" + "https://localhost:44358/activateaccount.aspx?activationcode=" + activationcode + "&email=" + TextBox2.Text.ToString() + "'>Click Here To Activate</a></p>";
-                emailBody += "If you have any questions or need assistance, please don't hesitate to reach out to our moderators or admins. We're here to help! ";
+                emailBody += "If you have any questions or need assistance, please don't hesitate to reach out to our moderators or admins.";
+                emailBody += "We're here to help!<br>"; 
                 emailBody += "Thank You.";
+                emailBody += "<br><br>";
+                emailBody += "Regards,<br>";
+                emailBody += "House Rental Team";
 
                 mail.Body = emailBody;
                 mail.IsBodyHtml = true;

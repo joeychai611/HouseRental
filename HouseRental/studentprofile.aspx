@@ -1,17 +1,14 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/landing.Master" AutoEventWireup="true" CodeBehind="profile.aspx.cs" Inherits="HouseRental.profile" %>
-
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/student.master" AutoEventWireup="true" CodeBehind="studentprofile.aspx.cs" Inherits="HouseRental.studentprofile" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <br /><br />
-    <div class="container">
+    <div class="container" style="margin-left: 15%;">
         <div class="row">
             <div class="col-md-8 mx-auto">
                 <div class="card">
                     <div class="card-body">
                         <div class="row">
                             <div class="col">
-                                <a href="homepage.aspx">Back</a>
+                                <a href="home.aspx" class="fa-solid fa-arrow-left"></a>
                                 <center>
                                     <img width="100px" src="images/generaluser.png" />
                                 </center>
@@ -99,13 +96,11 @@
                                     <br />
                                     <asp:Label ID="Label7" Text="Images" runat="server"></asp:Label>
                                     <div class="form-group">
-                                        <asp:ImageButton ID="imgPhoto" OnClientClick="popimage(this);return false" Style="max-height: 100%; max-width: 80%; border: 1px solid #D3D3D3;" runat="server" />
-                                        <div id="dialog" style="display: none"></div>
+                                        <asp:ImageButton ID="ImgPhoto"  Style="max-height: 100%; max-width: 80%; border: 1px solid #D3D3D3;" runat="server" />
                                     </div>
                                 </center>
                             </div>
                         </div>
-
 
                         <div class="row">
                             <div class="col-8 mx-auto">

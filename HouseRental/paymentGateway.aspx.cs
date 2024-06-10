@@ -54,7 +54,7 @@ namespace HouseRental
                 DataTable dtt = new DataTable();
                 daa.Fill(dtt);
                 Label5.Text = DateTime.Now.ToString("yyyy-MM-dd");
-                Label6.Text = dtt.Rows[0]["details"].ToString();
+                Label6.Text = Label1.Text;
                 Label7.Text = "Credit Card";
                 Label8.Text = dtt.Rows[0]["total"].ToString();
                 Label9.Text = dtt.Rows[0]["ID"].ToString();

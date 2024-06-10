@@ -121,6 +121,7 @@
     <Content Include="aboutus.aspx" />
     <Content Include="activateaccount.aspx" />
     <Content Include="admindashboard.aspx" />
+    <Content Include="adminprofile.aspx" />
     <Content Include="assets\assets\images\background\img5.html" />
     <Content Include="assets\images\avatar-1.jpg" />
     <Content Include="assets\images\avatar-2.jpg" />
@@ -2633,6 +2634,7 @@
     <Content Include="images\EditButton.png" />
     <Content Include="images\generaluser.png" />
     <Content Include="images\homepage.jpg" />
+    <Content Include="images\image.png" />
     <Content Include="images\image_1.jpg" />
     <Content Include="images\image_2.jpg" />
     <Content Include="images\image_3.jpg" />
@@ -2697,6 +2699,7 @@
     <Content Include="landlordContract.aspx" />
     <Content Include="landlordhouse.aspx" />
     <Content Include="landlordPayment.aspx" />
+    <Content Include="landlordprofile.aspx" />
     <Content Include="landlordReport.aspx" />
     <Content Include="ldashboard.aspx" />
     <Content Include="login.aspx" />
@@ -2708,13 +2711,13 @@
     <Content Include="managestudent.aspx" />
     <Content Include="payment.aspx" />
     <Content Include="paymentGateway.aspx" />
-    <Content Include="profile.aspx" />
     <Content Include="register.aspx" />
     <Content Include="resetpassword.aspx" />
     <Content Include="sdashboard.aspx" />
     <Content Include="studentAppointment.aspx" />
     <Content Include="studentContract.aspx" />
     <Content Include="studentPayment.aspx" />
+    <Content Include="studentprofile.aspx" />
     <Content Include="Web.config" />
     <Content Include="managehouse.aspx" />
     <Content Include="WebForm2.aspx" />
@@ -2750,6 +2753,13 @@
     </Compile>
     <Compile Include="admindashboard.aspx.designer.cs">
       <DependentUpon>admindashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="adminprofile.aspx.cs">
+      <DependentUpon>adminprofile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="adminprofile.aspx.designer.cs">
+      <DependentUpon>adminprofile.aspx</DependentUpon>
     </Compile>
     <Compile Include="changepassword.aspx.cs">
       <DependentUpon>changepassword.aspx</DependentUpon>
@@ -2838,6 +2848,13 @@
     <Compile Include="landlordPayment.aspx.designer.cs">
       <DependentUpon>landlordPayment.aspx</DependentUpon>
     </Compile>
+    <Compile Include="landlordprofile.aspx.cs">
+      <DependentUpon>landlordprofile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="landlordprofile.aspx.designer.cs">
+      <DependentUpon>landlordprofile.aspx</DependentUpon>
+    </Compile>
     <Compile Include="landlordReport.aspx.cs">
       <DependentUpon>landlordReport.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2925,13 +2942,6 @@
     <Compile Include="PhotoHandler.ashx.cs">
       <DependentUpon>PhotoHandler.ashx</DependentUpon>
     </Compile>
-    <Compile Include="profile.aspx.cs">
-      <DependentUpon>profile.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="profile.aspx.designer.cs">
-      <DependentUpon>profile.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="register.aspx.cs">
       <DependentUpon>register.aspx</DependentUpon>
@@ -2988,6 +2998,13 @@
     </Compile>
     <Compile Include="studentPayment.aspx.designer.cs">
       <DependentUpon>studentPayment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="studentprofile.aspx.cs">
+      <DependentUpon>studentprofile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="studentprofile.aspx.designer.cs">
+      <DependentUpon>studentprofile.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebForm2.aspx.cs">
       <DependentUpon>WebForm2.aspx</DependentUpon>

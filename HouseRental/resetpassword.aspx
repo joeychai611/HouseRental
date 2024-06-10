@@ -34,7 +34,6 @@
                                 </div>
                             </div>
                         </asp:PlaceHolder>
-
                         <asp:PlaceHolder ID="PlaceHolder2" runat="server">
                             <div class="col">
                                 <label>Confirm New Password</label>
@@ -43,6 +42,7 @@
                                 </div>
                             </div>
                         </asp:PlaceHolder>
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ValidationExpression="^.*(?=.{8,})(?=.*[\d])(?=.*[\W]).*$" ControlToValidate="TextBox1" ErrorMessage="Password must contains at least 8 characters, 1 digit and 1 special character." ForeColor="Red"></asp:RegularExpressionValidator>
                     </div>
                     <asp:PlaceHolder ID="PlaceHolder3" runat="server">
                         <div class="row">

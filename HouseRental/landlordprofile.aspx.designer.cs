@@ -11,7 +11,7 @@ namespace HouseRental
 {
 
 
-    public partial class profile
+    public partial class landlordprofile
     {
 
         /// <summary>

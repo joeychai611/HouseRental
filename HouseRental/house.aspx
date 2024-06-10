@@ -103,9 +103,11 @@
                                 <td>
                                     <asp:Label ID="lblLandlord" runat="server"></asp:Label></td>
                             </tr>
+                            <br /><br />
                             <button type="button" id="btnShowPopup" runat="server" onclick="btnShowPopup_Click" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Make Appointment</button>
                             <br />
                             <asp:Label ID="Label1" Text="Please login to make appointment." runat="server"></asp:Label>
+                            <asp:Label ID="Label2" Text="Your status not verified by admin yet." runat="server"></asp:Label>
                         </div>
                         <!-- ============================================================== -->
                         <!-- start make appointment  -->

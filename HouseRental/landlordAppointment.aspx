@@ -165,12 +165,11 @@
                                     </div>
 
                                     <div class="row">
-                                        <div class="col-md-12">
+                                        <div class="col-md-1">
                                             <asp:Label ID="label2" runat="server" Text="Verify" />
                                             <div class="form-group">
                                                 <asp:DropDownList class="form-control" ID="DropDownList2" runat="server" CssClass="badge badge-pill badge-info">
                                                     <asp:ListItem Text="Approve" Value="Upcoming" Class="badge badge-pill badge-primary" />
-                                                    <asp:ListItem Text="Completed" Value="Completed" Class="badge badge-pill badge-success" />
                                                     <asp:ListItem Text="Pending" Value="Pending" Class="badge badge-pill badge-warning" />
                                                     <asp:ListItem Text="Cancel" Value="Cancelled" Class="badge badge-pill badge-danger" />
                                                     <asp:ListItem Text="Absent" Value="Absent" Class="badge badge-pill badge-dark" />

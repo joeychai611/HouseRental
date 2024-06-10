@@ -132,9 +132,17 @@ namespace HouseRental
                 DropDownList2.SelectedValue = dt.Rows[0]["usertype"].ToString().Trim();
                 DropDownList3.SelectedValue = dt.Rows[0]["accountstatus"].ToString().Trim();
                 TextBox5.Text = dt.Rows[0]["ic"].ToString();
-                byte[] bytes = (byte[])dt.Rows[0]["proof"];
-                string base64String = Convert.ToBase64String(bytes, 0, bytes.Length);
-                imgPhoto.ImageUrl = "data:image/png;base64," + base64String;
+                if (dt.Rows[0]["proof"] != DBNull.Value)
+                {
+                    byte[] bytes = (byte[])dt.Rows[0]["proof"];
+                    string base64String = Convert.ToBase64String(bytes, 0, bytes.Length);
+                    imgPhoto.ImageUrl = "data:image/png;base64," + base64String;
+                    imgPhoto.Visible = true; // Show image if available
+                }
+                else
+                {
+                    imgPhoto.Visible = false; // Show default image
+                }
             }
             catch (Exception ex)
             {

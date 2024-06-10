@@ -50,14 +50,17 @@ namespace HouseRental
                     MailMessage mail = new MailMessage();
                     mail.To.Add(TextBox1.Text.ToString().Trim());
                     mail.From = new MailAddress("joeychai0611@gmail.com");
-                    mail.Subject = "Reset Password.";
+                    mail.Subject = "Reset Password for House Rental";
 
                     string emailBody = "";
 
-                    emailBody += "<h1>Hello User, </h1>";
+                    emailBody += "<h2>Hello " + TextBox1.Text.ToString() + ",</h2>";
                     emailBody += "Click below link for reset your password.<br>";
                     emailBody += "<p><a href='" + "https://localhost:44358/resetpassword.aspx?token=" + token + "&email=" + TextBox1.Text.ToString() + "'>Click Here To Reset Password</a></p>";
-                    emailBody += "Thank You.";
+                    emailBody += "<br>Thank You.";
+                    emailBody += "<br><br>";
+                    emailBody += "Regards,<br>";
+                    emailBody += "House Rental Team";
 
                     mail.Body = emailBody;
                     mail.IsBodyHtml = true;

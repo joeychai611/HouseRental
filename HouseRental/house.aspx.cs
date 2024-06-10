@@ -77,21 +77,37 @@ namespace HouseRental
                 DataTable dt = new DataTable();
                 da.Fill(dt);
 
-                if (dt.Rows[0]["usertype"].ToString().Trim() == "Student")
+                if (dt.Rows[0]["accountstatus"].ToString().Trim() == "Pending")
                 {
+                    Label1.Visible = true;
+                    btnShowPopup.Visible = false;
+                    lblStatus.Visible = false;
+                }
+                else if (dt.Rows[0]["usertype"].ToString().Trim() == "Student" && dt.Rows[0]["accountstatus"].ToString().Trim() == "Active")
+                {
+                    Label2.Visible = false;
                     Label1.Visible = false;
                     btnShowPopup.Visible = true;
                     getAppointmentDetails();
                     lblStatus.Visible = false;
                 }
+                else if (dt.Rows[0]["accountstatus"].ToString().Trim() == "Pending")
+                {
+                    Label2.Visible = true;
+                    Label1.Visible = false;
+                    btnShowPopup.Visible = false;
+                    lblStatus.Visible = false;
+                }
                 else if (dt.Rows[0]["usertype"].ToString().Trim() == "Admin")
                 {
+                    Label2.Visible = false;
                     lblStatus.Visible = true;
                     Label1.Visible = false;
                     btnShowPopup.Visible = true;
                 }
                 else
                 {
+                    Label2.Visible = false;
                     btnShowPopup.Visible = false;
                     lblStatus.Visible = false;
                 }
