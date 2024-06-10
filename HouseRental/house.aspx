@@ -10,6 +10,8 @@
 
     <section class="ftco-section" style="margin-left: 15%; margin-right: 20%;">
         <div class="container">
+             <asp:Label ID="lblStatus" runat="server"></asp:Label>
+            <br />
             <div class="row">
                 <div class="col-lg-8">
                     <div class="row">
@@ -25,12 +27,6 @@
                         </div>
 
                         <div class="col-md-12 room-single mt-4 mb-5 ftco-animate">
-                            <tr>
-                                <td>
-                                    <asp:Label ID="lblStatus" runat="server"></asp:Label></td>
-                                <br />
-                                <br />
-                            </tr>
                             <tr>
                                 <td>
                                     <h1>
@@ -50,17 +46,14 @@
                                         <td>
                                             <asp:Label ID="lblRentprice" runat="server"></asp:Label></td>
                                         <td><b>/ month </b></td>
-                                        <br />
-                                        <br />
+
                                     </h3>
                                 </tr>
                                 <hr></hr>
-                                <br />
                                 <td>
                                     <h2>
                                         <asp:Label ID="lblAddress" runat="server"></asp:Label></h2>
                                 </td>
-                                <br />
                             </tr>
                             <div class="row">
                                 <div class="col-md-6">
@@ -68,8 +61,6 @@
                                         <td><b>Postcode: </b></td>
                                         <td>
                                             <asp:Label ID="lblPostcode" runat="server"></asp:Label></td>
-                                        <br />
-                                        <br />
                                     </tr>
                                 </div>
                                 <div class="col-md-6">
@@ -77,54 +68,44 @@
                                         <td><b>City: </b></td>
                                         <td>
                                             <asp:Label ID="lblCity" runat="server"></asp:Label></td>
-                                        <br />
-                                        <br />
                                     </tr>
                                 </div>
                             </div>
                             <hr></hr>
-                            <br />
                             <tr>
                                 <td><b>Description: </b></td>
                                 <br />
                                 <td>
                                     <asp:Label ID="lblDescription" runat="server"></asp:Label></td>
-                                <br />
-                                <br />
                             </tr>
 
                             <hr></hr>
-                            <br />
-                            <tr>
-                                <td><b>Accommodation</b></td>
-                                <br />
-                                <td>
-                                    <asp:Label ID="lblAccommodation" runat="server"></asp:Label></td>
-                                <br />
-                                <br />
-                            </tr>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <tr>
+                                        <td><b>Accommodation </b></td><br />
+                                        <td>
+                                            <asp:Label ID="lblAccommodation" runat="server"></asp:Label></td>
+                                    </tr>
+                                </div>
+                                <div class="col-md-6">
+                                    <tr>
+                                        <td><b>Duration Available</b></td><br />
+                                        <td>
+                                            <asp:Label ID="lblDuration" runat="server"></asp:Label></td>
+                                    </tr>
+                                </div>
+                            </div>
                             <hr></hr>
-                            <br />
-
-                            <tr>
-                                <td><b>Duration</b></td>
-                                <br />
-                                <td>
-                                    <asp:Label ID="lblDuration" runat="server"></asp:Label></td>
-                                <br />
-                                <br />
-                            </tr>
-                            <hr></hr>
-                            <br />
                             <tr>
                                 <td><b>Landlord</b></td>
                                 <br />
                                 <td>
                                     <asp:Label ID="lblLandlord" runat="server"></asp:Label></td>
-                                <br />
-                                <br />
                             </tr>
                             <button type="button" id="btnShowPopup" runat="server" onclick="btnShowPopup_Click" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Make Appointment</button>
+                            <br />
+                            <asp:Label ID="Label1" Text="Please login to make appointment." runat="server"></asp:Label>
                         </div>
                         <!-- ============================================================== -->
                         <!-- start make appointment  -->

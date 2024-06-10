@@ -46,11 +46,11 @@
 	                            <div class="card">
 	                                <div class="card-body">
 	                                    <div class="d-inline-block">
-	                                        <h5 class="text-muted">Total Views</h5>
-	                                        <h2 class="mb-0"> 10,28,056</h2>
+	                                        <h4 class="text-muted">Total Student</h4>
+	                                        <h2><asp:Label ID="label1" runat="server" Text="student" /></h2>
 	                                    </div>
 	                                    <div class="float-right icon-circle-medium  icon-box-lg  bg-info-light mt-1">
-	                                        <i class="fa fa-eye fa-fw fa-sm text-info"></i>
+	                                        <i class="fa fa-user-graduate fa-fw fa-sm text-info"></i>
 	                                    </div>
 	                                </div>
 	                            </div>
@@ -65,8 +65,8 @@
 	                            <div class="card">
 	                                <div class="card-body">
 	                                    <div class="d-inline-block">
-	                                        <h5 class="text-muted">Total Followers</h5>
-	                                        <h2 class="mb-0"> 24,763</h2>
+	                                        <h4 class="text-muted">Total Landlord</h4>
+	                                        <h2><asp:Label ID="label2" runat="server" Text="landlord" /></h2>
 	                                    </div>
 	                                    <div class="float-right icon-circle-medium  icon-box-lg  bg-primary-light mt-1">
 	                                        <i class="fa fa-user fa-fw fa-sm text-primary"></i>
@@ -84,11 +84,11 @@
 	                            <div class="card">
 	                                <div class="card-body">
 	                                    <div class="d-inline-block">
-	                                        <h5 class="text-muted">Partnerships</h5>
-	                                        <h2 class="mb-0">14</h2>
+	                                        <h4 class="text-muted">Total House </h4>
+	                                        <h2><asp:Label ID="label3" runat="server" Text="house" /></h2>
 	                                    </div>
 	                                    <div class="float-right icon-circle-medium  icon-box-lg  bg-secondary-light mt-1">
-	                                        <i class="fa fa-handshake fa-fw fa-sm text-secondary"></i>
+	                                        <i class="fa fa-house fa-fw fa-sm text-secondary"></i>
 	                                    </div>
 	                                </div>
 	                            </div>
@@ -103,11 +103,11 @@
 	                            <div class="card">
 	                                <div class="card-body">
 	                                    <div class="d-inline-block">
-	                                        <h5 class="text-muted">Total Earned</h5>
-	                                        <h2 class="mb-0"> $149.00</h2>
+	                                        <h4 class="text-muted">Total Rental</h4>
+	                                        <h2><asp:Label ID="label4" runat="server" Text="rental" /></h2>
 	                                    </div>
 	                                    <div class="float-right icon-circle-medium  icon-box-lg  bg-brand-light mt-1">
-	                                        <i class="fa fa-money-bill-alt fa-fw fa-sm text-brand"></i>
+	                                        <i class="fa fa-table-list fa-fw fa-sm text-brand"></i>
 	                                    </div>
 	                                </div>
 	                            </div>
@@ -116,207 +116,165 @@
 	                        <!-- end total earned   -->
 	                        <!-- ============================================================== -->
 	                    </div>
-	                    <!-- ============================================================== -->
-	                    <!-- end widgets   -->
-	                    <!-- ============================================================== -->
-
-	                    <div class="row">
+					<div class="row">
 	                        <!-- ============================================================== -->
-	                        <!-- campaign activities   -->
+	                        <!-- four widgets   -->
 	                        <!-- ============================================================== -->
-	                        <div class="col-lg-12">
-	                            <div class="section-block">
-	                                <h3 class="section-title">My Active Campaigns</h3>
+	                        <!-- ============================================================== -->
+	                        <!-- total followers   -->
+	                        <!-- ============================================================== -->
+						<div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
+	                            <div class="Hide">
+	                                <div class="card-body">
+	                                    <div class="d-inline-block">
+	                                        <h5 class="text-muted">Verify Student</h5>
+	                                    </div>
+	                                    <div class="float-right icon-circle-medium  icon-box-lg  bg-secondary-light mt-1">
+	                                        <i class="fa fa-check-to-slot fa-fw fa-sm text-danger"></i>
+	                                    </div>
+	                                </div>
 	                            </div>
+	                        </div>
+
+	                        <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
 	                            <div class="card">
-	                                <div class="campaign-table table-responsive">
-	                                    <table class="table">
-	                                        <thead>
-	                                            <tr class="border-0">
-	                                                <th class="border-0">Company</th>
-	                                                <th class="border-0">Campaign Name</th>
-	                                                <th class="border-0">Social Platform</th>
-	                                                <th class="border-0">Min / Max Views</th>
-	                                                <th class="border-0">Status</th>
-	                                                <th class="border-0">Start Date</th>
-	                                                <th class="border-0">Action</th>
-	                                            </tr>
-	                                        </thead>
-	                                        <tbody>
-	                                            <tr>
-	                                                <td>
-	                                                    <div class="m-r-10"><img src="assets/images/dribbble.png" alt="user" width="35"></div>
-	                                                </td>
-	                                                <td>Fashion E Commerce </td>
-	                                                <td>
-	                                                    <div class="avatar-group">
-	                                                        <span><a href="#"><i class="fab fa-fw fa-facebook-square facebook-color"></i></a></span>
-	                                                        <span><a href="#"><i class="fab fa-fw fa-twitter-square twitter-color"></i></a></span>
-	                                                        <span><a href="#"><i class="fab fa-fw fa-instagram instagram-color"></i></a></span>
-	                                                        <span><a href="#"><i class="fab fa-fw fa-pinterest-square pinterest-color"></i></a></span>
-	                                                    </div>
-	                                                </td>
-	                                                <td>1,00,000 / 1,50,000</td>
-	                                                <td>70%</td>
-	                                                <td>7 Aug,2018</td>
-	                                                <td>
-	                                                    <div class="dropdown float-right">
-	                                                        <a href="#" class="dropdown-toggle card-drop" data-toggle="dropdown" aria-expanded="true">
-	                                                                <i class="mdi mdi-dots-vertical"></i>
-	                                                                     </a>
-	                                                        <div class="dropdown-menu dropdown-menu-right">
-	                                                            <!-- item-->
-	                                                            <a href="javascript:void(0);" class="dropdown-item">Sales Report</a>
-	                                                            <!-- item-->
-	                                                            <a href="javascript:void(0);" class="dropdown-item">Export Report</a>
-	                                                            <!-- item-->
-	                                                            <a href="javascript:void(0);" class="dropdown-item">Profit</a>
-	                                                            <!-- item-->
-	                                                            <a href="javascript:void(0);" class="dropdown-item">Action</a>
-	                                                        </div>
-	                                                    </div>
-	                                                </td>
-	                                            </tr>
-	                                            <tr>
-	                                                <td>
-	                                                    <div class="m-r-10"><img src="assets/images/github.png" alt="user" width="35"></div>
-	                                                </td>
-	                                                <td>Fitness Products </td>
-	                                                <td>
-	                                                    <div class="avatar-group">
-	                                                        <span><a href="#"><i class="fab fa-fw fa-facebook-square facebook-color "></i></a></span>
-	                                                        <span><a href="#"><i class="fab fa-fw fa-twitter-square twitter-color "></i></a></span>
-	                                                    </div>
-	                                                </td>
-	                                                <td>2,50,000 / 3,50,000</td>
-	                                                <td>70%</td>
-	                                                <td>10 Aug,2018</td>
-	                                                <td>
-	                                                    <div class="dropdown float-right">
-	                                                        <a href="#" class="dropdown-toggle  card-drop" data-toggle="dropdown" aria-expanded="true">
-	                                            <i class="mdi mdi-dots-vertical"></i>
-	                                        </a>
-	                                                        <div class="dropdown-menu dropdown-menu-right">
-	                                                            <!-- item-->
-	                                                            <a href="javascript:void(0);" class="dropdown-item">Sales Report</a>
-	                                                            <!-- item-->
-	                                                            <a href="javascript:void(0);" class="dropdown-item">Export Report</a>
-	                                                            <!-- item-->
-	                                                            <a href="javascript:void(0);" class="dropdown-item">Profit</a>
-	                                                            <!-- item-->
-	                                                            <a href="javascript:void(0);" class="dropdown-item">Action</a>
-	                                                        </div>
-	                                                    </div>
-	                                                </td>
-	                                            </tr>
-	                                            <tr>
-	                                                <td>
-	                                                    <div class="m-r-10"><img src="assets/images/dropbox.png" alt="user" width="35"></div>
-	                                                </td>
-	                                                <td>Gym Trainer Program </td>
-	                                                <td>
-	                                                    <div class="avatar-group">
-	                                                        <span><a href="#"><i class="fab fa-fw fa-facebook-square facebook-color "></i></a></span>
-	                                                        <span><a href="#"><i class="fab fa-fw fa-pinterest-square pinterest-color "></i></a></span>
-	                                                    </div>
-	                                                </td>
-	                                                <td>3,50,000 / 4,50,000</td>
-	                                                <td>70%</td>
-	                                                <td>22 Aug,2018</td>
-	                                                <td>
-	                                                    <div class="dropdown float-right">
-	                                                        <a href="#" class="dropdown-toggle  card-drop" data-toggle="dropdown" aria-expanded="true">
-	                                            <i class="mdi mdi-dots-vertical"></i>
-	                                        </a>
-	                                                        <div class="dropdown-menu dropdown-menu-right">
-	                                                            <!-- item-->
-	                                                            <a href="javascript:void(0);" class="dropdown-item">Sales Report</a>
-	                                                            <!-- item-->
-	                                                            <a href="javascript:void(0);" class="dropdown-item">Export Report</a>
-	                                                            <!-- item-->
-	                                                            <a href="javascript:void(0);" class="dropdown-item">Profit</a>
-	                                                            <!-- item-->
-	                                                            <a href="javascript:void(0);" class="dropdown-item">Action</a>
-	                                                        </div>
-	                                                    </div>
-	                                                </td>
-	                                            </tr>
-	                                            <tr>
-	                                                <td>
-	                                                    <div class="m-r-10"><img src="assets/images/bitbucket.png" alt="user" width="30"></div>
-	                                                </td>
-	                                                <td>2018 Top Product </td>
-	                                                <td>
-	                                                    <div class="avatar-group">
-	                                                        <span><a href="#"><i class="fab fa-fw fa-pinterest-square pinterest-color"></i></a></span>
-	                                                    </div>
-	                                                </td>
-	                                                <td>4,50,000 / 5,50,000</td>
-	                                                <td>70%</td>
-	                                                <td>25 Aug,2018</td>
-	                                                <td>
-	                                                    <div class="dropdown float-right">
-	                                                        <a href="#" class="dropdown-toggle  card-drop" data-toggle="dropdown" aria-expanded="true">
-	                                            <i class="mdi mdi-dots-vertical"></i>
-	                                        </a>
-	                                                        <div class="dropdown-menu dropdown-menu-right">
-	                                                            <!-- item-->
-	                                                            <a href="javascript:void(0);" class="dropdown-item">Sales Report</a>
-	                                                            <!-- item-->
-	                                                            <a href="javascript:void(0);" class="dropdown-item">Export Report</a>
-	                                                            <!-- item-->
-	                                                            <a href="javascript:void(0);" class="dropdown-item">Profit</a>
-	                                                            <!-- item-->
-	                                                            <a href="javascript:void(0);" class="dropdown-item">Action</a>
-	                                                        </div>
-	                                                    </div>
-	                                                </td>
-	                                            </tr>
-	                                            <tr>
-	                                                <td>
-	                                                    <div class="m-r-10"><img src="assets/images/mail_chimp.png" alt="user" width="30"></div>
-	                                                </td>
-	                                                <td>Top Dashboard Sale 2018</td>
-	                                                <td>
-	                                                    <div class="avatar-group">
-	                                                        <span><a href="#"><i class="fab fa-fw fa-facebook-square facebook-color"></i></a></span>
-	                                                        <span><a href="#"><i class="fab fa-fw fa-pinterest-square pinterest-color"></i></a></span>
-	                                                    </div>
-	                                                </td>
-	                                                <td>5,50,000 / 6,50,000</td>
-	                                                <td>70%</td>
-	                                                <td>27 Aug,2018</td>
-	                                                <td>
-	                                                    <div class="dropdown float-right">
-	                                                        <a href="#" class="dropdown-toggle  card-drop" data-toggle="dropdown" aria-expanded="true">
-	                                            <i class="mdi mdi-dots-vertical"></i>
-	                                        </a>
-	                                                        <div class="dropdown-menu dropdown-menu-right">
-	                                                            <!-- item-->
-	                                                            <a href="javascript:void(0);" class="dropdown-item">Sales Report</a>
-	                                                            <!-- item-->
-	                                                            <a href="javascript:void(0);" class="dropdown-item">Export Report</a>
-	                                                            <!-- item-->
-	                                                            <a href="javascript:void(0);" class="dropdown-item">Profit</a>
-	                                                            <!-- item-->
-	                                                            <a href="javascript:void(0);" class="dropdown-item">Action</a>
-	                                                        </div>
-	                                                    </div>
-	                                                </td>
-	                                            </tr>
-	                                        </tbody>
-	                                    </table>
+	                                <div class="card-body">
+	                                    <div class="d-inline-block">
+	                                        <h5 class="text-muted">Verify Student</h5>
+	                                        <h2><asp:Label ID="label5" runat="server" Text="verify" /></h2>
+	                                    </div>
+	                                    <div class="float-right icon-circle-medium  icon-box-lg  bg-secondary-light mt-1">
+	                                        <i class="fa fa-check-to-slot fa-fw fa-sm text-danger"></i>
+	                                    </div>
 	                                </div>
 	                            </div>
 	                        </div>
 	                        <!-- ============================================================== -->
-	                        <!-- end campaign activities   -->
+	                        <!-- end total followers   -->
 	                        <!-- ============================================================== -->
-	                    </div>
-	                                    <!-- ============================================================== -->
-	                                    <!-- end content  -->
-	                                    <!-- ============================================================== -->
-	                                </div>
-	                            </div>
-			</div>
+						</div>
+	                    <!-- ============================================================== -->
+	                    <!-- end widgets   -->
+	                    <!-- ============================================================== -->
+
+				<asp:Calendar ID="Calendar2" runat="server" CssClass="Hide"></asp:Calendar>
+
+				<center>
+					<label><h4><b>Upcoming Appointment</b></h4></label>
+				<asp:Calendar ID="Calendar1" runat="server" BackColor="White" BorderColor="White" BorderWidth="1px" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" ShowGridLines="True" OnDayRender="Calendar1_DayRender" Height="500px" NextPrevFormat="FullMonth" Width="900px">
+            <SelectedDayStyle BackColor="#333399" ForeColor="White" />
+            <TodayDayStyle BackColor="#CCCCCC" />
+            <OtherMonthDayStyle ForeColor="#999999" />
+            <NextPrevStyle Font-Size="8pt" ForeColor="#333333" Font-Bold="True" VerticalAlign="Bottom" />
+            <DayHeaderStyle Font-Bold="True" Font-Size="8pt" />
+            <TitleStyle BackColor="White" Font-Bold="True" Font-Size="12pt" ForeColor="#333399" BorderColor="Black" BorderWidth="4px" />
+        </asp:Calendar>
+				</center>
+        
+<!-- ============================================================== -->
+<!-- end content  -->
+<!-- ============================================================== -->
+				
+						<asp:GridView class="table table-striped table-bordered" ID="GridView2" runat="server" AutoGenerateColumns="False" DataKeyNames="ID" OnRowDataBound="GridView2_RowDataBound" CellPadding="4" ForeColor="#333333" GridLines="None" Visible="false">
+                             <AlternatingRowStyle BackColor="White" />
+                            <Columns>
+                               <asp:BoundField DataField="ID" HeaderText="ID" SortExpression="ID" InsertVisible="False" ReadOnly="True"/>
+                                <asp:BoundField DataField="name" HeaderText="name" SortExpression="name" />
+                                <asp:BoundField DataField="usertype" HeaderText="usertype" SortExpression="usertype" />
+                            </Columns>
+                             <EditRowStyle BackColor="#2461BF" />
+                             <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                             <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                             <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+                             <RowStyle BackColor="#EFF3FB" />
+                             <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+                             <SortedAscendingCellStyle BackColor="#F5F7FB" />
+                             <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+                             <SortedDescendingCellStyle BackColor="#E9EBEF" />
+                             <SortedDescendingHeaderStyle BackColor="#4870BE" />
+                         </asp:GridView>
+
+				<asp:GridView class="table table-striped table-bordered" ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="ID" OnRowDataBound="GridView1_RowDataBound" CellPadding="4" ForeColor="#333333" GridLines="None" Visible="false">
+                             <AlternatingRowStyle BackColor="White" />
+                            <Columns>
+                               <asp:BoundField DataField="name" HeaderText="name" SortExpression="name" />
+                                <asp:BoundField DataField="usertype" HeaderText="usertype" SortExpression="usertype" />
+                            </Columns>
+                             <EditRowStyle BackColor="#2461BF" />
+                             <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                             <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                             <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+                             <RowStyle BackColor="#EFF3FB" />
+                             <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+                             <SortedAscendingCellStyle BackColor="#F5F7FB" />
+                             <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+                             <SortedDescendingCellStyle BackColor="#E9EBEF" />
+                             <SortedDescendingHeaderStyle BackColor="#4870BE" />
+                         </asp:GridView>
+
+				<asp:GridView class="table table-striped table-bordered" ID="GridView3" runat="server" AutoGenerateColumns="False" DataKeyNames="ID" OnRowDataBound="GridView3_RowDataBound" CellPadding="4" ForeColor="#333333" GridLines="None" Visible="false">
+                             <AlternatingRowStyle BackColor="White" />
+                            <Columns>
+                               <asp:BoundField DataField="ID" HeaderText="ID" SortExpression="ID" InsertVisible="False" ReadOnly="True"/>
+                                <asp:BoundField DataField="hname" HeaderText="hname" SortExpression="hname" />
+                            </Columns>
+                             <EditRowStyle BackColor="#2461BF" />
+                             <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                             <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                             <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+                             <RowStyle BackColor="#EFF3FB" />
+                             <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+                             <SortedAscendingCellStyle BackColor="#F5F7FB" />
+                             <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+                             <SortedDescendingCellStyle BackColor="#E9EBEF" />
+                             <SortedDescendingHeaderStyle BackColor="#4870BE" />
+                         </asp:GridView>
+
+					<asp:GridView class="table table-striped table-bordered" ID="GridView4" runat="server" AutoGenerateColumns="False" DataKeyNames="ID" OnRowDataBound="GridView4_RowDataBound" CellPadding="4" ForeColor="#333333" GridLines="None" Visible="false">
+                             <AlternatingRowStyle BackColor="White" />
+                            <Columns>
+                               <asp:BoundField DataField="ID" HeaderText="ID" SortExpression="ID" InsertVisible="False" ReadOnly="True"/>
+                                <asp:BoundField DataField="rental" HeaderText="rental" SortExpression="rental" />
+                            </Columns>
+                             <EditRowStyle BackColor="#2461BF" />
+                             <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                             <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                             <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+                             <RowStyle BackColor="#EFF3FB" />
+                             <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+                             <SortedAscendingCellStyle BackColor="#F5F7FB" />
+                             <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+                             <SortedDescendingCellStyle BackColor="#E9EBEF" />
+                             <SortedDescendingHeaderStyle BackColor="#4870BE" />
+                         </asp:GridView>
+
+					<asp:GridView class="table table-striped table-bordered" ID="GridView5" runat="server" AutoGenerateColumns="False" DataKeyNames="ID" OnRowDataBound="GridView5_RowDataBound" CellPadding="4" ForeColor="#333333" GridLines="None" Visible="false">
+                             <AlternatingRowStyle BackColor="White" />
+                            <Columns>
+                               <asp:BoundField DataField="ID" HeaderText="ID" SortExpression="ID" InsertVisible="False" ReadOnly="True"/>
+                                <asp:BoundField DataField="name" HeaderText="name" SortExpression="name" />
+                                <asp:BoundField DataField="accountstatus" HeaderText="accountstatus" SortExpression="accountstatus" />
+                            </Columns>
+                             <EditRowStyle BackColor="#2461BF" />
+                             <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                             <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                             <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+                             <RowStyle BackColor="#EFF3FB" />
+                             <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+                             <SortedAscendingCellStyle BackColor="#F5F7FB" />
+                             <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+                             <SortedDescendingCellStyle BackColor="#E9EBEF" />
+                             <SortedDescendingHeaderStyle BackColor="#4870BE" />
+                         </asp:GridView>
+<!-- ============================================================== -->
+<!-- end content  -->
+<!-- ============================================================== -->
+            </div>
+        </div>
+<style type="text/css">
+    .Hide
+    {
+        display: none;
+    }
+</style>
 </asp:Content>

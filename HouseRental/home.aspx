@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="hero">
         <section class="home-slider owl-carousel">
-            <div class="slider-item" style="background-image: url(images/bg_1.jpg);">
+            <div class="slider-item" style="background-image: url(images/bg_2.jpg);">
                 <div class="overlay"></div>
                 <div class="container">
                     <div class="row no-gutters slider-text align-items-center justify-content-end">
@@ -19,7 +19,7 @@
                 </div>
             </div>
 
-            <div class="slider-item" style="background-image: url(images/bg_2.jpg);">
+            <div class="slider-item" style="background-image: url(images/image_5.jpg);">
                 <div class="overlay"></div>
                 <div class="container">
                     <div class="row no-gutters slider-text align-items-center justify-content-end">
@@ -39,28 +39,8 @@
             <div class="row no-gutters">
                 <div class="col-lg-12">
                     <div class="row" style="width: 3000px !important;">
-                        <div class="col-md-3 d-flex py-md-5" style="margin-left: 10%;">
-                            <select class="selectpicker" multiple data-width="300px" data-live-search="true">
-                                <optgroup label="housetype" data-max-options="1">
-                                    <%foreach (var item in HouseType)
-                                        {%>
-                                    <option data-tokens="<%=item %>"><%=item %></option>
-                                    <%} %>
-                                </optgroup>
-                                <optgroup label="rentprice" data-max-options="1">
-                                    <%foreach (var item in RentPriceList)
-                                        {%>
-                                    <option data-tokens="<%=item %>"><%=item %></option>
-                                    <%} %>
-                                </optgroup>
-                                <optgroup label="city" data-max-options="1">
-                                    <%foreach (var item in CityList)
-                                        {%>
-                                    <option data-tokens="<%=item %>"><%=item %></option>
-                                    <%} %>
-                                </optgroup>
-                            </select>
-                            <input type="text" id="customSearchTextBox" />
+                        <div class="col-md-3 d-flex py-md-5" style="margin-left: 15%;">
+                            <textarea type="text" id="customSearchTextBox" ></textarea>
                             <button type="button" id="searchButton" class="btn btn-primary">Search</button>
                         </div>
                         <script>

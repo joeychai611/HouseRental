@@ -12,6 +12,14 @@ namespace HouseRental
         public List<string> images = new List<string>();
         protected void Page_Load(object sender, EventArgs e)
         {
+            lblDescription.ForeColor = System.Drawing.Color.Black;
+            lblAccommodation.ForeColor = System.Drawing.Color.Black;
+            lblDuration.ForeColor = System.Drawing.Color.Black;
+            lblPostcode.ForeColor = System.Drawing.Color.Black;
+            lblCity.ForeColor = System.Drawing.Color.Black;
+            lblLandlord.ForeColor = System.Drawing.Color.Blue;
+            Label1.ForeColor = System.Drawing.Color.Red;
+
             if (!this.IsPostBack)
             {
                 lblName.Text = HttpUtility.UrlDecode(Request.QueryString["hname"]);
@@ -54,6 +62,8 @@ namespace HouseRental
             if (Session["email"] == null || string.IsNullOrEmpty(Session["email"].ToString()))
             {
                 btnShowPopup.Visible = false;
+                Label1.Visible = true;
+                lblStatus.Visible = false;
             }
             else
             {
@@ -69,12 +79,21 @@ namespace HouseRental
 
                 if (dt.Rows[0]["usertype"].ToString().Trim() == "Student")
                 {
+                    Label1.Visible = false;
                     btnShowPopup.Visible = true;
                     getAppointmentDetails();
+                    lblStatus.Visible = false;
+                }
+                else if (dt.Rows[0]["usertype"].ToString().Trim() == "Admin")
+                {
+                    lblStatus.Visible = true;
+                    Label1.Visible = false;
+                    btnShowPopup.Visible = true;
                 }
                 else
                 {
                     btnShowPopup.Visible = false;
+                    lblStatus.Visible = false;
                 }
             }
         }
@@ -121,22 +140,6 @@ namespace HouseRental
                 else
                 {
                     SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["houserentalDBConnectionString"].ConnectionString);
-
-                    /*SqlCommand cmd = new SqlCommand("SELECT * from appointment WHERE appointment_date='" + TextBox1.Text.Trim() + "' AND slot='" + DropDownList1.Text.Trim() + "'", con);
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    DataTable dt = new DataTable();
-                    da.Fill(dt);
-                    string sstatus = dt.Rows[0]["status"].ToString();*/
-
-                    //DateTime endDate = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd"));
-
-                    // compare both dates
-                    /*if (Convert.ToDateTime(TextBox1.Text.Trim()) < endDate)
-                    {
-                        Response.Write("<script>alert('The selected appointment date must be later than today's date.');</script>");
-                    }
-                    else
-                    {*/
                     if (con.State == ConnectionState.Closed)
                     {
                         con.Open();
@@ -168,7 +171,6 @@ namespace HouseRental
                     }
                     con.Close();
                     clearForm();
-                    //}
                 }
             }
             catch (Exception ex)

@@ -1,23 +1,23 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/landing.Master" AutoEventWireup="true" CodeBehind="houselist.aspx.cs" Inherits="HouseRental.houselist" %>
-
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <br />
     <center style="margin-top: 50px;">
         <select class="selectpicker" multiple data-width="300px" data-live-search="true">
-            <optgroup label="housetype" data-max-options="1">
+            <optgroup label="House Type" data-max-options="1">
                 <%foreach (var item in HouseType)
                     {%>
                 <option data-tokens="<%=item %>"><%=item %></option>
                 <%} %>
             </optgroup>
-            <optgroup label="rentprice" data-max-options="1">
+            <optgroup label="Rent Price" data-max-options="1">
                 <%foreach (var item in RentPriceList)
                     {%>
                 <option data-tokens="<%=item %>"><%=item %></option>
                 <%} %>
             </optgroup>
-            <optgroup label="city" data-max-options="1">
+            <optgroup label="City" data-max-options="1">
                 <%foreach (var item in CityList)
                     {%>
                 <option data-tokens="<%=item %>"><%=item %></option>

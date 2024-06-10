@@ -43,7 +43,7 @@
                                 </div>
                             </li>
                             <li class="nav-item ">
-                                <a class="nav-link" href="lreport.aspx"><i class="fa-solid fa-chart-line"></i>Report</a>
+                                <a class="nav-link" href="landlordReport.aspx"><i class="fa-solid fa-chart-line"></i>Report</a>
                             </li>
                             <li class="nav-item ">
                                 <a class="nav-link" href="profile.aspx"><i class="fa-solid fa-user-tie"></i>Profile</a>

@@ -9,11 +9,23 @@ using System.Net.Mail;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.Services;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace HouseRental
 {
     public partial class register : System.Web.UI.Page
     {
+        protected static string ReCaptcha_Key = "6Lf6Y_MpAAAAAFS-KK7s__ylaLbnMwrMfLAxpyG7";
+        protected static string ReCaptcha_Secret = "6Lf6Y_MpAAAAAOmgzi34CimsFLv3NUcVyYavle3g";
+
+        [WebMethod]
+        public static string VerifyCaptcha(string response)
+        {
+            string url = "https://www.google.com/recaptcha/api/siteverify?secret=" + ReCaptcha_Secret + "&response=" + response;
+            return (new WebClient()).DownloadString(url);
+        }
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -23,7 +35,6 @@ namespace HouseRental
         //register button click event
         protected void Button1_Click(object sender, EventArgs e)
         {
-            //Response.Write("<script>alert('testing');</script>");
             if (checkEmptyBox())
             {
                 if (checkUserExists())
@@ -32,7 +43,12 @@ namespace HouseRental
                 }
                 else
                 {
-                    registerNewUser();
+                    string email = TextBox2.Text;
+                    string password = TextBox5.Text;
+                    string salt = GenerateSalt();
+                    string hashedPassword = HashPassword(password, salt);
+
+                    registerNewUser(email, hashedPassword, salt);
                 }
             }
         }
@@ -138,7 +154,7 @@ namespace HouseRental
 
         }
 
-        void registerNewUser()
+        void registerNewUser(string email, string hashedPassword, string salt)
         {
             Random random = new Random();
             int myRandom = random.Next(10000000, 99999999);
@@ -152,16 +168,16 @@ namespace HouseRental
                     con.Open();
                 }
 
-                string insertQuery = "INSERT INTO people VALUES(@name,@email,@contactnum,@dateofbirth,@gender,@usertype,@password,@accountstatus,@activationcode,@is_active,@ic)";
+                string insertQuery = "INSERT INTO people VALUES(@name,@email,@contactnum,@dateofbirth,@gender,@usertype,@password,@accountstatus,@activationcode,@is_active,@ic,@salt)";
 
                 SqlCommand cmd = new SqlCommand(insertQuery, con);
                 cmd.Parameters.AddWithValue("@name", TextBox1.Text.Trim());
-                cmd.Parameters.AddWithValue("@email", TextBox2.Text.Trim());
+                cmd.Parameters.AddWithValue("@email", email);
                 cmd.Parameters.AddWithValue("@contactnum", TextBox3.Text.Trim());
                 cmd.Parameters.AddWithValue("@dateofbirth", TextBox4.Text.Trim());
                 cmd.Parameters.AddWithValue("@gender", DropDownList1.SelectedItem.Value);
                 cmd.Parameters.AddWithValue("@usertype", DropDownList2.SelectedItem.Value);
-                cmd.Parameters.AddWithValue("@password", TextBox5.Text.Trim());
+                cmd.Parameters.AddWithValue("@password", hashedPassword);
 
                 if (DropDownList2.SelectedItem.Text == "Student")
                 {
@@ -174,6 +190,7 @@ namespace HouseRental
                 cmd.Parameters.AddWithValue("@activationcode", activationcode);
                 cmd.Parameters.AddWithValue("@is_active", 0);
                 cmd.Parameters.AddWithValue("@ic", TextBox7.Text.Trim());
+                cmd.Parameters.AddWithValue("@salt", salt);
 
                 cmd.ExecuteNonQuery();
 
@@ -226,6 +243,46 @@ namespace HouseRental
             TextBox6.Text = "";
             TextBox7.Text = "";
         }
+
+        protected string GenerateSalt()
+        {
+            // Generate a random salt (you can use a cryptographically secure random number generator)
+            // For simplicity, we are using a simple random string generator here
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            var random = new Random();
+            var saltChars = new char[16];
+            for (int i = 0; i < saltChars.Length; i++)
+            {
+                saltChars[i] = chars[random.Next(chars.Length)];
+            }
+            return new string(saltChars);
+        }
+
+        protected string HashPassword(string password, string salt)
+        {
+            // Combine the password and salt
+            string combinedPassword = password + salt;
+
+            // Choose the hash algorithm (SHA-256 or SHA-512)
+            using (var sha256 = SHA256.Create())
+            {
+                // Convert the combined password string to a byte array
+                byte[] bytes = Encoding.UTF8.GetBytes(combinedPassword);
+
+                // Compute the hash value of the byte array
+                byte[] hash = sha256.ComputeHash(bytes);
+
+                // Convert the byte array to a hexadecimal string
+                StringBuilder result = new StringBuilder();
+                for (int i = 0; i < hash.Length; i++)
+                {
+                    result.Append(hash[i].ToString("x2"));
+                }
+
+                return result.ToString();
+            }
+        }
+
 
     }
 }

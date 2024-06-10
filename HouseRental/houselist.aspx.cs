@@ -35,7 +35,7 @@ namespace HouseRental
                     CityList.Add((string)dt.Rows[i]["city"]);
                 }
 
-                cmd = new SqlCommand("select top 10 rentprice from room group by rentprice", con);
+                cmd = new SqlCommand("select top 5 rentprice from room group by rentprice", con);
                 da = new SqlDataAdapter(cmd);
                 dt = new DataTable();
                 da.Fill(dt);
@@ -49,7 +49,7 @@ namespace HouseRental
             }
             if (!IsPostBack)
             {
-                loadRecord(Request["housetype"], Request["rentprice"], Request["city"], Request["keyword"], 0);
+                loadRecord(Request["House Type"], Request["Rent Price"], Request["City"], Request["keyword"], 0);
             }
         }
 
@@ -112,13 +112,13 @@ namespace HouseRental
         protected void LinkButton2_Click(object sender, EventArgs e)
         {
             Session["CPNo"] = (int.Parse(Session["CPNo"].ToString()) + 1).ToString();
-            loadRecord(Request["housetype"], Request["rentprice"], Request["city"], Request["keyword"], int.Parse(Session["CPNo"].ToString()));
+            loadRecord(Request["House Type"], Request["Rent Price"], Request["City"], Request["keyword"], int.Parse(Session["CPNo"].ToString()));
         }
 
         protected void LinkButton1_Click(object sender, EventArgs e)
         {
             Session["CPNo"] = (int.Parse(Session["CPNo"].ToString()) - 1).ToString();
-            loadRecord(Request["housetype"], Request["rentprice"], Request["city"], Request["keyword"], int.Parse(Session["CPNo"].ToString()));
+            loadRecord(Request["House Type"], Request["rentprice"], Request["city"], Request["keyword"], int.Parse(Session["CPNo"].ToString()));
         }
     }
 }

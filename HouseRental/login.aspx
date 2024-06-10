@@ -11,9 +11,6 @@
                         <div class="row">
                             <div class="col">
                                 <a href="home.aspx" class="fa-solid fa-arrow-left"></a>
-                                <center>
-                                    <img width="100px" src="images/generaluser.png" />
-                                </center>
                             </div>
                         </div>
                         <div class="row">
@@ -39,8 +36,12 @@
                                     <asp:TextBox CssClass="form-control" ID="TextBox2" runat="server" TextMode="Password"></asp:TextBox>
                                     <a href="forgotpassword.aspx" style="float: right">Forgot Password? </a>
                                     <br />
-                                    <br />
                                 </div>
+                                <div id="dvCaptcha">
+                                </div>
+                                <asp:TextBox ID="txtCaptcha" runat="server" Style="display: none" />
+                                <asp:RequiredFieldValidator ID="rfvCaptcha" ErrorMessage="Captcha validation is required." ControlToValidate="txtCaptcha" runat="server" ForeColor="Red" Display="Dynamic" />
+                                <br />
                                 <div class="form-group">
                                     <asp:Button class="btn btn-primary btn-block btn-lg" ID="Button1" runat="server" Text="Login" OnClick="Button1_Click" />
                                 </div>
@@ -56,4 +57,34 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript" src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" asyncdefer></script>
+<script type="text/javascript">
+    var onloadCallback = function () {
+        grecaptcha.render('dvCaptcha', {
+            'sitekey': '6Lf6Y_MpAAAAAFS-KK7s__ylaLbnMwrMfLAxpyG7',
+            'callback': function (response) {
+                $.ajax({
+                    type: "POST",
+                    url: "register.aspx/VerifyCaptcha",
+                    data: "{response: '" + response + "'}",
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (r) {
+                        var captchaResponse = jQuery.parseJSON(r.d);
+                        if (captchaResponse.success) {
+                            $("[id*=txtCaptcha]").val(captchaResponse.success);
+                            $("[id*=rfvCaptcha]").hide();
+                        } else {
+                            $("[id*=txtCaptcha]").val("");
+                            $("[id*=rfvCaptcha]").show();
+                            var error = captchaResponse["error-codes"][0];
+                            $("[id*=rfvCaptcha]").html("RECaptcha error. " + error);
+                        }
+                    }
+                });
+            }
+        });
+    };
+</script>
 </asp:Content>
