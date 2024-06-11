@@ -93,6 +93,7 @@ namespace HouseRental
             da.Fill(dt);
 
             string name = dt.Rows[0]["name"].ToString();
+            string email = dt.Rows[0]["email"].ToString();
 
             SqlCommand insertCmd = new SqlCommand("SELECT ic from people WHERE name='" + DropDownList1.Text + "'", con);
             SqlDataAdapter daa = new SqlDataAdapter(insertCmd);
@@ -118,6 +119,9 @@ namespace HouseRental
                     SqlCommand Cmd = new SqlCommand("SELECT (ID) FROM people WHERE name ='" + DropDownList1.SelectedItem + "';", con);
                     int studentID = Convert.ToInt32(Cmd.ExecuteScalar());
 
+                    Cmd = new SqlCommand("SELECT (rentprice) FROM room WHERE hname ='" + DropDownList2.SelectedItem + "';", con);
+                    decimal rentprice = Convert.ToDecimal(Cmd.ExecuteScalar());
+
                     string insert = "INSERT INTO payment VALUES(@details,@price,@date,@status,@studentID,@paymentdate,@latefee,@total,@landlordID)";
                     Cmd = new SqlCommand(insert, con);
                     Cmd.Parameters.AddWithValue("@details", "Deposit");
@@ -129,9 +133,34 @@ namespace HouseRental
                     Cmd.Parameters.AddWithValue("@latefee", "0");
                     Cmd.Parameters.AddWithValue("@total", TextBox2.Text.Trim());
                     Cmd.Parameters.AddWithValue("@landlordID", landlordID);
-
                     Cmd.ExecuteNonQuery();
+
+                    for (int i = 0; i < (DropDownList3.SelectedValue == "6 months" ? 6 : 12); i++)
+                    {
+                        Cmd = new SqlCommand(insert, con);
+                        Cmd.Parameters.AddWithValue("@details", $"Rent Payment {i + 1}");
+                        Cmd.Parameters.AddWithValue("@price", rentprice);
+                        Cmd.Parameters.AddWithValue("@date", DateTime.Parse(TextBox1.Text.Trim()).AddMonths(i).ToString("yyyy-MM-dd"));
+                        Cmd.Parameters.AddWithValue("@status", "Pending");
+                        Cmd.Parameters.AddWithValue("@studentID", studentID);
+                        Cmd.Parameters.AddWithValue("@paymentdate", "");
+                        Cmd.Parameters.AddWithValue("@latefee", "0");
+                        Cmd.Parameters.AddWithValue("@total", rentprice);
+                        Cmd.Parameters.AddWithValue("@landlordID", landlordID);
+                        Cmd.ExecuteNonQuery();
+                    }
                     con.Close();
+                    cmd.Dispose();
+
+                    EmailSendManager.SendMail(email, name, $"Rent Payment for ({DateTime.Parse(TextBox1.Text.Trim()):MM})", $@"Hello ({name}),
+
+Please click to below link to pay your rent for (month)
+“https”
+Please ensure timely payment to avoid overdue charges.
+Thank you for supporting House Rental. Hope you have a good day!
+
+Best regards,
+House Rental Team");
                 }
             }
         }
@@ -282,7 +311,7 @@ namespace HouseRental
                 }
 
                 SqlCommand cmd = new SqlCommand("SELECT * from contract", con);
-          
+
                 if (TextBox1.Text.Trim() != string.Empty)
                 {
                     if (TextBox2.Text.Trim() != string.Empty)
@@ -458,7 +487,7 @@ namespace HouseRental
                     sb.Append(TextBox3.Text);
                     sb.Append("<br></td>");
 
-                    sb.Append("<td align='center'>2.</td>"); 
+                    sb.Append("<td align='center'>2.</td>");
                     sb.Append("<td><br>Landlord<br><br>Name:<br>IC:</td>");
                     sb.Append("<br><td><br>");
                     sb.Append(landlord_name);
@@ -466,7 +495,7 @@ namespace HouseRental
                     sb.Append(landlord_ic);
                     sb.Append("<br></td>");
 
-                    sb.Append("<td align='center'>3.</td>"); 
+                    sb.Append("<td align='center'>3.</td>");
                     sb.Append("<td><br>Tenant<br><br>Name:<br>IC:</td>");
                     sb.Append("<br><td><br>");
                     sb.Append(TextBox5.Text);
@@ -474,31 +503,31 @@ namespace HouseRental
                     sb.Append(student_ic);
                     sb.Append("<br></td>");
 
-                    sb.Append("<td align='center'>4.</td>"); 
+                    sb.Append("<td align='center'>4.</td>");
                     sb.Append("<td><br>Property Address</td>");
                     sb.Append("<br><td><br>");
                     sb.Append(address);
                     sb.Append("<br></td>");
 
-                    sb.Append("<td align='center'>5.</td>"); 
+                    sb.Append("<td align='center'>5.</td>");
                     sb.Append("<td><br>House Type</td>");
                     sb.Append("<br><td><br>");
                     sb.Append(housetype);
                     sb.Append("<br></td>");
 
-                    sb.Append("<td align='center'>6.</td>"); 
+                    sb.Append("<td align='center'>6.</td>");
                     sb.Append("<td><br>Duration of Tenancy</td>");
                     sb.Append("<br><td><br>");
                     sb.Append(DropDownList4.SelectedValue);
                     sb.Append("<br></td>");
 
-                    sb.Append("<td align='center'>7.</td>"); 
+                    sb.Append("<td align='center'>7.</td>");
                     sb.Append("<td><br>Monthly Rental</td>");
                     sb.Append("<br><td><br>RM");
                     sb.Append(rentprice);
                     sb.Append("<br></td>");
 
-                    sb.Append("<td align='center'>8.</td>"); 
+                    sb.Append("<td align='center'>8.</td>");
                     sb.Append("<td><br>Deposit</td>");
                     sb.Append("<br><td><br>RM");
                     sb.Append(TextBox4.Text);
@@ -534,14 +563,14 @@ namespace HouseRental
                     sb.Append("<br><br></td></tr>");
 
                     sb.Append("<tr><td>WHEREAS the Landlord is the registered owner of the house located at ");
-                    sb.Append("<b>"); 
+                    sb.Append("<b>");
                     sb.Append(address);
                     sb.Append("</b>");
                     sb.Append(" (from now on referred to as the 'Said House').");
                     sb.Append("<br><br></td></tr>");
 
                     sb.Append("<tr><td>AND WHEREAS the Landlord now agrees to lease, and the Tenant agrees to rent the Said House for ");
-                    sb.Append("<b>"); 
+                    sb.Append("<b>");
                     sb.Append(DropDownList4.SelectedValue);
                     sb.Append("</b>");
                     sb.Append(", subject to the terms and conditions contained herein.");
@@ -557,7 +586,7 @@ namespace HouseRental
                     sb.Append("<td>7.	The Tenant has the right to terminate the rental by giving written notice to the Landlord for at least two (2) months or the deposit will not be refunded.<br><br></td>");
                     sb.Append("<td>8.   During the notice period, the Tenant must pay the monthly rent as usual and cannot use the deposit to pay the monthly rent.<br><br></td>");
                     sb.Append("<td>9.	Termination by the Tenant will not release the Tenant from paying the Landlord any outstanding payments as stated in this agreement.<br><br></td>");
-                    sb.Append("<td>10.	Any disputes between the Landlord and Tenant regarding the rental of the House shall be resolved peacefully and amicably. If a resolution cannot be reached, it shall be resolved through arbitration.<br><br></td>"); 
+                    sb.Append("<td>10.	Any disputes between the Landlord and Tenant regarding the rental of the House shall be resolved peacefully and amicably. If a resolution cannot be reached, it shall be resolved through arbitration.<br><br></td>");
                     sb.Append("<br><br></tr>");
 
                     sb.Append("<tr><td>IN WITNESS WHEREOF the parties hereto have hereunto set their hands on the day and year first above written.");
@@ -565,7 +594,7 @@ namespace HouseRental
 
                     sb.Append("<tr><td>..................................</td>");
                     sb.Append("<tr><td>Landlord</td>");
-                    sb.Append("<tr><td>Name: "); 
+                    sb.Append("<tr><td>Name: ");
                     sb.Append(landlord_name);
                     sb.Append("</td><td> IC No: ");
                     sb.Append(landlord_ic);
