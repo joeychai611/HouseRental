@@ -20,7 +20,7 @@ namespace HouseRental
             myTimer.Interval = 1000 * 60 * 60 * 24;
             myTimer.Enabled = true;
 
-            //checkpayment_Elapsed(null, null);
+            checkpayment_Elapsed(null, null);
         }
 
         void checkpayment_Elapsed(object source, ElapsedEventArgs ee)
