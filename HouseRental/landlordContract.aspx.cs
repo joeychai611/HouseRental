@@ -110,7 +110,7 @@ namespace HouseRental
                 }
                 else
                 {
-                    addNewContract(name, ic);
+                    int contractID = addNewContract(name, ic);
 
                     if (con.State == ConnectionState.Closed)
                     {
@@ -122,7 +122,7 @@ namespace HouseRental
                     Cmd = new SqlCommand("SELECT (rentprice) FROM room WHERE hname ='" + DropDownList2.SelectedItem + "';", con);
                     decimal rentprice = Convert.ToDecimal(Cmd.ExecuteScalar());
 
-                    string insert = "INSERT INTO payment VALUES(@details,@price,@date,@status,@studentID,@paymentdate,@latefee,@total,@landlordID)";
+                    string insert = "INSERT INTO payment VALUES(@details,@price,@date,@status,@studentID,@paymentdate,@latefee,@total,@landlordID,@contractID)";
                     Cmd = new SqlCommand(insert, con);
                     Cmd.Parameters.AddWithValue("@details", "Deposit");
                     Cmd.Parameters.AddWithValue("@price", TextBox2.Text.Trim());
@@ -133,39 +133,17 @@ namespace HouseRental
                     Cmd.Parameters.AddWithValue("@latefee", "0");
                     Cmd.Parameters.AddWithValue("@total", TextBox2.Text.Trim());
                     Cmd.Parameters.AddWithValue("@landlordID", landlordID);
+                    Cmd.Parameters.AddWithValue("@contractID", contractID);
                     Cmd.ExecuteNonQuery();
 
-                    for (int i = 0; i < (DropDownList3.SelectedValue == "6 months" ? 6 : 12); i++)
-                    {
-                        Cmd = new SqlCommand(insert, con);
-                        Cmd.Parameters.AddWithValue("@details", $"Rent Payment {i + 1}");
-                        Cmd.Parameters.AddWithValue("@price", rentprice);
-                        Cmd.Parameters.AddWithValue("@date", DateTime.Parse(TextBox1.Text.Trim()).AddMonths(i).ToString("yyyy-MM-dd"));
-                        Cmd.Parameters.AddWithValue("@status", "Pending");
-                        Cmd.Parameters.AddWithValue("@studentID", studentID);
-                        Cmd.Parameters.AddWithValue("@paymentdate", "");
-                        Cmd.Parameters.AddWithValue("@latefee", "0");
-                        Cmd.Parameters.AddWithValue("@total", rentprice);
-                        Cmd.Parameters.AddWithValue("@landlordID", landlordID);
-                        Cmd.ExecuteNonQuery();
-                    }
                     con.Close();
                     cmd.Dispose();
-
-                    EmailSendManager.SendMail(email, name, $"Rent Payment for ({DateTime.Parse(TextBox1.Text.Trim()):MM})", $@"Hello ({name}),
-
-Please click to below link to pay your rent for (month)
-“https”
-Please ensure timely payment to avoid overdue charges.
-Thank you for supporting House Rental. Hope you have a good day!
-
-Best regards,
-House Rental Team");
+                    new Global().checkpayment();
                 }
             }
         }
 
-        void addNewContract(string landlord_name, string student_ic)
+        int addNewContract(string landlord_name, string student_ic)
         {
             try
             {
@@ -177,7 +155,7 @@ House Rental Team");
                 SqlCommand insertCmd = new SqlCommand("SELECT (ID) FROM people WHERE email='" + Session["email"].ToString() + "';", con);
                 int landlordID = Convert.ToInt32(insertCmd.ExecuteScalar());
 
-                string insertQuery = "INSERT INTO contract VALUES(@student_name,@landlord_name,@house_name,@date,@duration,@deposit,@landlordID,@student_ic)";
+                string insertQuery = "INSERT INTO contract VALUES(@student_name,@landlord_name,@house_name,@date,@duration,@deposit,@landlordID,@student_ic);select SCOPE_IDENTITY();";
                 insertCmd = new SqlCommand(insertQuery, con);
                 insertCmd.Parameters.AddWithValue("@student_name", DropDownList1.SelectedItem.Text);
                 insertCmd.Parameters.AddWithValue("@landlord_name", landlord_name);
@@ -188,7 +166,7 @@ House Rental Team");
                 insertCmd.Parameters.AddWithValue("@landlordID", landlordID);
                 insertCmd.Parameters.AddWithValue("@student_ic", student_ic);
 
-                int status = insertCmd.ExecuteNonQuery();
+                int status = int.Parse(insertCmd.ExecuteScalar().ToString());
                 con.Close();
                 if (status > 0)
                 {
@@ -203,10 +181,12 @@ House Rental Team");
                 GridView2.DataSource = null;
                 GridView2.DataSourceID = "SqlDataSource1";
                 GridView2.SelectedIndex = -1;
+                return status;
             }
             catch (Exception ex)
             {
                 Response.Write("<script>alert('" + ex.Message + "');</script>");
+                return 0;
             }
         }
 
