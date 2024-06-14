@@ -3,8 +3,12 @@
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <style>
+        .align-center-important {
+            text-align: center !important;
+        }
+
         .align-left-important {
-            text-align: left !important;
+            text-align: center !important;
         }
 
         .badge-pill {
@@ -61,6 +65,7 @@
                                     <Columns>
                                         <asp:BoundField DataField="ID" HeaderText="ID" SortExpression="ID" InsertVisible="False" ReadOnly="True" Visible="false" />
                                         <asp:BoundField DataField="appointment_date" HeaderText="Date" SortExpression="appointment_date">
+                                            <HeaderStyle CssClass="align-center-important" />
                                             <ItemStyle CssClass="align-left-important" />
                                         </asp:BoundField>
                                         <asp:BoundField DataField="slot" HeaderText="Slot" SortExpression="slot" />
